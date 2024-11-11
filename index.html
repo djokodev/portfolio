@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Développeur Backend</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Section d'accueil avec photo de profil -->
+    <header class="header">
+        <div class="container">
+            <img src="me.jpg" alt="Photo de profil" class="profile-pic">
+            <p>Développeur Python spécialisé en backend, j'excelle dans la création d’applications web et d'API sécurisées et performantes avec Django, Flask et FastAPI. Mon approche : répondre aux besoins des entreprises avec des solutions scalables et une expérience utilisateur fluide. 
+                <br>Passionné, j’aime partager mes connaissances et rester à la pointe. ⛷️</p>
+        </div>
+        <div class="contact-buttons">
+            <a href="https://www.linkedin.com/in/christian" class="contact-button"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/christian" class="contact-button"><i class="fab fa-github"></i></a>
+            <a href="mailto:christian@example.com" class="contact-button"><i class="fas fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <!-- Section des compétences avec effet de survol -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2>Compétences</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Django</li>
+                <li>PostgreSQL & Bases de données</li>
+                <li>RESTful APIs</li>
+                <li>ReactJs</li>
+                <li>Docker & Conteneurisation</li>
+                <li>HTML, CSS (basics for frontend integration)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section des projets avec image et description -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Projets</h2>
+            <div class="project">
+                <div class="project-description">
+                    <h3>Nom du projet 1</h3>
+                    <p>Description courte du projet. Explique brièvement ce que le projet accomplit et les technologies utilisées.</p>
+                    <a href="#" class="view-link">Voir</a>
+                </div>
+                <img src="project1.jpg" alt="Aperçu du projet 1" class="project-image">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Djoko Christian - Python Developer</p>
+        </div>
+    </footer>
+
+    <!-- Script pour effet de défilement doux -->
+    <script>
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute("href").startsWith("#")) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute("href")).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

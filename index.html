@@ -436,11 +436,14 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 by Djoko Christian  </p>
+            <p>&copy; <span id="currentYear"></span> Djoko Christian. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+        // JavaScript pour mettre à jour l'année dynamiquement
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
         // Animation au défilement
         const observerOptions = {
             threshold: 0.1

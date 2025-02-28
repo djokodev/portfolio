@@ -8,12 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         /* Variables CSS avec palette moderne */
         :root {
-            --primary-color: #6366f1;
-            --primary-light: #818cf8;
-            --primary-dark: #4f46e5;
+            --primary-color: #4f46e5;
+            --primary-light: #6366f1;
+            --primary-dark: #3730a3;
             --secondary-color: #10b981;
             --accent-color: #f43f5e;
             --bg-dark: #0f172a;
@@ -24,6 +25,9 @@
             --border-color: rgba(255, 255, 255, 0.1);
             --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
         }
 
         /* Reset et styles de base */
@@ -323,7 +327,7 @@
             padding: 1.25rem 0;
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
             transition: var(--transition);
         }
 
@@ -802,7 +806,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
             z-index: 0;
         }
 
@@ -849,11 +853,13 @@
         }
 
         .skill-card {
-            background: var(--bg-card);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
             border-radius: 16px;
             padding: 1.75rem;
             box-shadow: var(--card-shadow);
-            border: 1px solid var(--border-color);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -1032,7 +1038,10 @@
         }
 
         .project-card {
-            background: var(--bg-card);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
@@ -1230,11 +1239,13 @@
         }
 
         .contact-info {
-            background: var(--bg-card);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
             border-radius: 16px;
             padding: 2.5rem;
             box-shadow: var(--card-shadow);
-            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
         }
@@ -1327,11 +1338,13 @@
         }
 
         .contact-form-container {
-            background: var(--bg-card);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
             border-radius: 16px;
             padding: 2.5rem;
             box-shadow: var(--card-shadow);
-            border: 1px solid var(--border-color);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -1613,9 +1626,516 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Styles pour la section Certifications */
+        .certifications-section {
+            background: linear-gradient(to bottom, var(--bg-dark), rgba(30, 41, 59, 0.5));
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+
+        .certifications-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: 0;
+        }
+
+        .certifications-container {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 0;
+        }
+
+        .certifications-slider {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            padding: 1.5rem 0.5rem;
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .certifications-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .certification-card {
+            flex: 0 0 auto;
+            width: calc(33.333% - 1.5rem);
+            min-width: 320px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            padding: 0;
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-light);
+        }
+
+        .certification-badge {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .certification-logo {
+            max-height: 80px;
+            max-width: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: var(--transition);
+        }
+
+        .certification-card:hover .certification-logo {
+            transform: scale(1.1);
+        }
+
+        .certification-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .certification-issuer {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-title {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .certification-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .certification-date span {
+            color: var(--primary-light);
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }
+
+        .certification-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .certification-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .certification-skills span {
+            padding: 0.35rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .certification-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .certification-link:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .certifications-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cert-control {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cert-control:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .cert-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cert-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cert-dot.active {
+            background: var(--primary-light);
+            transform: scale(1.2);
+        }
+
+        .cert-dot:hover {
+            background: var(--primary-light);
+        }
+
+        @media (max-width: 1024px) {
+            .certification-card {
+                width: calc(50% - 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .certification-card {
+                width: 100%;
+                min-width: 280px;
+            }
+        }
+
+        /* Mise à jour des styles pour les cartes de projet avec glassmorphism */
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-light);
+        }
+
+        /* Mise à jour des styles pour les cartes de compétences */
+        .skill-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary-light);
+        }
+
+        /* Mise à jour du formulaire de contact */
+        .contact-form-container, .contact-info {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* Effet de particules pour l'arrière-plan */
+        .particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Nouveau style techkos pour les certifications */
+        .tech-certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-cert-card {
+            position: relative;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tech-cert-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            border-color: var(--primary-light);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
+        }
+
+        .tech-cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.1) 0%, 
+                rgba(16, 185, 129, 0.05) 50%,
+                rgba(244, 63, 94, 0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tech-cert-card:hover::before {
+            opacity: 1;
+        }
+
+        .tech-cert-header {
+            position: relative;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .tech-cert-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .tech-cert-card:hover .tech-cert-logo {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .tech-cert-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+
+        .tech-cert-content {
+            padding: 1.75rem;
+            position: relative;
+        }
+
+        .tech-cert-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .tech-cert-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            border-radius: 3px;
+        }
+
+        .tech-cert-issuer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .tech-cert-issuer i {
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .tech-cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-cert-skill {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-cert-card:hover .tech-cert-skill {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tech-cert-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .tech-cert-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-cert-date i {
+            margin-right: 0.5rem;
+            color: var(--primary-light);
+        }
+
+        .tech-cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .tech-cert-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .tech-cert-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-cert-link:hover i {
+            transform: translateX(3px);
+        }
+
+        .tech-cert-glow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(15, 23, 42, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tech-cert-card:hover .tech-cert-glow {
+            opacity: 1;
+            animation: glowPulse 2s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0.1;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .tech-certifications-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tech-certifications-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     </style>
 </head>
 <body>
+    <div id="particles-js" class="particles-js"></div>
     <div class="bg-gradient gradient-1"></div>
     <div class="bg-gradient gradient-2"></div>
 
@@ -1627,6 +2147,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -1709,7 +2230,6 @@
                 <button class="skill-tab" data-category="backend">Backend</button>
                 <button class="skill-tab" data-category="database">Database</button>
                 <button class="skill-tab" data-category="devops">DevOps</button>
-                <button class="skill-tab" data-category="tools">Tools</button>
             </div>
 
             <div class="skills-container reveal" data-reveal-group>
@@ -1810,6 +2330,132 @@
         </div>
     </section>
 
+    <!-- Section Certifications -->
+    <section class="certifications-section" id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-subtitle">My Credentials</p>
+                <h2 class="section-title">Professional <span>Certifications</span></h2>
+            </div>
+
+            <div class="certifications-container reveal">
+                <div class="tech-certifications-grid" data-reveal-group>
+                    <!-- Data Science et Machine Learning -->
+                    <div class="tech-cert-card reveal">
+                        <div class="tech-cert-header">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103665.png" alt="Data Science" class="tech-cert-logo">
+                        </div>
+                        <div class="tech-cert-content">
+                            <h3 class="tech-cert-title">Data Science et Machine Learning</h3>
+                            <div class="tech-cert-issuer">
+                                <i class="fas fa-award"></i> Certification Udemy
+                            </div>
+                            <div class="tech-cert-skills">
+                                <span class="tech-cert-skill">Python</span>
+                                <span class="tech-cert-skill">Pandas</span>
+                                <span class="tech-cert-skill">Scikit-Learn</span>
+                                <span class="tech-cert-skill">Data Analysis</span>
+                            </div>
+                            <div class="tech-cert-footer">
+                                <div class="tech-cert-date">
+                                    <i class="far fa-calendar-check"></i> Certified
+                                </div>
+                                <a href="https://www.udemy.com/certificate/UC-730e453f-8a09-4f00-9512-7c196e928ca8/" target="_blank" class="tech-cert-link">
+                                    View Certificate <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            <div class="tech-cert-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Deep Learning -->
+                    <div class="tech-cert-card reveal">
+                        <div class="tech-cert-header">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="Deep Learning" class="tech-cert-logo">
+                        </div>
+                        <div class="tech-cert-content">
+                            <h3 class="tech-cert-title">Deep Learning</h3>
+                            <div class="tech-cert-issuer">
+                                <i class="fas fa-award"></i> Certification Udemy
+                            </div>
+                            <div class="tech-cert-skills">
+                                <span class="tech-cert-skill">Neural Networks</span>
+                                <span class="tech-cert-skill">TensorFlow</span>
+                                <span class="tech-cert-skill">Keras</span>
+                                <span class="tech-cert-skill">CNN</span>
+                            </div>
+                            <div class="tech-cert-footer">
+                                <div class="tech-cert-date">
+                                    <i class="far fa-calendar-check"></i> Certified
+                                </div>
+                                <a href="https://www.udemy.com/certificate/UC-78a759da-41db-441f-b0b3-0326f1c34d3c/" target="_blank" class="tech-cert-link">
+                                    View Certificate <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            <div class="tech-cert-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="tech-cert-card reveal">
+                        <div class="tech-cert-header">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python" class="tech-cert-logo">
+                        </div>
+                        <div class="tech-cert-content">
+                            <h3 class="tech-cert-title">Python Programming</h3>
+                            <div class="tech-cert-issuer">
+                                <i class="fas fa-award"></i> Certification Udemy
+                            </div>
+                            <div class="tech-cert-skills">
+                                <span class="tech-cert-skill">Python 3</span>
+                                <span class="tech-cert-skill">OOP</span>
+                                <span class="tech-cert-skill">Data Structures</span>
+                                <span class="tech-cert-skill">Algorithms</span>
+                            </div>
+                            <div class="tech-cert-footer">
+                                <div class="tech-cert-date">
+                                    <i class="far fa-calendar-check"></i> Certified
+                                </div>
+                                <a href="https://www.udemy.com/certificate/UC-27af459e-85db-4c10-b22d-6785bd0ee82f/" target="_blank" class="tech-cert-link">
+                                    View Certificate <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            <div class="tech-cert-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Django -->
+                    <div class="tech-cert-card reveal">
+                        <div class="tech-cert-header">
+                            <img src="https://static.djangoproject.com/img/logos/django-logo-negative.svg" alt="Django" class="tech-cert-logo">
+                        </div>
+                        <div class="tech-cert-content">
+                            <h3 class="tech-cert-title">Django Web Development</h3>
+                            <div class="tech-cert-issuer">
+                                <i class="fas fa-award"></i> Certification Udemy
+                            </div>
+                            <div class="tech-cert-skills">
+                                <span class="tech-cert-skill">Django</span>
+                                <span class="tech-cert-skill">REST API</span>
+                                <span class="tech-cert-skill">Web Dev</span>
+                                <span class="tech-cert-skill">Backend</span>
+                            </div>
+                            <div class="tech-cert-footer">
+                                <div class="tech-cert-date">
+                                    <i class="far fa-calendar-check"></i> Certified
+                                </div>
+                                <a href="https://www.udemy.com/certificate/UC-916ab890-594f-4904-baad-16dd5081a5aa/" target="_blank" class="tech-cert-link">
+                                    View Certificate <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            <div class="tech-cert-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section Projets améliorée -->
     <section class="projects-section" id="projects">
         <div class="container">
@@ -1826,9 +2472,8 @@
             </div>
 
             <div class="projects-grid reveal" data-reveal-group>
-
                 <!-- Projet Clarans Afrique Website -->
-                <div class="project-card reveal" data-category="web">
+                <div class="project-card reveal" data-category="web django">
                     <div class="project-image-container">
                         <img src="clarans.jpeg" alt="Clarans Afrique Website" class="project-image">
                         <div class="project-overlay">
@@ -1985,6 +2630,117 @@
     <script>
         // JavaScript pour mettre à jour l'année dynamiquement
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Configuration et initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6366f1"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6366f1",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 1,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
 
         // Animation au défilement
         const observerOptions = {
@@ -2199,6 +2955,78 @@
                 }
             });
             
+            // Script pour le slider de certifications
+            const certSlider = document.querySelector('.certifications-slider');
+            const certCards = document.querySelectorAll('.certification-card');
+            const prevCertBtn = document.querySelector('.prev-cert');
+            const nextCertBtn = document.querySelector('.next-cert');
+            const certDots = document.querySelector('.cert-dots');
+            
+            if (certSlider && certCards.length > 0) {
+                // Créer les points de navigation
+                certCards.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('cert-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.dataset.index = index;
+                    certDots.appendChild(dot);
+                    
+                    dot.addEventListener('click', () => {
+                        scrollToCard(index);
+                    });
+                });
+                
+                // Fonction pour faire défiler jusqu'à une carte spécifique
+                function scrollToCard(index) {
+                    const cardWidth = certCards[0].offsetWidth + 32; // Largeur + gap
+                    certSlider.scrollLeft = index * cardWidth;
+                    
+                    // Mettre à jour le point actif
+                    document.querySelectorAll('.cert-dot').forEach((dot, i) => {
+                        if (i === index) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Gestionnaires d'événements pour les boutons précédent/suivant
+                let currentIndex = 0;
+                
+                prevCertBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        scrollToCard(currentIndex);
+                    }
+                });
+                
+                nextCertBtn.addEventListener('click', () => {
+                    if (currentIndex < certCards.length - 1) {
+                        currentIndex++;
+                        scrollToCard(currentIndex);
+                    }
+                });
+                
+                // Détecter le défilement du slider pour mettre à jour les points
+                certSlider.addEventListener('scroll', () => {
+                    const cardWidth = certCards[0].offsetWidth + 32;
+                    const scrollPosition = certSlider.scrollLeft;
+                    const newIndex = Math.round(scrollPosition / cardWidth);
+                    
+                    if (newIndex !== currentIndex) {
+                        currentIndex = newIndex;
+                        document.querySelectorAll('.cert-dot').forEach((dot, i) => {
+                            if (i === currentIndex) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
             // Gestion du formulaire de contact
             const contactForm = document.getElementById('contactForm');
             const formSuccessMessage = document.getElementById('formSuccessMessage');
@@ -2247,6 +3075,59 @@
                     });
                 });
             }
+            
+            // Effet de suivi de souris pour les cartes de certification
+            const techCertCards = document.querySelectorAll('.tech-cert-card');
+            
+            techCertCards.forEach(card => {
+                const glow = card.querySelector('.tech-cert-glow');
+                
+                card.addEventListener('mousemove', (e) => {
+                    // Calculer la position relative de la souris dans la carte
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Positionner l'élément de lueur
+                    if (glow) {
+                        glow.style.left = `${x - 50}px`;
+                        glow.style.top = `${y - 50}px`;
+                        glow.style.opacity = '1';
+                    }
+                    
+                    // Effet de rotation 3D
+                    const xRotation = ((y - rect.height / 2) / rect.height) * 10;
+                    const yRotation = ((rect.width / 2 - x) / rect.width) * 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateZ(10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    // Réinitialiser la position et l'opacité de la lueur
+                    if (glow) {
+                        glow.style.opacity = '0';
+                    }
+                    
+                    // Réinitialiser la rotation
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+                
+                // Effet de clic
+                card.addEventListener('mousedown', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(0.98)';
+                });
+                
+                card.addEventListener('mouseup', () => {
+                    const rect = card.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    
+                    const xRotation = ((y - rect.height / 2) / rect.height) * 10;
+                    const yRotation = ((rect.width / 2 - x) / rect.width) * 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateZ(10px)`;
+                });
+            });
         });
     </script>
 </body>

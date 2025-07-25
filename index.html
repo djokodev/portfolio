@@ -496,10 +496,13 @@
 
         .hero-title {
             font-size: 3.5rem;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeInUp 0.6s 0.4s forwards;
+            letter-spacing: -0.02em;
+            word-spacing: 0.1em;
+            max-width: 700px;
         }
 
         .hero-title .highlight {
@@ -705,6 +708,10 @@
             
             .hero-title {
                 font-size: 2.8rem;
+                line-height: 1.25;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .profile-pic {
@@ -764,6 +771,10 @@
             
             .hero-title {
                 font-size: 2.5rem;
+                line-height: 1.3;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .profile-pic {
@@ -784,11 +795,132 @@
             
             .hero-title {
                 font-size: 2rem;
+                line-height: 1.35;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .profile-pic {
                 width: 220px;
                 height: 220px;
+            }
+        }
+
+        /* Styles pour la section Problème */
+        .problem-section {
+            background: linear-gradient(to bottom, var(--bg-dark), rgba(30, 41, 59, 0.3));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: 0;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 3rem;
+        }
+
+        .problem-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(244, 63, 94, 0.2);
+        }
+
+        .problem-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .problem-item:hover::before {
+            opacity: 1;
+        }
+
+        .problem-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(244, 63, 94, 0.1);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .problem-item:hover .problem-icon {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .problem-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .problem-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .problem-conclusion {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .problem-conclusion p {
+            font-size: 1.2rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -811,6 +943,56 @@
         }
 
         .skills-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .approach-statement {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .approach-statement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .statement-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .statement-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .approach-tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -1627,6 +1809,221 @@
             }
         }
 
+        /* Styles pour la section Processus */
+        .process-section {
+            background: linear-gradient(to bottom, rgba(30, 41, 59, 0.5), var(--bg-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: 0;
+        }
+
+        .process-timeline {
+            display: grid;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 4rem;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .process-step.reveal.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 120px;
+            background: linear-gradient(to bottom, var(--primary-light), transparent);
+            z-index: -1;
+        }
+
+        .process-step:last-child .step-number::after {
+            display: none;
+        }
+
+        .step-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+        }
+
+        .step-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 0 16px 16px 0;
+        }
+
+        .step-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .step-duration {
+            color: var(--primary-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-deliverables {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-deliverables li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .step-deliverables li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .process-result {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-result::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: 2px;
+        }
+
+        .result-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .result-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+
+            .step-content {
+                padding: 2rem;
+            }
+        }
+
         /* Styles pour la section Certifications */
         .certifications-section {
             background: linear-gradient(to bottom, var(--bg-dark), rgba(30, 41, 59, 0.5));
@@ -2155,7 +2552,7 @@
             border: 1px solid var(--glass-border);
             box-shadow: var(--glass-shadow);
             border-radius: 16px;
-            padding: 2rem;
+            padding: 0;
             box-shadow: var(--card-shadow);
             transition: var(--transition);
             position: relative;
@@ -2170,6 +2567,32 @@
             border-color: var(--primary-light);
         }
 
+        .service-card.featured {
+            border-color: var(--primary-light);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+        }
+
+        .service-badge {
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 0;
+        }
+
+        .service-badge.featured {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-light));
+        }
+
+        .service-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
         .service-icon {
             font-size: 2rem;
             color: var(--primary-color);
@@ -2178,8 +2601,16 @@
 
         .service-title {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
+        }
+
+        .service-subtitle {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-style: italic;
         }
 
         .service-description {
@@ -2187,7 +2618,6 @@
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
             line-height: 1.6;
-            flex-grow: 1;
         }
 
         .service-features {
@@ -2210,6 +2640,65 @@
             color: var(--primary-light);
         }
 
+        .service-price {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .price-amount {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .price-duration {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .services-guarantee {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .guarantee-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .guarantee-content i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .guarantee-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .guarantee-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            max-width: 400px;
+        }
+
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2221,6 +2710,11 @@
                 grid-template-columns: 1fr;
                 max-width: 500px;
                 margin: 0 auto;
+            }
+
+            .guarantee-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -2236,13 +2730,12 @@
             <a href="#" class="logo">DC</a>
             
             <div class="nav-links" id="navLinks">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#home" class="nav-link">Accueil</a>
+                <a href="#solution" class="nav-link">Mon Approche</a>
+                <a href="#process" class="nav-link">Processus</a>
+                <a href="#services" class="nav-link">Mes Offres</a>
                 <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="https://github.com/djokodev" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="https://blog.djokodev.com/" class="nav-link" target="_blank">Blog</a>
             </div>
         </div>
     </nav>
@@ -2252,23 +2745,23 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-greeting">
-                    <i class="fas fa-hand-peace"></i> Hello, Welcome
+                    <i class="fas fa-hand-peace"></i> Hello, Bienvenue
                 </div>
                 
-                <h1 class="hero-title">I'm <span class="highlight">Djoko Christian</span></h1>
+                <h1 class="hero-title">J'accompagne les <span class="highlight">entrepreneurs</span> à transformer leur idée en application</h1>
                 
-                <h2 class="hero-subtitle">Python Developer • DevOps Engineer</h2>
+                <h2 class="hero-subtitle">Votre partenaire technique</h2>
                 
                 <p class="hero-description">
-                    I build solutions using Python as my tool and Django as my playground. I also handle DevOps to ensure smooth deployment and infrastructure automation.
+                    Vous avez une idée d'application ou de service en ligne qui peut changer la donne ?
                 </p>
                 
                 <div class="hero-cta">
-                    <a href="https://github.com/djokodev" class="btn btn-primary">
-                        <i class="fas fa-code"></i> View Projects
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i> Parlons de votre projet
                     </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i> Get In Touch
+                    <a href="#services" class="btn btn-outline">
+                        <i class="fas fa-arrow-down"></i> Découvrir mon approche
                     </a>
                 </div>
                 
@@ -2295,129 +2788,314 @@
                     <img src="me.jpg" alt="Djoko Christian" class="profile-pic">
                     
                     <div class="tech-stack tech-python">
-                        <i class="fab fa-python tech-icon"></i> Python
+                        <i class="fas fa-lightbulb tech-icon"></i> Stratégie
                     </div>
                     
                     <div class="tech-stack tech-django">
-                        <i class="fas fa-server tech-icon"></i> Django
+                        <i class="fas fa-handshake tech-icon"></i> Partenariat
                     </div>
                     
                     <div class="tech-stack tech-api">
-                        <i class="fas fa-code tech-icon"></i> API
+                        <i class="fas fa-rocket tech-icon"></i> Résultats
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Skills améliorée -->
-    <section class="skills-section" id="skills">
+    <!-- Section Problème -->
+    <section class="problem-section" id="problem">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">What I Do</p>
-                <h2 class="section-title">My <span>Expertise</span></h2>
+                <p class="section-subtitle">Votre Réalité</p>
+                <h2 class="section-title">Ça vous dit <span>quelque chose</span> ?</h2>
             </div>
 
-            <div class="skills-tabs reveal">
-                <button class="skill-tab active" data-category="all">All</button>
-                <button class="skill-tab" data-category="backend">Backend</button>
-                <button class="skill-tab" data-category="database">Database</button>
-                <button class="skill-tab" data-category="devops">DevOps</button>
+            <div class="problems-grid reveal">
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Votre idée géniale dort dans un carnet depuis des mois...</h3>
+                    <p>Vous savez qu'elle a du potentiel, mais vous ne savez pas comment la concrétiser techniquement.</p>
+                </div>
+
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Vous ne savez pas par où commencer</h3>
+                    <p>Entre les choix techniques, les budgets et les délais, vous vous sentez perdu avant même d'avoir commencé.</p>
+                </div>
+
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Vous craignez de tomber sur le mauvais prestataire</h3>
+                    <p>Quelqu'un qui ne comprend rien à votre business et qui livre quelque chose qui ne fonctionne pas vraiment.</p>
+                </div>
+
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Le temps passe et vos concurrents avancent</h3>
+                    <p>Pendant que vous réfléchissez encore, d'autres lancent leurs projets et prennent de l'avance.</p>
+                </div>
+
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>On vous parle de "stack technique", "API", "framework"</h3>
+                    <p>Mais vous, vous voulez juste que ça marche et que ça apporte de la valeur à vos utilisateurs.</p>
+                </div>
+
+                <div class="problem-item reveal">
+                    <div class="problem-icon">
+                        <i class="fas fa-thumbs-down"></i>
+                    </div>
+                    <h3>Vous avez déjà été déçu par le passé</h3>
+                    <p>Un développeur qui a disparu, un projet qui a dérapé, un budget explosé... Plus jamais ça !</p>
+                </div>
+            </div>
+
+            <div class="problem-conclusion reveal">
+                <p>Si vous hochez la tête en lisant ces lignes, vous êtes au bon endroit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Solution -->
+    <section class="skills-section" id="solution">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-subtitle">La Solution</p>
+                <h2 class="section-title">Et si vous aviez enfin le bon <span>partenaire technique</span> ?</h2>
+                <p class="section-description">
+                    Je ne suis pas juste un développeur. Je suis votre partenaire technique.
+                    Voici ce qui fait la différence dans mon approche :
+                </p>
+            </div>
+
+            <div class="approach-statement reveal">
+                <div class="statement-content">
+                    <h3>Ma philosophie : "Codons UTILE"</h3>
+                    <p>Le code n'est qu'un outil. Ce qui compte, c'est ce qu'il vous apporte.</p>
+                </div>
+            </div>
+
+            <div class="approach-tabs reveal">
+                <button class="skill-tab active" data-category="all">Tout</button>
+                <button class="skill-tab" data-category="strategy">Stratégie</button>
+                <button class="skill-tab" data-category="development">Développement</button>
+                <button class="skill-tab" data-category="support">Accompagnement</button>
             </div>
 
             <div class="skills-container reveal" data-reveal-group>
-                <!-- Python Development -->
-                <div class="skill-card reveal" data-category="backend">
+                <!-- Écoute Business -->
+                <div class="skill-card reveal" data-category="strategy">
                     <div class="skill-icon">
-                        <i class="fab fa-python"></i>
+                        <i class="fas fa-ear-listen"></i>
                     </div>
                     <div class="skill-content">
-                        <h3 class="skill-title">Python Development</h3>
+                        <h3 class="skill-title">Je commence par comprendre VOTRE business</h3>
                         <div class="skill-level">
                             <div class="skill-progress" style="width: 95%"></div>
                         </div>
                         <ul class="skill-details">
-                            <li>Python problem Solving</li>
-                            <li>Object-Oriented Programming</li>
-                            <li>Asynchronous Programming</li>
-                            <li>Design Patterns</li>
+                            <li>Analyse de vos objectifs business</li>
+                            <li>Identification de vos utilisateurs cibles</li>
+                            <li>Définition des fonctionnalités prioritaires</li>
+                            <li>Stratégie de lancement optimale</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Django Ecosystem -->
-                <div class="skill-card reveal" data-category="backend">
+                <!-- Communication Claire -->
+                <div class="skill-card reveal" data-category="support">
                     <div class="skill-icon">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-comments"></i>
                     </div>
                     <div class="skill-content">
-                        <h3 class="skill-title">Django Ecosystem</h3>
+                        <h3 class="skill-title">Je parle entrepreneur avant de parler code</h3>
                         <div class="skill-level">
                             <div class="skill-progress" style="width: 90%"></div>
                         </div>
                         <ul class="skill-details">
-                            <li>Django Framework | DRF</li>
-                            <li>Graphene-Django</li>
-                            <li>Django Ninja</li>
+                            <li>Vulgarisation des concepts techniques</li>
+                            <li>Points réguliers sur l'avancement</li>
+                            <li>Transparence totale sur les choix</li>
+                            <li>Conseils stratégiques personnalisés</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Database Technologies -->
-                <div class="skill-card reveal" data-category="database">
+                <!-- Accompagnement Stratégique -->
+                <div class="skill-card reveal" data-category="strategy">
                     <div class="skill-icon">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
                     <div class="skill-content">
-                        <h3 class="skill-title">Database Technologies</h3>
+                        <h3 class="skill-title">Je vous accompagne dans la stratégie</h3>
                         <div class="skill-level">
                             <div class="skill-progress" style="width: 85%"></div>
                         </div>
                         <ul class="skill-details">
-                            <li>PostgreSQL</li>
-                            <li>MySQL</li>
-                            <li>MongoDB</li>
-                            <li>Sqlite3</li>
+                            <li>Co-création de votre vision produit</li>
+                            <li>Roadmap technique et business</li>
+                            <li>Conseils sur la monétisation</li>
+                            <li>Planification des évolutions</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- DevOps Skills -->
-                <div class="skill-card reveal" data-category="devops">
+                <!-- Développement Agile -->
+                <div class="skill-card reveal" data-category="development">
                     <div class="skill-icon">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
                     <div class="skill-content">
-                        <h3 class="skill-title">Cloud & DevOps</h3>
+                        <h3 class="skill-title">Développement rapide et itératif</h3>
                         <div class="skill-level">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" style="width: 90%"></div>
                         </div>
                         <ul class="skill-details">
-                            <li>Docker</li>
-                            <li>Docker Swarm</li>
-                            <li>Kubernetes</li>
-                            <li>GitHub Actions</li>
-                            <li>Ansible </li>
+                            <li>MVP fonctionnel en 90 jours max</li>
+                            <li>Tests utilisateurs intégrés</li>
+                            <li>Améliorations continues</li>
+                            <li>Technologies modernes et fiables</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Real-Time Systems -->
-                <div class="skill-card reveal" data-category="backend">
+                <!-- Résultats Mesurables -->
+                <div class="skill-card reveal" data-category="support">
                     <div class="skill-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="skill-content">
-                        <h3 class="skill-title">Real-Time Systems</h3>
+                        <h3 class="skill-title">Je mesure le succès par VOS résultats</h3>
                         <div class="skill-level">
                             <div class="skill-progress" style="width: 85%"></div>
                         </div>
                         <ul class="skill-details">
-                            <li>Django Channels</li>
-                            <li>WebSockets</li>
-                            <li>Celery & Redis Queue</li>
+                            <li>Suivi des métriques business</li>
+                            <li>Optimisation basée sur les données</li>
+                            <li>ROI et impact mesurable</li>
+                            <li>Support post-lancement inclus</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Processus -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-subtitle">Mon Processus</p>
+                <h2 class="section-title">Comment on passe de votre <span>idée</span> à votre application ?</h2>
+                <p class="section-description">
+                    Pas de mystère, pas de surprise. Voici exactement comment on procède :
+                </p>
+            </div>
+
+            <div class="process-timeline reveal">
+                <div class="process-step reveal" data-step="1">
+                    <div class="step-number">
+                        <span>01</span>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Cadrage & Stratégie</h3>
+                        <p class="step-duration">Semaine 1</p>
+                        <p class="step-description">
+                            On clarifie votre vision, on identifie vos utilisateurs cibles et on définit les fonctionnalités vraiment importantes. <br>
+                            <strong>Objectif :</strong> un plan d'action technique clair.
+                        </p>
+                        <ul class="step-deliverables">
+                            <li>Document de spécifications détaillé</li>
+                            <li>Roadmap avec budget et délais</li>
+                            <li>Analyse de faisabilité</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step reveal" data-step="2">
+                    <div class="step-number">
+                        <span>02</span>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Développement de votre MVP</h3>
+                        <p class="step-duration">6-12 semaines</p>
+                        <p class="step-description">
+                            Je développe la première version de votre application avec les fonctionnalités essentielles.
+                        </p>
+                        <ul class="step-deliverables">
+                            <li>Application fonctionnelle</li>
+                            <li>Tests automatisés</li>
+                            <li>Points hebdomadaires</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step reveal" data-step="3">
+                    <div class="step-number">
+                        <span>03</span>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Lancement & Tests</h3>
+                        <p class="step-duration">Semaine 13-14</p>
+                        <p class="step-description">
+                            On met votre application en ligne et on la teste avec vos premiers utilisateurs. 
+                            On corrige, on ajuste, on optimise.
+                        </p>
+                        <ul class="step-deliverables">
+                            <li>Mise en production sécurisée</li>
+                            <li>Tests utilisateurs</li>
+                            <li>Corrections et optimisations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step reveal" data-step="4">
+                    <div class="step-number">
+                        <span>04</span>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Amélioration Continue</h3>
+                        <p class="step-duration">En cours</p>
+                        <p class="step-description">
+                            Selon les retours utilisateurs et vos objectifs business, on fait évoluer votre application. <br>
+                            Nouvelles fonctionnalités, optimisations, évolutivité.
+                        </p>
+                        <ul class="step-deliverables">
+                            <li>Évolutions basées sur les données</li>
+                            <li>Support technique continu</li>
+                            <li>Conseils stratégiques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-result reveal">
+                <div class="result-content">
+                    <h3>Résultat ?</h3>
+                    <p>Une application qui marche, qui plaît à vos utilisateurs, et qui grandit avec votre business. 😊</p>
                 </div>
             </div>
         </div>
@@ -2582,68 +3260,102 @@
     <section class="services-section" id="services">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">what i can do</p>
-                <h2 class="section-title">My <span>Services</span></h2>
+                <p class="section-subtitle">Mes Offres</p>
+                <h2 class="section-title">Comment je peux vous aider <span>concrètement</span></h2>
+                <p class="section-description">
+                    Trois façons de travailler ensemble, selon où vous en êtes :
+                </p>
             </div>
 
             <div class="services-grid reveal" data-reveal-group>
-                <!-- Service 1: Création de site vitrine -->
+                <!-- Service 1: Atelier Cadrage -->
                 <div class="service-card reveal">
+                    <div class="service-badge">
+                        <span>Idéal pour commencer</span>
+                    </div>
                     <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Website creation</h3>
+                        <h3 class="service-title">Atelier Cadrage Stratégique</h3>
+                        <p class="service-subtitle">De votre idée à un plan d'action technique</p>
                         <p class="service-description">
-                            A showcase site is essential for establishing your professional online presence. It allows your company to be visible 24 hours a day, to present your products and services in an attractive way, and to establish your credibility with potential customers. I create modern, responsive, search-engine-optimized showcase sites that perfectly reflect your brand identity and convert visitors into customers.
+                            Parfait si vous voulez y voir clair avant de vous lancer. En 6 heures, on transforme votre idée en roadmap concrète avec budget et délais.
                         </p>
                         <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> Customized design</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Adapted design</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> SEO optimization</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> 2 séances de 3h pour clarifier votre vision</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Analyse de faisabilité</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Roadmap détaillée avec budget et délais</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Document de spécifications complet</span>
                         </div>
-                        <p class="service-price">Price: $350</p>
+                        <div class="service-price">
+                            <span class="price-amount">75 000 FCFA</span>
+                            <span class="price-duration">2 séances unique</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Création d'application web -->
-                <div class="service-card reveal">
+                <!-- Service 2: Développement MVP -->
+                <div class="service-card reveal featured">
+                    <div class="service-badge featured">
+                        <span>Le plus populaire</span>
+                    </div>
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Web application design</h3>
+                        <h3 class="service-title">Développement MVP</h3>
+                        <p class="service-subtitle">Votre première version en 90 jours max</p>
                         <p class="service-description">
-                            Web applications offer an interactive, personalized experience that static sites just can't match. They automate business processes, collect and analyze data, and offer advanced functionality to your users. I develop tailor-made, secure and scalable web applications that meet your specific needs precisely, and that can grow with your business.
+                            Idéal pour valider votre concept rapidement. Une application fonctionnelle avec les features essentielles, prête à conquérir vos premiers utilisateurs.
                         </p>
                         <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> Custom development</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Scalability and maintenance</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Application fonctionnelle</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Tests et mise en ligne inclus</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Formation pour administrer votre app</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> 1 mois de support post-lancement</span>
                         </div>
-                        <p class="service-price">Price: $700</p>
+                        <div class="service-price">
+                            <span class="price-amount">750 000 FCFA</span>
+                            <span class="price-duration">peut varier en fonction du projet</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 3: DevOps & Cloud Engineering -->
+                <!-- Service 3: Partenariat Long Terme -->
                 <div class="service-card reveal">
+                    <div class="service-badge">
+                        <span>Pour croître sereinement</span>
+                    </div>
                     <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">DevOps</h3>
+                        <h3 class="service-title">Partenariat Technique Long Terme</h3>
+                        <p class="service-subtitle">Votre CTO à temps partagé</p>
                         <p class="service-description">
-                            Modern applications require robust, scalable and secure infrastructure. I provide comprehensive DevOps engineering services to automate your deployment processes.
+                            Parfait pour une croissance sereine et maîtrisée. Je deviens votre directeur technique et fais évoluer votre application au rythme de votre business.
                         </p>
                         <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> CI/CD Implementation</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Infrastructure as Code</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Cloud Optimization</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Monitoring & Logging</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Développement et évolution de votre application</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Conseil stratégique technique mensuel</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Maintenance et optimisations continues</span>
+                            <span class="service-feature"><i class="fas fa-check"></i> Support prioritaire</span>
                         </div>
-                        <p class="service-price">Price: $750</p>
+                        <div class="service-price">
+                            <span class="price-amount">200 000 FCFA</span>
+                            <span class="price-duration">par mois</span>
+                        </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="services-guarantee reveal">
+                <div class="guarantee-content">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantie propriété</h3>
+                    <p>Quel que soit votre choix, vous gardez 100% de la propriété de votre code et de vos données.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -2787,16 +3499,19 @@
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">Get In Touch</p>
-                <h2 class="section-title">Let's <span>Connect</span></h2>
+                <p class="section-subtitle">Prêt à passer à l'action ?</p>
+                <h2 class="section-title">Parlons de votre <span>projet</span></h2>
+                <p class="section-description">
+                    30 minutes de discussion gratuite - Pas de pitch commercial, juste un échange honnête sur votre projet.
+                </p>
             </div>
 
             <div class="contact-container reveal">
                 <div class="contact-info">
-                    <h3 class="contact-info-title">Contact Information</h3>
+                    <h3 class="contact-info-title">Pourquoi m'appeler ?</h3>
                     <p class="contact-info-desc">
-                        I'm open to freelance opportunities, collaborations, and interesting projects. 
-                        Don't hesitate to reach out!
+                        Vous avez une idée qui mérite d'exister ? Vous cherchez un partenaire technique de confiance ? 
+                        Discutons-en ! Vous repartirez avec des conseils concrets, même si on ne travaille pas ensemble.
                     </p>
 
                     <div class="contact-details">
@@ -2854,35 +3569,35 @@
                         <input type="hidden" name="_template" value="table">
                         
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            <label for="name">Votre Prénom</label>
+                            <input type="text" id="name" name="name" placeholder="Comment vous appeler ?" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                            <label for="email">Votre Email</label>
+                            <input type="email" id="email" name="email" placeholder="Pour vous recontacter" required>
                         </div>
 
                         <div class="form-group full-width">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                            <label for="project">Votre projet en une phrase</label>
+                            <input type="text" id="project" name="project" placeholder="Ex: Une app pour gérer les rendez-vous de mon salon de coiffure" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="message">Décrivez votre situation</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Où en êtes-vous ? Quels sont vos défis ? Vos objectifs ? (optionnel mais ça m'aide à mieux vous conseiller)" required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
+                            <span>Réserver mon créneau gratuit</span>
+                            <i class="fas fa-calendar-alt"></i>
                         </button>
                     </form>
                     
                     <div id="formSuccessMessage" style="display: none; text-align: center; padding: 2rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-top: 1rem; border: 1px solid var(--secondary-color);">
                         <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
-                        <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Message Sent Successfully!</h3>
-                        <p style="color: var(--text-secondary);">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                        <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Message reçu !</h3>
+                        <p style="color: var(--text-secondary);">Merci pour votre confiance. Je vous recontacte dans les 24h pour planifier notre échange de 30 minutes.</p>
                     </div>
                 </div>
                 

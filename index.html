@@ -526,9 +526,31 @@
         .hero-subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeInUp 0.6s 0.6s forwards;
+        }
+
+        .hero-proof {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s 0.7s forwards;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .proof-icon {
+            font-size: 1.2rem;
         }
 
         .hero-description {
@@ -1391,6 +1413,142 @@
             .project-filter {
                 padding: 0.5rem 1.25rem;
                 font-size: 0.85rem;
+            }
+        }
+
+        /* Styles pour la section cas client */
+        .case-study-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .client-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .client-name {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .status-badge {
+            background: linear-gradient(135deg, var(--secondary-color), #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-context h4,
+        .project-solution h4,
+        .project-results h4 {
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .solution-features li:last-child {
+            border-bottom: none;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .result-item strong {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .testimonial {
+            font-style: italic;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Responsive pour case study */
+        @media (max-width: 768px) {
+            .case-study-card {
+                padding: 1.5rem;
+            }
+            
+            .case-study-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -2733,7 +2891,7 @@
                 <a href="#home" class="nav-link">Accueil</a>
                 <a href="#solution" class="nav-link">Mon Approche</a>
                 <a href="#process" class="nav-link">Processus</a>
-                <a href="#services" class="nav-link">Mes Offres</a>
+                <a href="#projects" class="nav-link">Cas Client</a>
                 <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -2745,15 +2903,22 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-greeting">
-                    <i class="fas fa-hand-peace"></i> Hello, Bienvenue
+                    <i class="fas fa-hand-peace"></i> Hello, Bienvenue    
                 </div>
                 
-                <h1 class="hero-title">J'accompagne les <span class="highlight">entrepreneurs</span> à transformer leur idée en application</h1>
+                <h1 class="hero-title">Je fais ton appli<span class="highlight">web/Mobile</span> en <span class="highlight">1 Mois</span> pour <span class="highlight">850€</span>  </h1>
                 
-                <h2 class="hero-subtitle">Votre partenaire technique</h2>
                 
+                <!-- <div class="hero-proof">
+                    <div class="proof-item">
+                        <span>Cas client : <strong>AquaCare pour MAVECAM</strong> en cours</span>
+                    </div>
+                </div>
+                 -->
                 <p class="hero-description">
-                    Vous avez une idée d'application ou de service en ligne qui peut changer la donne ?
+                    <strong>✅ Développement complet de A à Z</strong><br>
+                    <strong>✅ Délai garanti de 30 jours</strong><br>
+                    <strong>✅ Accompagnement post lancement</strong>
                 </p>
                 
                 <div class="hero-cta">
@@ -2998,9 +3163,6 @@
             <div class="section-header reveal">
                 <p class="section-subtitle">Mon Processus</p>
                 <h2 class="section-title">Comment on passe de votre <span>idée</span> à votre application ?</h2>
-                <p class="section-description">
-                    Pas de mystère, pas de surprise. Voici exactement comment on procède :
-                </p>
             </div>
 
             <div class="process-timeline reveal">
@@ -3013,14 +3175,12 @@
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h3>Cadrage & Stratégie</h3>
-                        <p class="step-duration">3 jours</p>
                         <p class="step-description">
                             On clarifie votre vision, on identifie vos utilisateurs cibles et on définit les fonctionnalités vraiment importantes. <br>
                             <strong>Objectif :</strong> un plan d'action technique clair.
                         </p>
                         <ul class="step-deliverables">
                             <li>Document de spécifications détaillé</li>
-                            <li>Roadmap avec budget et délais</li>
                             <li>Analyse de faisabilité</li>
                         </ul>
                     </div>
@@ -3035,7 +3195,6 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <h3>Développement de votre MVP</h3>
-                        <p class="step-duration">3-6 semaines</p>
                         <p class="step-description">
                             Je développe la première version de votre application avec les fonctionnalités essentielles.
                         </p>
@@ -3056,7 +3215,6 @@
                             <i class="fas fa-rocket"></i>
                         </div>
                         <h3>Lancement & Tests</h3>
-                        <p class="step-duration">Semaine 7</p>
                         <p class="step-description">
                             On met votre application en ligne et on la teste avec vos premiers utilisateurs. 
                             On corrige, on ajuste, on optimise.
@@ -3078,7 +3236,6 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>Amélioration Continue</h3>
-                        <p class="step-duration">En cours</p>
                         <p class="step-description">
                             Selon les retours utilisateurs et vos objectifs business, on fait évoluer votre application. <br>
                             Nouvelles fonctionnalités, optimisations, évolutivité.
@@ -3256,8 +3413,8 @@
         </div>
     </section>
 
-    <!-- Section Services -->
-    <section class="services-section" id="services">
+    <!-- Section Services
+   <section class="services-section" id="services">
         <div class="container">
             <div class="section-header reveal">
                 <p class="section-subtitle">Mes Offres</p>
@@ -3268,7 +3425,6 @@
             </div>
 
             <div class="services-grid reveal" data-reveal-group>
-                <!-- Service 1: Atelier Cadrage -->
                 <div class="service-card reveal">
                     <div class="service-badge">
                         <span>Idéal pour commencer</span>
@@ -3295,7 +3451,6 @@
                     </div>
                 </div>
 
-                <!-- Service 2: Développement MVP -->
                 <div class="service-card reveal featured">
                     <div class="service-badge featured">
                         <span>Le plus populaire</span>
@@ -3322,7 +3477,6 @@
                     </div>
                 </div>
 
-                <!-- Service 3: Partenariat Long Terme -->
                 <div class="service-card reveal">
                     <div class="service-badge">
                         <span>Pour croître sereinement</span>
@@ -3358,152 +3512,67 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  -->
 
-    <!-- Section Projets améliorée
+    <!-- Section Projets -->
+    
     <section class="projects-section" id="projects">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">My Work</p>
-                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <p class="section-subtitle">Cas client récent</p>
+                <h2 class="section-title">Projet <span>AquaCare</span></h2>
             </div>
-
-            <div class="projects-filter reveal">
-                <button class="project-filter active" data-filter="all">All</button>
-                <button class="project-filter" data-filter="api">API</button>
-                <button class="project-filter" data-filter="mobile">Mobile</button>
-                <button class="project-filter" data-filter="web">Web</button>
-            </div>
-
-            <div class="projects-grid reveal" data-reveal-group>
-
-                My Blog 
-                <div class="project-card reveal" data-category="web django">
-                    <div class="project-image-container">
-                        <img src="blog.jpg" alt="Blog Image" class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://blog.djokodev.com/" class="project-overlay-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Development</span>
-                        </div>
+            
+            <!-- Cas client AquaCare -->
+            <div class="case-study-card reveal">
+                <div class="case-study-header">
+                    <div class="client-info">
+                        <h3>🐟 AquaCare</h3>
+                        <p class="client-name">Pour MAVECAM</p>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">My Blog</h3>
-                        <p class="project-description">
-                            I created this blog with the specific purpose of sharing my knowledge about Python and Django, to help beginners like myself find cool content in French that can help them progress from beginner to junior level.
-                        <div class="project-links">
-                            <a href="https://blog.djokodev.com/" class="project-link" target="_blank">
-                                <i class="fas fa-globe"></i> Visit Site
-                            </a>
+                    <div class="project-status">
+                        <span class="status-badge active">En cours</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-content">
+                    <div class="project-context">
+                        <h4>Le défi</h4>
+                        <p>Dans le cadre de son modèle de fidélisation client, MAVECAM souhaite développer une application mobile dénommée AquaCare, destinée aux petits et moyens aquaculteurs. 
+
+                            L’application doit permettre un suivi technique et économique de la production piscicole, faciliter la commande d’intrants, offrir un accompagnement à distance, et renforcer la relation client via un écosystème numérique intégré</p>
+                    </div>
+                    
+                    
+                    <div class="project-results">
+                        <h4>Impact</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>🎯</strong>
+                                <span>Digitalisation du secteur aquacole</span>
+                            </div>
+                            <div class="result-item">
+                                <strong>📈</strong>
+                                <span>Accompagnement personnalisé des éleveurs</span>
+                            </div>
+                            <div class="result-item">
+                                <strong>🤝</strong>
+                                <span>Renforcement de la relation MAVECAM/clients</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-                Projet Clarans Afrique Website
-                <div class="project-card reveal" data-category="web django">
-                    <div class="project-image-container">
-                        <img src="clarans.jpeg" alt="Clarans Afrique Website" class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://claransafrique.com/" class="project-overlay-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Development</span>
-                            <span class="project-tag">Professional</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Clarans Afrique Website</h3>
-                        <p class="project-description">
-                            A professional website developed during my internship with Clarans Afrique. Features responsive design, modern UI/UX, and optimized performance.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://claransafrique.com/" class="project-link" target="_blank">
-                                <i class="fas fa-globe"></i> Visit Site
-                            </a>
-                           <a href="#" class="project-link project-details">
-                                <i class="fas fa-info-circle"></i> Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-              Projet MRC Programme 
-                <div class="project-card reveal" data-category="web django">
-                    <div class="project-image-container">
-                        <img src="mrc-logo.jpeg" alt="Clarans Afrique Website" class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://claransafrique.com/" class="project-overlay-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Development</span>
-                            <span class="project-tag">Professional</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Website for MRC Programme</h3>
-                        <p class="project-description">
-                            I developed a website to make the MRC program, originally an 88-page PDF, more accessible and user-friendly. This project enhances political information and public engagement, with the goal of presenting it to the MRC for evaluation.
-                         </p>
-                        <div class="project-links">
-                            <a href="https://mrc-programme.vercel.app/" class="project-link" target="_blank">
-                                <i class="fas fa-globe"></i> Visit Site
-                            </a>
-                         <a href="#" class="project-link project-details">
-                                <i class="fas fa-info-circle"></i> Details
-                            </a> 
-                        </div>
-                    </div>
-                </div>
-
-
-                Projet Swagg
-                 <div class="project-card reveal" data-category="web django">
-                    <div class="project-image-container">
-                        <img src="Swagg.jpg" alt="Clarans Afrique Website" class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://swagg-pi.vercel.app/" class="project-overlay-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Development</span>
-                            <span class="project-tag">Professional</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Swagg</h3>
-                        <p class="project-description">
-                            I developed a Ecommerce website to sell products online. I'm creating this e-commerce site for Swagg to help customers move from selling on Facebook to a professional platform.
-                        <div class="project-links">
-                            <a href="https://swagg-pi.vercel.app/" class="project-link" target="_blank">
-                                <i class="fas fa-globe"></i> Visit Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section> 
--->
+    </section>
+    
 
     <!-- Section Contact -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">Prêt à passer à l'action ?</p>
-                <h2 class="section-title">Parlons de votre <span>projet</span></h2>
-                <p class="section-description">
-                    30 minutes de discussion gratuite - Pas de pitch commercial, juste un échange honnête sur votre projet.
-                </p>
+                <p class="section-subtitle">Prêt à transformer votre idée en réalité ?</p>
+                <h2 class="section-title">Démarrons votre <span>projet</span> ensemble</h2>
             </div>
 
             <div class="contact-container reveal">

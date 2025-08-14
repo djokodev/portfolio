@@ -3,7 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Djoko Christian</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Djoko Christian - Développeur Web/Mobile | Application en 1 mois pour 1000€</title>
+    <meta name="description" content="Développeur web et mobile expert. Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus. Contactez-moi !">
+    <meta name="keywords" content="développeur web, développeur mobile, application web, application mobile, développement rapide, MVP, startup, Cameroun, freelance">
+    <meta name="author" content="Djoko Christian">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://djoko-christian.github.io/portfolio/">
+    
+    <!-- Open Graph Meta Tags (Facebook, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Je fais ton appli web/Mobile en 1 Mois pour 1000€">
+    <meta property="og:description" content="Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus.">
+    <meta property="og:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
+    <meta property="og:image:alt" content="Photo de profil de Djoko Christian, développeur web et mobile">
+    <meta property="og:url" content="https://djoko-christian.github.io/portfolio/">
+    <meta property="og:site_name" content="Portfolio Djoko Christian">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Je fais ton appli web/Mobile en 1 Mois pour 1000€">
+    <meta name="twitter:description" content="Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus.">
+    <meta name="twitter:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
+    <meta name="twitter:image:alt" content="Photo de profil de Djoko Christian, développeur web et mobile">
+    
+    <!-- WhatsApp specific (uses Open Graph) -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="pp_linkedIn.jpg">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Djoko Christian",
+      "jobTitle": "Développeur Web et Mobile",
+      "description": "Développeur web et mobile expert spécialisé dans la création d'applications complètes en 30 jours",
+      "url": "https://djoko-christian.github.io/portfolio/",
+      "image": "https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/djoko-christian"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "Développement d'application web/mobile",
+        "description": "Application complète en 30 jours pour 1000€",
+        "price": "1000",
+        "priceCurrency": "EUR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+237-677-290-066",
+        "contactType": "customer service",
+        "email": "djoko.dev.pro@gmail.com"
+      }
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -826,6 +887,77 @@
             .profile-pic {
                 width: 220px;
                 height: 220px;
+            }
+        }
+
+        /* Styles pour le bouton WhatsApp flottant */
+        .whatsapp-float {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float.scrolled {
+            top: 80px;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.4rem;
+            margin-right: 8px;
+        }
+
+        .whatsapp-text {
+            display: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .whatsapp-text {
+                display: inline;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                top: 75px;
+                right: 15px;
+            }
+            .whatsapp-float.scrolled {
+                top: 65px;
+            }
+            .whatsapp-btn {
+                padding: 10px 15px;
             }
         }
 
@@ -3028,6 +3160,14 @@
 
             <div class="problem-conclusion reveal">
                 <p>Si vous hochez la tête en lisant ces lignes, vous êtes au bon endroit.</p>
+                <div class="cta-section" style="margin-top: 2rem;">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-comments"></i> Discutons de votre situation
+                    </a>
+                    <a href="#solution" class="btn btn-outline">
+                        <i class="fas fa-arrow-down"></i> Voir ma solution
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -3154,6 +3294,15 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="solution-cta reveal" style="text-align: center; margin-top: 3rem;">
+                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Prêt à transformer votre idée en réalité ?</h3>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Commençons votre projet
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -3253,6 +3402,15 @@
                 <div class="result-content">
                     <h3>Résultat ?</h3>
                     <p>Une application qui marche, qui plaît à vos utilisateurs, et qui grandit avec votre business. 😊</p>
+                </div>
+            </div>
+            
+            <div class="process-cta reveal" style="text-align: center; margin-top: 3rem;">
+                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Ce processus vous inspire confiance ?</h3>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i> Démarrons ensemble
+                    </a>
                 </div>
             </div>
         </div>
@@ -3509,6 +3667,18 @@
                     <i class="fas fa-shield-alt"></i>
                     <h3>Garantie propriété</h3>
                     <p>Quel que soit votre choix, vous gardez 100% de la propriété de votre code et de vos données.</p>
+                </div>
+            </div>
+            
+            <div class="services-cta reveal" style="text-align: center; margin-top: 3rem;">
+                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Quelle approche correspond le mieux à votre situation ?</h3>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Réservons un échange
+                    </a>
+                    <a href="mailto:djoko.dev.pro@gmail.com" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Écrivez-moi directement
+                    </a>
                 </div>
             </div>
         </div>
@@ -3859,15 +4029,22 @@
         // Script pour la navigation
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
+            const whatsappFloat = document.querySelector('.whatsapp-float');
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
-            // Changement de style de la navbar au défilement
+            // Changement de style de la navbar et du bouton WhatsApp au défilement
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
+                    if (whatsappFloat) {
+                        whatsappFloat.classList.add('scrolled');
+                    }
                 } else {
                     navbar.classList.remove('scrolled');
+                    if (whatsappFloat) {
+                        whatsappFloat.classList.remove('scrolled');
+                    }
                 }
             });
 
@@ -4193,5 +4370,16 @@
             });
         });
     </script>
+
+    <!-- Bouton WhatsApp flottant -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/237652260368?text=Bonjour%20Christian%2C%20j%27aimerais%20discuter%20de%20mon%20projet%20d%27application" 
+           target="_blank" 
+           aria-label="Contactez-nous sur WhatsApp"
+           class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Discutons par WhatsApp</span>
+        </a>
+    </div>
 </body>
 </html>

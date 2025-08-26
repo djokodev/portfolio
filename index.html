@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Djoko Christian - Développeur Web/Mobile | Application en 1 mois pour 1000€</title>
-    <meta name="description" content="Développeur web et mobile expert. Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus. Contactez-moi !">
-    <meta name="keywords" content="développeur web, développeur mobile, application web, application mobile, développement rapide, MVP, startup, Cameroun, freelance">
+    <title>Djoko Christian - Développeur API FinTech</title>
+    <meta name="description" content="Développeur backend Python spécialisé dans le développement d'API fintech. Expert en intégrations financières, paiements et solutions API sécurisées. Contactez-moi !">
+    <meta name="keywords" content="développeur API, fintech, backend Python, API REST, intégrations financières, développeur freelance, Cameroun, paiements digitaux">
     <meta name="author" content="Djoko Christian">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://djoko-christian.github.io/portfolio/">
     
     <!-- Open Graph Meta Tags (Facebook, WhatsApp, etc.) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Je fais ton appli web/Mobile en 1 Mois pour 1000€">
-    <meta property="og:description" content="Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus.">
+    <meta property="og:title" content="Développeur API FinTech - Backend Python spécialisé">
+    <meta property="og:description" content="Développeur backend Python spécialisé dans le développement d'API fintech. Expert en intégrations financières et solutions API sécurisées.">
     <meta property="og:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
-    <meta property="og:image:alt" content="Photo de profil de Djoko Christian, développeur web et mobile">
+    <meta property="og:image:alt" content="Photo de profil de Djoko Christian, développeur API FinTech">
     <meta property="og:url" content="https://djoko-christian.github.io/portfolio/">
     <meta property="og:site_name" content="Portfolio Djoko Christian">
     <meta property="og:locale" content="fr_FR">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Je fais ton appli web/Mobile en 1 Mois pour 1000€">
-    <meta name="twitter:description" content="Je crée votre application complète en 30 jours pour 1000€. Développement, mise en ligne et accompagnement inclus.">
+    <meta name="twitter:title" content="Développeur API FinTech - Backend Python spécialisé">
+    <meta name="twitter:description" content="Développeur backend Python spécialisé dans le développement d'API fintech. Expert en intégrations financières et solutions API sécurisées.">
     <meta name="twitter:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
-    <meta name="twitter:image:alt" content="Photo de profil de Djoko Christian, développeur web et mobile">
+    <meta name="twitter:image:alt" content="Photo de profil de Djoko Christian, développeur API FinTech">
     
     <!-- WhatsApp specific (uses Open Graph) -->
     <meta property="og:image:width" content="1200">
@@ -43,8 +43,8 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Djoko Christian",
-      "jobTitle": "Développeur Web et Mobile",
-      "description": "Développeur web et mobile expert spécialisé dans la création d'applications complètes en 30 jours",
+      "jobTitle": "FinTech API Developer",
+      "description": "Développeur backend Python spécialisé dans le développement d'API fintech",
       "url": "https://djoko-christian.github.io/portfolio/",
       "image": "https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg",
       "sameAs": [
@@ -52,9 +52,9 @@
       ],
       "offers": {
         "@type": "Offer",
-        "name": "Développement d'application web/mobile",
-        "description": "Application complète en 30 jours pour 1000€",
-        "price": "1000",
+        "name": "Développement d'API FinTech",
+        "description": "Solutions API backend sécurisées pour applications financières",
+        "price": "Sur devis",
         "priceCurrency": "EUR"
       },
       "contactPoint": {
@@ -455,6 +455,38 @@
 
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        /* Styles pour le sélecteur de langue */
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .lang-btn {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+
+        .lang-btn.active {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            color: var(--text-primary);
         }
 
         .resume-btn {
@@ -3020,12 +3052,13 @@
             <a href="#" class="logo">DC</a>
             
             <div class="nav-links" id="navLinks">
-                <a href="#home" class="nav-link">Accueil</a>
-                <a href="#solution" class="nav-link">Mon Approche</a>
-                <a href="#process" class="nav-link">Processus</a>
-                <a href="#projects" class="nav-link">Cas Client</a>
-                <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link" data-translate="nav-home">Accueil</a>
+                <a href="#certifications" class="nav-link" data-translate="nav-certifications">Certifications</a>
+                <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -3035,33 +3068,12 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-greeting">
-                    <i class="fas fa-hand-peace"></i> Hello, Bienvenue    
+                    <i class="fas fa-hand-peace"></i> <span data-translate="hero-greeting">Hello, je suis</span>
                 </div>
                 
-                <h1 class="hero-title">Je fais ton appli<span class="highlight">web/Mobile</span> en <span class="highlight">1 Mois</span> pour <span class="highlight">1000€</span>  </h1>
+                <h1 class="hero-title">Djoko Christian<br><span class="highlight" data-translate="hero-title">Développeur API FinTech</span></h1>
                 
-                
-                <!-- <div class="hero-proof">
-                    <div class="proof-item">
-                        <span>Cas client : <strong>AquaCare pour MAVECAM</strong> en cours</span>
-                    </div>
-                </div>
-                 -->
-                <p class="hero-description">
-                    <strong>✅ Développement complet de A à Z</strong><br>
-                    <strong>✅ Délai garanti de 30 jours</strong><br>
-                    <strong>✅ Accompagnement post lancement</strong>
-                </p>
-                
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-calendar-alt"></i> Parlons de votre projet
-                    </a>
-                    <a href="#services" class="btn btn-outline">
-                        <i class="fas fa-arrow-down"></i> Découvrir mon approche
-                    </a>
-                </div>
-                
+            
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/djoko-christian/" class="social-link" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
@@ -3071,9 +3083,6 @@
                     </a>
                     <a href="mailto:djoko.dev.pro@gmail.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://x.com/djoko_dev_cm" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
@@ -3085,343 +3094,28 @@
                     <img src="pp_linkedIn.jpg" alt="Djoko Christian" class="profile-pic">
                     
                     <div class="tech-stack tech-python">
-                        <i class="fas fa-lightbulb tech-icon"></i> Stratégie
+                        <i class="fas fa-lightbulb tech-icon"></i> API
                     </div>
                     
                     <div class="tech-stack tech-django">
-                        <i class="fas fa-handshake tech-icon"></i> Partenariat
+                        <i class="fas fa-handshake tech-icon"></i> FinTech
                     </div>
                     
                     <div class="tech-stack tech-api">
-                        <i class="fas fa-rocket tech-icon"></i> Résultats
+                        <i class="fas fa-rocket tech-icon"></i> Securiy
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Problème -->
-    <section class="problem-section" id="problem">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Votre Réalité</p>
-                <h2 class="section-title">Ça vous dit <span>quelque chose</span> ?</h2>
-            </div>
-
-            <div class="problems-grid reveal">
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Votre idée géniale dort dans un carnet depuis des mois...</h3>
-                    <p>Vous savez qu'elle a du potentiel, mais vous ne savez pas comment la concrétiser techniquement.</p>
-                </div>
-
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>Vous ne savez pas par où commencer</h3>
-                    <p>Entre les choix techniques, les budgets et les délais, vous vous sentez perdu avant même d'avoir commencé.</p>
-                </div>
-
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3>Vous craignez de tomber sur le mauvais prestataire</h3>
-                    <p>Quelqu'un qui ne comprend rien à votre business et qui livre quelque chose qui ne fonctionne pas vraiment.</p>
-                </div>
-
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Le temps passe et vos concurrents avancent</h3>
-                    <p>Pendant que vous réfléchissez encore, d'autres lancent leurs projets et prennent de l'avance.</p>
-                </div>
-
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>On vous parle de "stack technique", "API", "framework"</h3>
-                    <p>Mais vous, vous voulez juste que ça marche et que ça apporte de la valeur à vos utilisateurs.</p>
-                </div>
-
-                <div class="problem-item reveal">
-                    <div class="problem-icon">
-                        <i class="fas fa-thumbs-down"></i>
-                    </div>
-                    <h3>Vous avez déjà été déçu par le passé</h3>
-                    <p>Un développeur qui a disparu, un projet qui a dérapé, un budget explosé... Plus jamais ça !</p>
-                </div>
-            </div>
-
-            <div class="problem-conclusion reveal">
-                <p>Si vous hochez la tête en lisant ces lignes, vous êtes au bon endroit.</p>
-                <div class="cta-section" style="margin-top: 2rem;">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-comments"></i> Discutons de votre situation
-                    </a>
-                    <a href="#solution" class="btn btn-outline">
-                        <i class="fas fa-arrow-down"></i> Voir ma solution
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Solution -->
-    <section class="skills-section" id="solution">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">La Solution</p>
-                <h2 class="section-title">Et si vous aviez enfin le bon <span>partenaire technique</span> ?</h2>
-                <p class="section-description">
-                    Je ne suis pas juste un développeur. Je suis votre partenaire technique.
-                    Voici ce qui fait la différence dans mon approche :
-                </p>
-            </div>
-
-            <div class="approach-statement reveal">
-                <div class="statement-content">
-                    <h3>Ma philosophie : "Codons UTILE"</h3>
-                    <p>Le code n'est qu'un outil. Ce qui compte, c'est ce qu'il vous apporte.</p>
-                </div>
-            </div>
-
-            <div class="approach-tabs reveal">
-                <button class="skill-tab active" data-category="all">Tout</button>
-                <button class="skill-tab" data-category="strategy">Stratégie</button>
-                <button class="skill-tab" data-category="development">Développement</button>
-                <button class="skill-tab" data-category="support">Accompagnement</button>
-            </div>
-
-            <div class="skills-container reveal" data-reveal-group>
-                <!-- Écoute Business -->
-                <div class="skill-card reveal" data-category="strategy">
-                    <div class="skill-icon">
-                        <i class="fas fa-ear-listen"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3 class="skill-title">Je commence par comprendre VOTRE business</h3>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                        <ul class="skill-details">
-                            <li>Analyse de vos objectifs business</li>
-                            <li>Identification de vos utilisateurs cibles</li>
-                            <li>Définition des fonctionnalités prioritaires</li>
-                            <li>Stratégie de lancement optimale</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Communication Claire -->
-                <div class="skill-card reveal" data-category="support">
-                    <div class="skill-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3 class="skill-title">Je parle entrepreneur avant de parler code</h3>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <ul class="skill-details">
-                            <li>Vulgarisation des concepts techniques</li>
-                            <li>Points réguliers sur l'avancement</li>
-                            <li>Transparence totale sur les choix</li>
-                            <li>Conseils stratégiques personnalisés</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Accompagnement Stratégique -->
-                <div class="skill-card reveal" data-category="strategy">
-                    <div class="skill-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3 class="skill-title">Je vous accompagne dans la stratégie</h3>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <ul class="skill-details">
-                            <li>Co-création de votre vision produit</li>
-                            <li>Roadmap technique et business</li>
-                            <li>Conseils sur la monétisation</li>
-                            <li>Planification des évolutions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Développement Agile -->
-                <div class="skill-card reveal" data-category="development">
-                    <div class="skill-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3 class="skill-title">Développement rapide et itératif</h3>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <ul class="skill-details">
-                            <li>MVP fonctionnel en 90 jours max</li>
-                            <li>Tests utilisateurs intégrés</li>
-                            <li>Améliorations continues</li>
-                            <li>Technologies modernes et fiables</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Résultats Mesurables -->
-                <div class="skill-card reveal" data-category="support">
-                    <div class="skill-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3 class="skill-title">Je mesure le succès par VOS résultats</h3>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <ul class="skill-details">
-                            <li>Suivi des métriques business</li>
-                            <li>Optimisation basée sur les données</li>
-                            <li>ROI et impact mesurable</li>
-                            <li>Support post-lancement inclus</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="solution-cta reveal" style="text-align: center; margin-top: 3rem;">
-                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Prêt à transformer votre idée en réalité ?</h3>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Commençons votre projet
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Processus -->
-    <section class="process-section" id="process">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Mon Processus</p>
-                <h2 class="section-title">Comment on passe de votre <span>idée</span> à votre application ?</h2>
-            </div>
-
-            <div class="process-timeline reveal">
-                <div class="process-step reveal" data-step="1">
-                    <div class="step-number">
-                        <span>01</span>
-                    </div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>Cadrage & Stratégie</h3>
-                        <p class="step-description">
-                            On clarifie votre vision, on identifie vos utilisateurs cibles et on définit les fonctionnalités vraiment importantes. <br>
-                            <strong>Objectif :</strong> un plan d'action technique clair.
-                        </p>
-                        <ul class="step-deliverables">
-                            <li>Document de spécifications détaillé</li>
-                            <li>Analyse de faisabilité</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="process-step reveal" data-step="2">
-                    <div class="step-number">
-                        <span>02</span>
-                    </div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Développement de votre MVP</h3>
-                        <p class="step-description">
-                            Je développe la première version de votre application avec les fonctionnalités essentielles.
-                        </p>
-                        <ul class="step-deliverables">
-                            <li>Application fonctionnelle</li>
-                            <li>Tests automatisés</li>
-                            <li>Points hebdomadaires</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="process-step reveal" data-step="3">
-                    <div class="step-number">
-                        <span>03</span>
-                    </div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3>Lancement & Tests</h3>
-                        <p class="step-description">
-                            On met votre application en ligne et on la teste avec vos premiers utilisateurs. 
-                            On corrige, on ajuste, on optimise.
-                        </p>
-                        <ul class="step-deliverables">
-                            <li>Mise en production sécurisée</li>
-                            <li>Tests utilisateurs</li>
-                            <li>Corrections et optimisations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="process-step reveal" data-step="4">
-                    <div class="step-number">
-                        <span>04</span>
-                    </div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Amélioration Continue</h3>
-                        <p class="step-description">
-                            Selon les retours utilisateurs et vos objectifs business, on fait évoluer votre application. <br>
-                            Nouvelles fonctionnalités, optimisations, évolutivité.
-                        </p>
-                        <ul class="step-deliverables">
-                            <li>Évolutions basées sur les données</li>
-                            <li>Support technique continu</li>
-                            <li>Conseils stratégiques</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="process-result reveal">
-                <div class="result-content">
-                    <h3>Résultat ?</h3>
-                    <p>Une application qui marche, qui plaît à vos utilisateurs, et qui grandit avec votre business. 😊</p>
-                </div>
-            </div>
-            
-            <div class="process-cta reveal" style="text-align: center; margin-top: 3rem;">
-                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Ce processus vous inspire confiance ?</h3>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-handshake"></i> Démarrons ensemble
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Section Certifications -->
     <section class="certifications-section" id="certifications">
         <div class="container">
             <div class="section-header reveal">
                 <p class="section-subtitle">My Credentials</p>
-                <h2 class="section-title">Professional <span>Certifications</span></h2>
+                <h2 class="section-title" data-translate="nav-certifications">Professional <span>Certifications</span></h2>
             </div>
 
             <div class="certifications-container reveal">
@@ -3571,186 +3265,19 @@
         </div>
     </section>
 
-    <!-- Section Services
-   <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Mes Offres</p>
-                <h2 class="section-title">Comment je peux vous aider <span>concrètement</span></h2>
-                <p class="section-description">
-                    Trois façons de travailler ensemble, selon où vous en êtes :
-                </p>
-            </div>
-
-            <div class="services-grid reveal" data-reveal-group>
-                <div class="service-card reveal">
-                    <div class="service-badge">
-                        <span>Idéal pour commencer</span>
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Atelier Cadrage Stratégique</h3>
-                        <p class="service-subtitle">De votre idée à un plan d'action technique</p>
-                        <p class="service-description">
-                            Parfait si vous voulez y voir clair avant de vous lancer. En 6 heures, on transforme votre idée en roadmap concrète avec budget et délais.
-                        </p>
-                        <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> 2 séances de 3h pour clarifier votre vision</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Analyse de faisabilité</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Roadmap détaillée avec budget et délais</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Document de spécifications complet</span>
-                        </div>
-                        <div class="service-price">
-                            <span class="price-amount">75 000 FCFA</span>
-                            <span class="price-duration">2 séances unique</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card reveal featured">
-                    <div class="service-badge featured">
-                        <span>Le plus populaire</span>
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Développement MVP</h3>
-                        <p class="service-subtitle">Votre première version en 60 jours max</p>
-                        <p class="service-description">
-                            Idéal pour valider votre concept rapidement. Une application fonctionnelle avec les features essentielles, prête à conquérir vos premiers utilisateurs.
-                        </p>
-                        <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> Application fonctionnelle</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Tests et mise en ligne inclus</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Formation pour administrer votre app</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> 1 mois de support post-lancement</span>
-                        </div>
-                        <div class="service-price">
-                            <span class="price-amount">550 000 FCFA</span>
-                            <span class="price-duration">peut varier en fonction du projet</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-badge">
-                        <span>Pour croître sereinement</span>
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Partenariat Technique Long Terme</h3>
-                        <p class="service-subtitle">Votre CTO à temps partagé</p>
-                        <p class="service-description">
-                            Parfait pour une croissance sereine et maîtrisée. Je deviens votre directeur technique et fais évoluer votre application au rythme de votre business.
-                        </p>
-                        <div class="service-features">
-                            <span class="service-feature"><i class="fas fa-check"></i> Développement et évolution de votre application</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Conseil stratégique technique mensuel</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Maintenance et optimisations continues</span>
-                            <span class="service-feature"><i class="fas fa-check"></i> Support prioritaire</span>
-                        </div>
-                        <div class="service-price">
-                            <span class="price-amount">150 000 FCFA</span>
-                            <span class="price-duration">par mois</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-guarantee reveal">
-                <div class="guarantee-content">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Garantie propriété</h3>
-                    <p>Quel que soit votre choix, vous gardez 100% de la propriété de votre code et de vos données.</p>
-                </div>
-            </div>
-            
-            <div class="services-cta reveal" style="text-align: center; margin-top: 3rem;">
-                <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Quelle approche correspond le mieux à votre situation ?</h3>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-calendar-check"></i> Réservons un échange
-                    </a>
-                    <a href="mailto:djoko.dev.pro@gmail.com" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i> Écrivez-moi directement
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>  -->
-
-    <!-- Section Projets -->
-    
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Cas client récent</p>
-                <h2 class="section-title">Projet <span>AquaCare</span></h2>
-            </div>
-            
-            <!-- Cas client AquaCare -->
-            <div class="case-study-card reveal">
-                <div class="case-study-header">
-                    <div class="client-info">
-                        <h3>🐟 AquaCare</h3>
-                        <p class="client-name">Pour MAVECAM</p>
-                    </div>
-                    <div class="project-status">
-                        <span class="status-badge active">En cours</span>
-                    </div>
-                </div>
-                
-                <div class="case-study-content">
-                    <div class="project-context">
-                        <h4>Le défi</h4>
-                        <p>Dans le cadre de son modèle de fidélisation client, MAVECAM souhaite développer une application mobile dénommée AquaCare, destinée aux petits et moyens aquaculteurs. 
-
-                            L’application doit permettre un suivi technique et économique de la production piscicole, faciliter la commande d’intrants, offrir un accompagnement à distance, et renforcer la relation client via un écosystème numérique intégré</p>
-                    </div>
-                    
-                    
-                    <div class="project-results">
-                        <h4>Impact</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <strong>🎯</strong>
-                                <span>Digitalisation du secteur aquacole</span>
-                            </div>
-                            <div class="result-item">
-                                <strong>📈</strong>
-                                <span>Accompagnement personnalisé des éleveurs</span>
-                            </div>
-                            <div class="result-item">
-                                <strong>🤝</strong>
-                                <span>Renforcement de la relation MAVECAM/clients</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
+   
     <!-- Section Contact -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-subtitle">Prêt à transformer votre idée en réalité ?</p>
-                <h2 class="section-title">Démarrons votre <span>projet</span> ensemble</h2>
+                <h2 class="section-title" data-translate="contact-title">Développons vos <span>API FinTech</span> ensemble</h2>
             </div>
 
             <div class="contact-container reveal">
                 <div class="contact-info">
-                    <h3 class="contact-info-title">Pourquoi m'appeler ?</h3>
-                    <p class="contact-info-desc">
-                        Vous avez une idée qui mérite d'exister ? Vous cherchez un partenaire technique de confiance ? 
-                        Discutons-en ! Vous repartirez avec des conseils concrets, même si on ne travaille pas ensemble.
+                    <h3 class="contact-info-title" data-translate="contact-info-title">Besoin d'API FinTech ?</h3>
+                    <p class="contact-info-desc" data-translate="contact-info-desc">
+                        Votre projet fintech nécessite des API robustes et sécurisées ? Vous cherchez un développeur backend Python spécialisé ? Discutons-en ! Je vous donnerai des conseils techniques concrets pour votre projet.
                     </p>
 
                     <div class="contact-details">
@@ -3808,27 +3335,27 @@
                         <input type="hidden" name="_template" value="table">
                         
                         <div class="form-group">
-                            <label for="name">Votre Prénom</label>
-                            <input type="text" id="name" name="name" placeholder="Comment vous appeler ?" required>
+                            <label for="name" data-translate="name-label">Votre Prénom</label>
+                            <input type="text" id="name" name="name" placeholder="Comment vous appeler ?" data-translate-placeholder="name-placeholder" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Votre Email</label>
-                            <input type="email" id="email" name="email" placeholder="Pour vous recontacter" required>
+                            <label for="email" data-translate="email-label">Votre Email</label>
+                            <input type="email" id="email" name="email" placeholder="Pour vous recontacter" data-translate-placeholder="email-placeholder" required>
                         </div>
 
                         <div class="form-group full-width">
-                            <label for="project">Votre projet en une phrase</label>
-                            <input type="text" id="project" name="project" placeholder="Ex: Une app pour gérer les rendez-vous de mon salon de coiffure" required>
+                            <label for="project" data-translate="project-label">Votre projet FinTech en une phrase</label>
+                            <input type="text" id="project" name="project" placeholder="Ex: Une API de paiement pour ma plateforme e-commerce" data-translate-placeholder="project-placeholder" required>
                         </div>
 
                         <div class="form-group full-width">
-                            <label for="message">Décrivez votre situation</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Où en êtes-vous ? Quels sont vos défis ? Vos objectifs ? (optionnel mais ça m'aide à mieux vous conseiller)" required></textarea>
+                            <label for="message" data-translate="needs-label">Vos besoins techniques</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Quelles intégrations financières ? Quel volume de transactions ? Contraintes de sécurité ? (optionnel mais ça m'aide à mieux vous conseiller)" data-translate-placeholder="needs-placeholder" required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">
-                            <span>Réserver mon créneau gratuit</span>
+                            <span data-translate="submit-btn">Envoyer</span>
                             <i class="fas fa-calendar-alt"></i>
                         </button>
                     </form>
@@ -4371,6 +3898,171 @@
         });
     </script>
 
+    <!-- Système de traduction -->
+    <script>
+        // Dictionnaire de traductions
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-certifications': 'Certifications',
+                'nav-contact': 'Contact',
+                
+                // Section Héro
+                'hero-greeting': 'Hello, je suis',
+                'hero-title': 'Développeur API FinTech',
+                
+                // Sections générales
+                'fintech-expert': 'Votre expert API FinTech Python',
+                'api-services': 'Services API FinTech',
+                'api-development': 'Comment je développe vos API financières ?',
+                'contact-title': 'Développons vos API FinTech ensemble',
+                
+                // Services
+                'api-foundation': 'API Foundation',
+                'integrations': 'Intégrations',
+                'complete-solutions': 'Solutions complètes',
+                'api-architecture-title': 'Architecture API FinTech',
+                'api-architecture-subtitle': 'Conception et développement d\'API sécurisées',
+                'api-architecture-desc': 'Création d\'API REST robustes pour applications financières avec authentification, logging et sécurité avancée.',
+                'financial-integrations-title': 'Intégrations Financières',
+                'financial-integrations-subtitle': 'Connexions aux services de paiement',
+                'financial-integrations-desc': 'Intégration sécurisée avec les plateformes de paiement (Stripe, PayPal, Wave, etc.) et services bancaires.',
+                'backend-solutions-title': 'Solutions Backend Complètes',
+                'backend-solutions-subtitle': 'Infrastructure Python robuste',
+                'backend-solutions-desc': 'Développement complet d\'architectures backend avec bases de données, cache, files d\'attente et microservices.',
+                
+                // Contact
+                'contact-info-title': 'Besoin d\'API FinTech ?',
+                'contact-info-desc': 'Votre projet fintech nécessite des API robustes et sécurisées ? Vous cherchez un développeur backend Python spécialisé ? Discutons-en ! Je vous donnerai des conseils techniques concrets pour votre projet.',
+                'name-label': 'Votre Prénom',
+                'name-placeholder': 'Comment vous appeler ?',
+                'email-label': 'Votre Email',
+                'email-placeholder': 'Pour vous recontacter',
+                'project-label': 'Votre projet FinTech en une phrase',
+                'project-placeholder': 'Ex: Une API de paiement pour ma plateforme e-commerce',
+                'needs-label': 'Vos besoins techniques',
+                'needs-placeholder': 'Quelles intégrations financières ? Quel volume de transactions ? Contraintes de sécurité ? (optionnel mais ça m\'aide à mieux vous conseiller)',
+                'submit-btn': 'Envoyer',
+                'whatsapp-text': 'Discutons par WhatsApp',
+                
+                // Process steps
+                'architecture-design': 'Architecture & Conception',
+                'api-development-step': 'Développement API',
+                'integration-tests': 'Intégration & Tests',
+                'maintenance-evolution': 'Maintenance & Évolution'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-certifications': 'Certifications',
+                'nav-contact': 'Contact',
+                
+                // Section Héro
+                'hero-greeting': 'Hello, I am',
+                'hero-title': 'FinTech API Developer',
+                
+                // Sections générales
+                'fintech-expert': 'Your Python FinTech API Expert',
+                'api-services': 'FinTech API Services',
+                'api-development': 'How do I develop your financial APIs?',
+                'contact-title': 'Let\'s develop your FinTech APIs together',
+                
+                // Services
+                'api-foundation': 'API Foundation',
+                'integrations': 'Integrations',
+                'complete-solutions': 'Complete Solutions',
+                'api-architecture-title': 'FinTech API Architecture',
+                'api-architecture-subtitle': 'Design and development of secure APIs',
+                'api-architecture-desc': 'Creation of robust REST APIs for financial applications with authentication, logging and advanced security.',
+                'financial-integrations-title': 'Financial Integrations',
+                'financial-integrations-subtitle': 'Payment service connections',
+                'financial-integrations-desc': 'Secure integration with payment platforms (Stripe, PayPal, Wave, etc.) and banking services.',
+                'backend-solutions-title': 'Complete Backend Solutions',
+                'backend-solutions-subtitle': 'Robust Python infrastructure',
+                'backend-solutions-desc': 'Complete development of backend architectures with databases, cache, queues and microservices.',
+                
+                // Contact
+                'contact-info-title': 'Need FinTech APIs?',
+                'contact-info-desc': 'Does your fintech project require robust and secure APIs? Looking for a specialized Python backend developer? Let\'s discuss! I\'ll give you concrete technical advice for your project.',
+                'name-label': 'Your First Name',
+                'name-placeholder': 'What should I call you?',
+                'email-label': 'Your Email',
+                'email-placeholder': 'To contact you back',
+                'project-label': 'Your FinTech project in one sentence',
+                'project-placeholder': 'Ex: A payment API for my e-commerce platform',
+                'needs-label': 'Your technical needs',
+                'needs-placeholder': 'Which financial integrations? What transaction volume? Security constraints? (optional but helps me advise you better)',
+                'submit-btn': 'Send',
+                'whatsapp-text': 'Let\'s talk on WhatsApp',
+                
+                // Process steps
+                'architecture-design': 'Architecture & Design',
+                'api-development-step': 'API Development',
+                'integration-tests': 'Integration & Testing',
+                'maintenance-evolution': 'Maintenance & Evolution'
+            }
+        };
+
+        // Variable pour la langue actuelle
+        let currentLanguage = localStorage.getItem('preferredLanguage') || 'fr';
+
+        // Fonction pour traduire la page
+        function translatePage(language) {
+            // Traduire les textes normaux
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+
+            // Traduire les placeholders
+            const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+            placeholderElements.forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[language] && translations[language][key]) {
+                    element.placeholder = translations[language][key];
+                }
+            });
+        }
+
+        // Fonction pour changer la langue
+        function changeLanguage(language) {
+            currentLanguage = language;
+            localStorage.setItem('preferredLanguage', language);
+            
+            // Mettre à jour les boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === language) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Traduire la page
+            translatePage(language);
+            
+            // Mettre à jour la langue du document
+            document.documentElement.lang = language;
+        }
+
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajouter les événements aux boutons de langue
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const language = e.target.dataset.lang;
+                    changeLanguage(language);
+                });
+            });
+            
+            // Appliquer la langue sauvegardée ou par défaut
+            changeLanguage(currentLanguage);
+        });
+    </script>
+
     <!-- Bouton WhatsApp flottant -->
     <div class="whatsapp-float">
         <a href="https://wa.me/237652260368?text=Bonjour%20Christian%2C%20j%27aimerais%20discuter%20de%20mon%20projet%20d%27application" 
@@ -4378,7 +4070,7 @@
            aria-label="Contactez-nous sur WhatsApp"
            class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i>
-            <span class="whatsapp-text">Discutons par WhatsApp</span>
+            <span class="whatsapp-text" data-translate="whatsapp-text">Discutons par WhatsApp</span>
         </a>
     </div>
 </body>

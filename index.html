@@ -2583,6 +2583,221 @@
 
         .project-card:hover {
             border-color: var(--primary-light);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styles complets pour la section Projets */
+        .projects-section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.live {
+            background: linear-gradient(45deg, var(--secondary-color), #22c55e);
+            color: white;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-tagline {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat i {
+            color: var(--primary-light);
+        }
+
+        .project-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .install-command {
+            background: var(--bg-dark);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .install-command code {
+            color: var(--secondary-color);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Coming Soon Card */
+        .project-card.coming-soon {
+            border: 2px dashed var(--border-color);
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .coming-soon-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            text-align: center;
+            height: 300px;
+        }
+
+        .coming-soon-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coming-soon-icon i {
+            font-size: 2rem;
+            color: var(--text-muted);
+            z-index: 3;
+            position: relative;
+        }
+
+        .coming-soon h3 {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon p {
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         /* Mise à jour des styles pour les cartes de compétences */
@@ -3266,6 +3481,87 @@
     </section>
 
    
+    <!-- Section Projets -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title" data-translate="projects-title">Mes <span>Projets</span> FinTech</h2>
+            </div>
+
+            <div class="projects-container reveal">
+                <div class="projects-grid">
+                    <!-- PhoneVerify Cameroon Project -->
+                    <div class="project-card reveal">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-badge live" data-translate="status-live">LIVE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <h3 class="project-title" data-translate="phoneverify-title">PhoneVerify Cameroon</h3>
+                            <p class="project-tagline" data-translate="phoneverify-tagline">Package Python de validation des numéros Mobile Money</p>
+                            
+                            <p class="project-description" data-translate="phoneverify-desc">
+                                Solution au problème des 2,5 milliards FCFA bloqués annuellement à cause des erreurs de validation de numéros mobile money.
+                            </p>
+
+                            <div class="project-features">
+                                <div class="feature-tag" data-translate="feature-prefixes">39 préfixes MTN/Orange</div>
+                                <div class="feature-tag" data-translate="feature-formats">4 formats de validation</div>
+                                <div class="feature-tag" data-translate="feature-performance">< 1ms par validation</div>
+                                <div class="feature-tag" data-translate="feature-opensource">Open Source MIT</div>
+                            </div>
+
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <i class="fab fa-python"></i>
+                                    <span data-translate="tech-python">Python Package</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-download"></i>
+                                    <span data-translate="available-pypi">Disponible sur PyPI</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://github.com/djokodev/PhoneVerify_Cameroon" target="_blank" class="project-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://pypi.org/project/phoneverify-cameroon/" target="_blank" class="project-link" aria-label="PyPI">
+                                    <i class="fas fa-cube"></i>
+                                    <span>PyPI</span>
+                                </a>
+                            </div>
+                            <div class="install-command">
+                                <code>pip install phoneverify-cameroon</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future projects placeholder -->
+                    <div class="project-card coming-soon reveal">
+                        <div class="coming-soon-content">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-plus"></i>
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-ring pulse-ring-delay-1"></div>
+                            </div>
+                            <h3 data-translate="more-projects">9 autres projets</h3>
+                            <p data-translate="coming-soon-text">En cours de développement...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section Contact -->
     <section class="contact-section" id="contact">
         <div class="container">
@@ -3946,6 +4242,21 @@
                 'submit-btn': 'Envoyer',
                 'whatsapp-text': 'Discutons par WhatsApp',
                 
+                // Section Projets
+                'projects-title': 'Mes Projets FinTech',
+                'status-live': 'LIVE',
+                'phoneverify-title': 'PhoneVerify Cameroon',
+                'phoneverify-tagline': 'Package Python de validation des numéros Mobile Money',
+                'phoneverify-desc': 'Solution au problème des 2,5 milliards FCFA bloqués annuellement à cause des erreurs de validation de numéros mobile money.',
+                'feature-prefixes': '39 préfixes MTN/Orange',
+                'feature-formats': '4 formats de validation',
+                'feature-performance': '< 1ms par validation',
+                'feature-opensource': 'Open Source MIT',
+                'tech-python': 'Python Package',
+                'available-pypi': 'Disponible sur PyPI',
+                'more-projects': '9 autres projets API',
+                'coming-soon-text': 'En cours de développement...',
+                
                 // Process steps
                 'architecture-design': 'Architecture & Conception',
                 'api-development-step': 'Développement API',
@@ -3995,6 +4306,21 @@
                 'needs-placeholder': 'Which financial integrations? What transaction volume? Security constraints? (optional but helps me advise you better)',
                 'submit-btn': 'Send',
                 'whatsapp-text': 'Let\'s talk on WhatsApp',
+                
+                // Section Projets
+                'projects-title': 'My FinTech Projects',
+                'status-live': 'LIVE',
+                'phoneverify-title': 'PhoneVerify Cameroon',
+                'phoneverify-tagline': 'Python package for Mobile Money number validation',
+                'phoneverify-desc': 'Solution to the problem of 2.5 billion FCFA blocked annually due to mobile money number validation errors.',
+                'feature-prefixes': '39 MTN/Orange prefixes',
+                'feature-formats': '4 validation formats',
+                'feature-performance': '< 1ms per validation',
+                'feature-opensource': 'Open Source MIT',
+                'tech-python': 'Python Package',
+                'available-pypi': 'Available on PyPI',
+                'more-projects': '9 other API projects',
+                'coming-soon-text': 'Under development...',
                 
                 // Process steps
                 'architecture-design': 'Architecture & Design',

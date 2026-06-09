@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ingénieur Logiciel - Web & Mobile | Remote">
     <meta property="og:description"
-        content="Ingénieur logiciel spécialisé Backend Python/Django. Expert API REST, GraphQL, Docker. Disponible pour missions Remote & International.">
+        content="Ingénieur logiciel spécialisé Backend Python/Django. Expert API REST, GraphQL, Docker. Disponible pour missions">
     <meta property="og:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
     <meta property="og:image:alt" content="Photo de profil de Djoko Christian, Ingénieur Logiciel">
     <meta property="og:url" content="https://djoko-christian.github.io/portfolio/">
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ingénieur Logiciel - Web & Mobile | Remote">
     <meta name="twitter:description"
-        content="Ingénieur logiciel spécialisé Backend Python/Django. Expert API REST, GraphQL, Docker. Disponible pour missions Remote & International.">
+        content="Ingénieur logiciel spécialisé Backend Python/Django. Expert API REST, GraphQL, Docker. Disponible pour missions">
     <meta name="twitter:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
     <meta name="twitter:image:alt" content="Photo de profil de Djoko Christian, Ingénieur Logiciel">
 
@@ -422,7 +422,7 @@
 
         .navbar-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -449,6 +449,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            justify-content: center;
         }
 
         .nav-link {
@@ -925,26 +926,24 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
                 width: 100%;
-                background: var(--bg-card);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                transform: translateY(-150%);
-                transition: var(--transition);
-                border-bottom: 1px solid var(--border-color);
-                z-index: 100;
+                background: transparent;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem 0 0;
+                position: static;
+                transform: none;
+                border-bottom: 0;
+                z-index: auto;
             }
 
             .nav-links.active {
-                transform: translateY(0);
+                transform: none;
             }
 
             .menu-toggle {
-                display: flex;
+                display: none;
             }
 
             .menu-toggle.active span:nth-child(1) {
@@ -3359,6 +3358,286 @@
                 text-align: center;
             }
         }
+
+        /* Styles pour la nouvelle section projets */
+        .portfolio-projects-section {
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-projects-section::before,
+        .portfolio-projects-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(10px);
+        }
+
+        .portfolio-projects-section::before {
+            top: -12rem;
+            right: -8rem;
+            width: 24rem;
+            height: 24rem;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
+        .portfolio-projects-section::after {
+            bottom: -10rem;
+            left: -8rem;
+            width: 22rem;
+            height: 22rem;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
+        .portfolio-projects-shell,
+        .portfolio-projects-intro,
+        .portfolio-projects-grid,
+        .projects-filter {
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-projects-intro .section-description {
+            max-width: 760px;
+        }
+
+        .portfolio-projects-section .projects-filter {
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .portfolio-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 22px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.45);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+        }
+
+        .portfolio-project-cover {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(16, 185, 129, 0.18));
+        }
+
+        .portfolio-project-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1.01);
+            transition: transform 0.45s ease, opacity 0.25s ease;
+        }
+
+        .portfolio-project-card:hover .portfolio-project-cover img {
+            transform: scale(1.06);
+        }
+
+        .portfolio-project-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.2) 60%, rgba(15, 23, 42, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .portfolio-project-badges {
+            position: absolute;
+            inset: 1rem 1rem auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            z-index: 2;
+        }
+
+        .portfolio-project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            backdrop-filter: blur(8px);
+        }
+
+        .portfolio-project-badge.type {
+            background: rgba(99, 102, 241, 0.95);
+            color: white;
+        }
+
+        .portfolio-project-badge.status {
+            margin-left: auto;
+            background: rgba(15, 23, 42, 0.74);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-project-content {
+            padding: 1.4rem 1.4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 1rem;
+        }
+
+        .portfolio-project-title {
+            margin: 0;
+            font-size: 1.25rem;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        .portfolio-project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 6.5em;
+        }
+
+        .portfolio-project-techs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .portfolio-project-tech {
+            padding: 0.34rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid rgba(99, 102, 241, 0.18);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .portfolio-project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .portfolio-project-action {
+            flex: 1 1 170px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.84rem 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .portfolio-project-action.primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            box-shadow: 0 10px 24px rgba(99, 102, 241, 0.22);
+        }
+
+        .portfolio-project-action.secondary {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-project-action:hover {
+            transform: translateY(-2px);
+        }
+
+        .portfolio-project-source {
+            margin-top: 0.35rem;
+        }
+
+        .portfolio-project-source a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .portfolio-project-source a:hover {
+            color: var(--primary-light);
+        }
+
+        .portfolio-projects-grid .is-hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 1024px) {
+            .portfolio-projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-projects-section .projects-filter {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 0.25rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .portfolio-projects-section .projects-filter::-webkit-scrollbar {
+                display: none;
+            }
+
+            .portfolio-projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .portfolio-project-content {
+                padding: 1.2rem;
+            }
+
+            .portfolio-project-action {
+                flex: 1 1 100%;
+            }
+
+            .portfolio-project-description {
+                min-height: auto;
+                -webkit-line-clamp: 5;
+            }
+        }
     </style>
 </head>
 
@@ -3370,11 +3649,8 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container navbar-container">
-            <a href="#" class="logo">DC</a>
-
             <div class="nav-links" id="navLinks">
                 <a href="#home" class="nav-link" data-translate="nav-home">Accueil</a>
-                <a href="#experience" class="nav-link" data-translate="nav-experience">Expérience</a>
                 <a href="#projects" class="nav-link" data-translate="nav-projects">Projets</a>
                 <a href="#certifications" class="nav-link" data-translate="nav-certifications">Certifications</a>
                 <div class="language-switcher">
@@ -3393,11 +3669,12 @@
                     <i class="fas fa-hand-peace"></i> <span data-translate="hero-greeting">Hello, je suis</span>
                 </div>
 
-                <h1 class="hero-title">Djoko Christian<br><span class="highlight"
-                        data-translate="hero-title">Ingénieur Logiciel (Remote)</span></h1>
+                <h1 class="hero-title">Djoko Christian<br><span class="highlight" data-translate="hero-title">Ingénieur
+                        Logiciel</span></h1>
                 <p class="hero-subtitle"
                     style="font-size: 1.2rem; color: var(--primary-light); margin-top: -10px; margin-bottom: 2rem;">
-                    <i class="fas fa-globe-africa"></i> <span data-translate="hero-remote">Disponible pour missions Remote & International</span>
+                    <i class="fas fa-globe-africa"></i> <span data-translate="hero-remote">Disponible pour
+                        missions</span>
                 </p>
 
 
@@ -3444,181 +3721,27 @@
         </div>
     </section>
 
-    <!-- Section Experience -->
-    <section class="experience-section" id="experience" style="padding: 6rem 0; background: var(--bg-dark);">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle" data-translate="exp-subtitle">Expérience</p>
-                <h2 class="section-title" data-translate="experience-title">Expérience <span>Professionnelle</span></h2>
-            </div>
-
-            <!-- Introduction AI-Driven -->
-            <div class="approach-statement reveal" style="margin-bottom: 3rem;">
-                <div class="statement-content">
-                    <h3 data-translate="exp-intro-title"><i class="fas fa-robot" style="color: var(--primary-light); margin-right: 10px;"></i>Développement Augmenté par l'IA</h3>
-                    <p data-translate="exp-intro-desc">J'ai fait évoluer mon expertise technique vers une approche "AI-Driven Development". En intégrant quotidiennement des assistants de codage (Claude Code, Codex, etc.) à mon workflow, je décuple ma productivité et la fiabilité de mes livrables. Je combine ainsi la rigueur traditionnelle à la puissance des outils de nouvelle génération.</p>
-                </div>
-            </div>
-
-            <div class="projects-grid reveal">
-
-                <!-- Freelance Remote -->
-                <div class="project-card reveal">
-                    <div class="project-content">
-                        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1rem;">
-                            <span style="color: var(--text-muted); font-size: 0.9rem;">2024 - Present</span>
-                        </div>
-                        <h3 class="project-title" data-translate="exp-freelance-role">Développeur Backend Remote</h3>
-                        <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 1rem;">Freelance, Côte d'Ivoire</p>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-                                <i class="fas fa-project-diagram" style="color: var(--secondary-color); margin-right: 8px;"></i>
-                                <span data-translate="exp-projects-key">Projets Clés</span>
-                            </h4>
-                            <ul class="skill-details">
-                                <li data-translate="exp-freelance-p1"><strong>Plateforme Collaborative :</strong> Développement d'une API RESTful complète pour une plateforme de gestion de projets informatiques avec suivi des problèmes (ticketing), système de commentaires pour la communication d'équipe, et optimisation des performances via un système de cache Redis.</li>
-                                <li data-translate="exp-freelance-p2"><strong>Plateforme de Streaming Vidéo :</strong> Backend Django permettant la création et gestion de comptes utilisateurs, le téléchargement et visionnage de vidéos animées, avec un système de badges pour récompenser automatiquement les actions des utilisateurs.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="project-tag">Django REST</span>
-                            <span class="project-tag">Redis</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">JWT</span>
-                            <span class="project-tag">Postman</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Clarans Afrique -->
-                <div class="project-card reveal">
-                    <div class="project-content">
-                        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1rem;">
-                            <span style="color: var(--text-muted); font-size: 0.9rem;">2023 - 2024</span>
-                        </div>
-                        <h3 class="project-title" data-translate="exp-clarans-role">Développeur Backend</h3>
-                        <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 1rem;">Clarans Afrique</p>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-                                <i class="fas fa-university" style="color: var(--primary-color); margin-right: 8px;"></i>
-                                <span data-translate="exp-clarans-projects">Projets FinTech & CMS</span>
-                            </h4>
-                            <ul class="skill-details">
-                                <li data-translate="exp-clarans-p1"><strong>Odoyapi (FinTech) :</strong> Développement et maintenance d'une plateforme web de gestion de la mutuelle BICEC-USCA. Conception d'une API GraphQL performante sous Python/Django au sein d'une architecture micro-services conteneurisée (Docker). Implémentation de traitements asynchrones (Celery/Redis) et optimisation de bases de données PostgreSQL.</li>
-                                <li data-translate="exp-clarans-p2"><strong>CMS Finexs :</strong> Conception et développement du backend d'un Content Management System sur mesure. Implémentation d'une API REST robuste pour la gestion dynamique des contenus éditoriaux (articles, médias) et des interactions utilisateurs (commentaires).</li>
-                            </ul>
-                        </div>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-                                <i class="fas fa-tools" style="color: var(--primary-color); margin-right: 8px;"></i>
-                                <span data-translate="exp-engineering">Ingénierie & Qualité</span>
-                            </h4>
-                            <ul class="skill-details">
-                                <li data-translate="exp-clarans-e1">Amélioration de la qualité du code via des <strong>tests automatisés (Pytest)</strong> et participation active aux revues de code.</li>
-                                <li data-translate="exp-clarans-e2">Conteneurisation complète avec <strong>Docker</strong> et mise en place de pipelines <strong>CI/CD</strong>.</li>
-                                <li data-translate="exp-clarans-e3">Méthodologie <strong>Agile</strong> : Sprints, revues de code rigoureuses, documentation technique exhaustive.</li>
-                            </ul>
-                        </div>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-                                <i class="fas fa-chalkboard-teacher" style="color: var(--primary-color); margin-right: 8px;"></i>
-                                <span data-translate="exp-training">Formation & Conduite du Changement</span>
-                            </h4>
-                            <ul class="skill-details">
-                                <li data-translate="exp-clarans-t1">Conception intégrale de supports de formation interactifs pour le déploiement de l'outil de gestion de la Mutuelle (approche différenciée membres/administrateurs).</li>
-                                <li data-translate="exp-clarans-t2">Animation de sessions présentielles et conduite du changement pour garantir une adoption fluide par les utilisateurs finaux.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="project-tag">GraphQL</span>
-                            <span class="project-tag">Micro-services</span>
-                            <span class="project-tag">Docker</span>
-                            <span class="project-tag">Celery</span>
-                            <span class="project-tag">Pytest</span>
-                            <span class="project-tag">CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AquaCare -->
-                <div class="project-card reveal">
-                    <div class="project-content">
-                        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1rem;">
-                            <span style="color: var(--text-muted); font-size: 0.9rem;">2023 - Present</span>
-                        </div>
-                        <h3 class="project-title" data-translate="exp-aquacare-role">Co-fondateur & Tech Lead</h3>
-                        <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 1rem;">AquaCare</p>
-
-                        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-style: italic;" data-translate="exp-aquacare-intro">
-                            Startup dédiée à la digitalisation de l'aquaculture africaine, visant à optimiser la rentabilité des exploitations piscicoles en Afrique.
-                        </p>
-
-                        <div style="margin-bottom: 1.5rem;">
-                            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-                                <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                <span data-translate="exp-aquacare-resp">Responsabilités</span>
-                            </h4>
-                            <ul class="skill-details">
-                                <li data-translate="exp-aquacare-r1">Conception de l'architecture technique et des algorithmes d'aide à la décision (plans de nourrissage, suivi du FCR, etc.).</li>
-                                <li data-translate="exp-aquacare-r2">Pilotage de la stratégie produit en collaboration directe avec des experts du domaine pour transformer des besoins métier complexes en une solution technologique intuitive.</li>
-                                <li data-translate="exp-aquacare-r3">Construction d'une architecture scalable et "AI-Driven" pour le traitement des données aquacoles.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="project-tag">Entrepreneurship</span>
-                            <span class="project-tag">Agrotech</span>
-                            <span class="project-tag">Product Strategy</span>
-                            <span class="project-tag">AI/ML</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projets GitHub -->
-    <section class="projects-section" id="projects" style="padding: 6rem 0;">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle" data-translate="projects-subtitle">Open Source</p>
+    <!-- Section Projets -->
+    <section class="projects-section portfolio-projects-section" id="projects" style="padding: 6rem 0;">
+        <div class="container portfolio-projects-shell">
+            <div class="section-header reveal portfolio-projects-intro">
+                <p class="section-subtitle" data-translate="projects-subtitle">Portfolio</p>
                 <h2 class="section-title" data-translate="projects-title">Mes <span>Projets</span></h2>
-                <p class="section-description" data-translate="projects-desc">Découvrez mes projets publics sur GitHub. Code source disponible pour consultation et collaboration.</p>
             </div>
 
-            <div class="reveal" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-                <!-- GitHub Profile Card -->
-                <div class="project-card" style="max-width: 600px; width: 100%; text-align: center; padding: 3rem 2rem;">
-                    <div style="margin-bottom: 2rem;">
-                        <i class="fab fa-github" style="font-size: 4rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);" data-translate="github-profile">Profil GitHub</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;" data-translate="github-desc">Retrouvez tous mes projets, contributions et code source sur mon profil GitHub.</p>
-                    </div>
-
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem 1.5rem; border-radius: 10px; border: 1px solid rgba(99, 102, 241, 0.2);">
-                            <i class="fas fa-code" style="color: var(--primary-light); margin-right: 0.5rem;"></i>
-                            <span style="color: var(--text-primary);" data-translate="github-backend">Backend APIs</span>
-                        </div>
-                        <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem 1.5rem; border-radius: 10px; border: 1px solid rgba(16, 185, 129, 0.2);">
-                            <i class="fab fa-python" style="color: var(--secondary-color); margin-right: 0.5rem;"></i>
-                            <span style="color: var(--text-primary);">Python/Django</span>
-                        </div>
-                    </div>
-
-                    <a href="https://github.com/djokodev" target="_blank" class="btn btn-primary hover-lift" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                        <i class="fab fa-github" style="margin-right: 0.5rem;"></i>
-                        <span data-translate="github-cta">Voir mes projets sur GitHub</span>
-                    </a>
-                </div>
+            <div class="projects-filter reveal" role="tablist" aria-label="Filtres projets">
+                <button type="button" class="project-filter active" data-filter="all"
+                    data-translate="projects-all">Tous</button>
+                <button type="button" class="project-filter" data-filter="sites"
+                    data-translate="projects-sites">Sites vitrines</button>
+                <button type="button" class="project-filter" data-filter="mobile"
+                    data-translate="projects-mobile">Application mobile</button>
+                <button type="button" class="project-filter" data-filter="api" data-translate="projects-api">API</button>
+                <button type="button" class="project-filter" data-filter="django"
+                    data-translate="projects-django">Django</button>
             </div>
+
+            <div class="portfolio-projects-grid reveal" id="projectsGrid" aria-live="polite"></div>
         </div>
     </section>
 
@@ -3637,7 +3760,7 @@
                     <!-- Python -->
                     <div class="tech-cert-card reveal">
                         <div class="tech-cert-header">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"
+                            <img src="python-logo.png"
                                 alt="Python" class="tech-cert-logo">
                         </div>
                         <div class="tech-cert-content">
@@ -3797,14 +3920,9 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <a href="#" class="logo">DC</a>
                 <p>&copy; <span id="currentYear"></span> All Rights Reserved.</p>
             </div>
         </div>
-
-        <a href="#home" class="back-to-top" id="backToTop">
-            <i class="fas fa-arrow-up"></i>
-        </a>
     </footer>
 
     <script src="https://agorasafe.com/api/ai-agent/cm9skk9x40008mo38wamvwgn8/embed" defer></script>
@@ -3998,18 +4116,20 @@
             });
 
             // Gestion du menu mobile
-            menuToggle.addEventListener('click', function () {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Fermer le menu mobile lors du clic sur un lien
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function () {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function () {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
                 });
-            });
+
+                // Fermer le menu mobile lors du clic sur un lien
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function () {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
 
             // Défilement fluide vers les ancres
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -4099,14 +4219,16 @@
         document.addEventListener('DOMContentLoaded', function () {
             const backToTopButton = document.getElementById('backToTop');
 
-            // Afficher/masquer le bouton en fonction du défilement
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
+            if (backToTopButton) {
+                // Afficher/masquer le bouton en fonction du défilement
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+            }
 
             // Script pour le slider de certifications
             const certSlider = document.querySelector('.certifications-slider');
@@ -4243,58 +4365,23 @@
             fr: {
                 // Navigation
                 'nav-home': 'Accueil',
-                'nav-experience': 'Expérience',
                 'nav-projects': 'Projets',
                 'nav-certifications': 'Certifications',
 
                 // Section Héro
                 'hero-greeting': 'Hello, je suis',
-                'hero-title': 'Ingénieur Logiciel (Remote)',
-                'hero-remote': 'Disponible pour missions Remote & International',
+                'hero-title': 'Ingénieur Logiciel',
+                'hero-remote': 'Disponible pour missions',
                 'download-cv': 'Télécharger mon CV',
 
-                // Expérience - Intro
-                'exp-subtitle': 'Expérience',
-                'experience-title': 'Expérience <span>Professionnelle</span>',
-                'exp-intro-title': 'Développement Augmenté par l\'IA',
-                'exp-intro-desc': 'J\'ai fait évoluer mon expertise technique vers une approche "AI-Driven Development". En intégrant quotidiennement des assistants de codage (Claude Code, Codex, etc.) à mon workflow, je décuple ma productivité et la fiabilité de mes livrables. Je combine ainsi la rigueur traditionnelle à la puissance des outils de nouvelle génération.',
-
-                // Expérience - Freelance
-                'remote-badge': 'REMOTE',
-                'exp-freelance-role': 'Développeur Backend Remote',
-                'exp-projects-key': 'Projets Clés',
-                'exp-freelance-p1': '<strong>Plateforme Collaborative :</strong> Développement d\'une API RESTful complète pour une plateforme de gestion de projets informatiques avec suivi des problèmes (ticketing), système de commentaires pour la communication d\'équipe, et optimisation des performances via un système de cache Redis.',
-                'exp-freelance-p2': '<strong>Plateforme de Streaming Vidéo :</strong> Backend Django permettant la création et gestion de comptes utilisateurs, le téléchargement et visionnage de vidéos animées, avec un système de badges pour récompenser automatiquement les actions des utilisateurs.',
-                'exp-stack-methods': 'Stack & Méthodes',
-                'exp-freelance-m1': 'Authentification sécurisée avec <strong>JWT</strong> et documentation claire via <strong>Postman</strong>.',
-                'exp-freelance-m2': 'Collaboration asynchrone quotidienne : <strong>Git</strong>, <strong>Jira</strong>, respect strict des délais.',
-                'exp-freelance-m3': 'Code "AI-Ready" : Documentation claire pour faciliter l\'intégration avec les agents IA.',
-
-                // Expérience - Clarans
-                'exp-clarans-role': 'Développeur Backend',
-                'exp-clarans-projects': 'Projets FinTech & CMS',
-                'exp-clarans-p1': '<strong>Odoyapi (FinTech) :</strong> Développement et maintenance d\'une plateforme web de gestion de la mutuelle BICEC-USCA. Conception d\'une API GraphQL performante sous Python/Django au sein d\'une architecture micro-services conteneurisée (Docker). Implémentation de traitements asynchrones (Celery/Redis) et optimisation de bases de données PostgreSQL.',
-                'exp-clarans-p2': '<strong>CMS Finexs :</strong> Conception et développement du backend d\'un Content Management System sur mesure. Implémentation d\'une API REST robuste pour la gestion dynamique des contenus éditoriaux (articles, médias) et des interactions utilisateurs (commentaires).',
-                'exp-engineering': 'Ingénierie & Qualité',
-                'exp-clarans-e1': 'Amélioration de la qualité du code via des <strong>tests automatisés (Pytest)</strong> et participation active aux revues de code.',
-                'exp-clarans-e2': 'Conteneurisation complète avec <strong>Docker</strong> et mise en place de pipelines <strong>CI/CD</strong>.',
-                'exp-clarans-e3': 'Méthodologie <strong>Agile</strong> : Sprints, revues de code rigoureuses, documentation technique exhaustive.',
-                'exp-training': 'Formation & Conduite du Changement',
-                'exp-clarans-t1': 'Conception intégrale de supports de formation interactifs pour le déploiement de l\'outil de gestion de la Mutuelle (approche différenciée membres/administrateurs).',
-                'exp-clarans-t2': 'Animation de sessions présentielles et conduite du changement pour garantir une adoption fluide par les utilisateurs finaux.',
-
-                // Expérience - AquaCare
-                'exp-aquacare-role': 'Co-fondateur & Tech Lead',
-                'exp-aquacare-intro': 'Startup dédiée à la digitalisation de l\'aquaculture africaine, visant à optimiser la rentabilité des exploitations piscicoles en Afrique.',
-                'exp-aquacare-resp': 'Responsabilités',
-                'exp-aquacare-r1': 'Conception de l\'architecture technique et des algorithmes d\'aide à la décision (plans de nourrissage, suivi du FCR, etc.).',
-                'exp-aquacare-r2': 'Pilotage de la stratégie produit en collaboration directe avec des experts du domaine pour transformer des besoins métier complexes en une solution technologique intuitive.',
-                'exp-aquacare-r3': 'Construction d\'une architecture scalable et "AI-Driven" pour le traitement des données aquacoles.',
-
                 // Section Projets
-                'projects-subtitle': 'Open Source',
+                'projects-subtitle': 'Portfolio',
                 'projects-title': 'Mes <span>Projets</span>',
-                'projects-desc': 'Découvrez mes projets publics sur GitHub. Code source disponible pour consultation et collaboration.',
+                'projects-all': 'Tous',
+                'projects-sites': 'Sites vitrines',
+                'projects-mobile': 'Application mobile',
+                'projects-api': 'API',
+                'projects-django': 'Django',
                 'github-profile': 'Profil GitHub',
                 'github-desc': 'Retrouvez tous mes projets, contributions et code source sur mon profil GitHub.',
                 'github-backend': 'Backend APIs',
@@ -4309,58 +4396,23 @@
             en: {
                 // Navigation
                 'nav-home': 'Home',
-                'nav-experience': 'Experience',
                 'nav-projects': 'Projects',
                 'nav-certifications': 'Certifications',
 
                 // Section Héro
                 'hero-greeting': 'Hello, I am',
-                'hero-title': 'Software Engineer (Remote)',
-                'hero-remote': 'Available for Remote & International Work',
+                'hero-title': 'Software Engineer',
+                'hero-remote': 'Available for Remote Work',
                 'download-cv': 'Download my CV',
 
-                // Expérience - Intro
-                'exp-subtitle': 'Experience',
-                'experience-title': 'Professional <span>Experience</span>',
-                'exp-intro-title': 'AI-Augmented Development',
-                'exp-intro-desc': 'I have evolved my technical expertise towards an "AI-Driven Development" approach. By integrating coding assistants (Claude Code, Codex, etc.) into my daily workflow, I multiply my productivity and the reliability of my deliverables. I combine traditional rigor with the power of next-generation tools.',
-
-                // Expérience - Freelance
-                'remote-badge': 'REMOTE',
-                'exp-freelance-role': 'Remote Backend Developer',
-                'exp-projects-key': 'Key Projects',
-                'exp-freelance-p1': '<strong>Collaborative Platform:</strong> Development of a complete RESTful API for an IT project management platform with issue tracking (ticketing), team communication comment system, and performance optimization via Redis caching.',
-                'exp-freelance-p2': '<strong>Video Streaming Platform:</strong> Django backend enabling user account creation and management, uploading and viewing animated videos, with a badge system to automatically reward user actions.',
-                'exp-stack-methods': 'Stack & Methods',
-                'exp-freelance-m1': 'Secure authentication with <strong>JWT</strong> and clear documentation via <strong>Postman</strong>.',
-                'exp-freelance-m2': 'Daily asynchronous collaboration: <strong>Git</strong>, <strong>Jira</strong>, strict deadline adherence.',
-                'exp-freelance-m3': 'AI-Ready Code: Clear documentation to facilitate integration with AI agents.',
-
-                // Expérience - Clarans
-                'exp-clarans-role': 'Backend Developer',
-                'exp-clarans-projects': 'FinTech & CMS Projects',
-                'exp-clarans-p1': '<strong>Odoyapi (FinTech):</strong> Development and maintenance of a web platform for managing the BICEC-USCA mutual fund. Design of a high-performance GraphQL API using Python/Django within a containerized micro-services architecture (Docker). Implementation of asynchronous processing (Celery/Redis) and PostgreSQL database optimization.',
-                'exp-clarans-p2': '<strong>CMS Finexs:</strong> Design and development of a custom Content Management System backend. Implementation of a robust REST API for dynamic management of editorial content (articles, media) and user interactions (comments).',
-                'exp-engineering': 'Engineering & Quality',
-                'exp-clarans-e1': 'Code quality improvement through <strong>automated testing (Pytest)</strong> and active participation in code reviews.',
-                'exp-clarans-e2': 'Complete containerization with <strong>Docker</strong> and <strong>CI/CD</strong> pipeline setup.',
-                'exp-clarans-e3': '<strong>Agile</strong> methodology: Sprints, rigorous code reviews, comprehensive technical documentation.',
-                'exp-training': 'Training & Change Management',
-                'exp-clarans-t1': 'Full design of interactive training materials for deploying the Mutual fund management tool (differentiated approach for members/administrators).',
-                'exp-clarans-t2': 'Facilitation of in-person sessions and change management to ensure smooth adoption by end users.',
-
-                // Expérience - AquaCare
-                'exp-aquacare-role': 'Co-Founder & Tech Lead',
-                'exp-aquacare-intro': 'Startup dedicated to digitalizing African aquaculture, aiming to optimize the profitability of fish farms in Africa.',
-                'exp-aquacare-resp': 'Responsibilities',
-                'exp-aquacare-r1': 'Design of technical architecture and decision-support algorithms (feeding plans, FCR tracking, etc.).',
-                'exp-aquacare-r2': 'Product strategy leadership in direct collaboration with domain experts to transform complex business needs into an intuitive technological solution.',
-                'exp-aquacare-r3': 'Building a scalable and "AI-Driven" architecture for aquaculture data processing.',
-
                 // Section Projets
-                'projects-subtitle': 'Open Source',
+                'projects-subtitle': 'Portfolio',
                 'projects-title': 'My <span>Projects</span>',
-                'projects-desc': 'Discover my public projects on GitHub. Source code available for review and collaboration.',
+                'projects-all': 'All',
+                'projects-sites': 'Showcase Sites',
+                'projects-mobile': 'Mobile App',
+                'projects-api': 'API',
+                'projects-django': 'Django',
                 'github-profile': 'GitHub Profile',
                 'github-desc': 'Find all my projects, contributions, and source code on my GitHub profile.',
                 'github-backend': 'Backend APIs',
@@ -4414,6 +4466,10 @@
             // Traduire la page
             translatePage(language);
 
+            if (typeof renderProjects === 'function') {
+                renderProjects(language);
+            }
+
             // Mettre à jour la langue du document
             document.documentElement.lang = language;
         }
@@ -4430,6 +4486,415 @@
 
             // Appliquer la langue sauvegardée ou par défaut
             changeLanguage(currentLanguage);
+        });
+    </script>
+
+    <script>
+        const projectCatalog = [
+            {
+                category: 'sites',
+                title: { fr: 'MRC Programme', en: 'MRC Programme' },
+                description: {
+                    fr: 'Site web de vulgarisation du programme politique de Maurice Kamto pour la présidentielle 2025, conçu pour informer et mobiliser la jeunesse camerounaise.',
+                    en: 'Website presenting Maurice Kamto\'s 2025 presidential program, designed to inform and engage Cameroonian youth.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'mrc_cover.png',
+                coverAlt: { fr: 'Aperçu du site MRC Programme', en: 'MRC Programme website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://mrc-programme.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/SITE-MRC-PROGRAMME-' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'SWAGG', en: 'SWAGG' },
+                description: {
+                    fr: 'Un site e-commerce moderne et élégant pour la boutique Swagg, spécialisée dans les vêtements et accessoires pour femmes.',
+                    en: 'A modern and elegant e-commerce showcase for Swagg, a boutique specializing in women\'s clothing and accessories.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'swagg_cover.png',
+                coverAlt: { fr: 'Aperçu du site SWAGG', en: 'SWAGG website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://swagg-pi.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/Swagg' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'La Biscuiterie', en: 'La Biscuiterie' },
+                description: {
+                    fr: 'Site vitrine pour une jeune entrepreneuse camerounaise, conçu pour présenter sa marque et faciliter les commandes via WhatsApp.',
+                    en: 'Showcase site for a young Cameroonian entrepreneur, designed to present the brand and simplify WhatsApp orders.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'la_biscuiterie_cover.png',
+                coverAlt: { fr: 'Aperçu du site La Biscuiterie', en: 'La Biscuiterie website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://la-biscuiterie.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/La-Biscuiterie' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'Centre Linguistique Russe', en: 'Russian Language Center' },
+                description: {
+                    fr: 'Site vitrine de présentation du Centre linguistique russe de Douala, au Cameroun.',
+                    en: 'Showcase website for the Russian Language Center of Douala, Cameroon.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'centre_linguistique_russe_cover.png',
+                coverAlt: {
+                    fr: 'Aperçu du site Centre Linguistique Russe',
+                    en: 'Russian Language Center website preview',
+                },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://centre-linnguistique-russe.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/Centre-Linnguistique-Russe' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'KHANYA L', en: 'KHANYA L' },
+                description: {
+                    fr: 'Site vitrine d’un institut de beauté à Douala, conçu pour valoriser l’image du salon et ses services.',
+                    en: 'Showcase website for a beauty institute in Douala, designed to highlight the salon\'s image and services.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'Khanya_L.png',
+                coverAlt: { fr: 'Aperçu du site KHANYA L', en: 'KHANYA L website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://khanya-l-salon.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/Khanya-L-Salon' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'THE NAIL STUDIO', en: 'THE NAIL STUDIO' },
+                description: {
+                    fr: 'Site vitrine de présentation d’un institut de beauté à Douala, avec une expérience fluide et orientée conversion.',
+                    en: 'Showcase website for a beauty institute in Douala, with a smooth, conversion-focused experience.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'the_nail_studio_cover.png',
+                coverAlt: { fr: 'Aperçu du site THE NAIL STUDIO', en: 'THE NAIL STUDIO website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://khanya-l-salon-n1fh.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/The-Nail-Studio' },
+            },
+            {
+                category: 'sites',
+                title: { fr: 'B-SHONAILS', en: 'B-SHONAILS' },
+                description: {
+                    fr: 'Site vitrine de présentation d’un spa à Douala, pensé pour inspirer confiance et générer des prises de contact.',
+                    en: 'Showcase site for a spa in Douala, designed to build trust and drive inquiries.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'b_shonails.png',
+                coverAlt: { fr: 'Aperçu du site B-SHONAILS', en: 'B-SHONAILS website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://b-shonails.vercel.app/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/B-SHONAILS' },
+            },
+            {
+                category: 'django',
+                title: { fr: 'Talentzik', en: 'Talentzik' },
+                description: {
+                    fr: 'TalentZik est une plateforme web moderne qui connecte les artistes camerounais aux recruteurs, organisateurs d’événements et passionnés de musique.',
+                    en: 'TalentZik is a modern web platform connecting Cameroonian artists with recruiters, event organizers, and music lovers.',
+                },
+                type: { fr: 'Django', en: 'Django' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'talentzik.png',
+                coverAlt: { fr: 'Aperçu de Talentzik', en: 'Talentzik preview' },
+                tech: ['Python', 'Django', 'Docker', 'HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://talentzik.djokodev.com/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/TalentZik' },
+            },
+            {
+                category: 'django',
+                title: { fr: 'LOGOS', en: 'LOGOS' },
+                description: {
+                    fr: 'Blog personnel centré sur les questions bibliques et spirituelles.',
+                    en: 'Personal blog focused on biblical and spiritual topics.',
+                },
+                type: { fr: 'Django', en: 'Django' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'Logos_cover.png',
+                coverAlt: { fr: 'Aperçu de LOGOS', en: 'LOGOS preview' },
+                tech: ['Python', 'Django', 'Docker', 'HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://logos.djokodev.com/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/logos-blog' },
+            },
+            {
+                category: 'django',
+                title: { fr: 'Invoice Generator', en: 'Invoice Generator' },
+                description: {
+                    fr: 'Application web Django qui simplifie la création de devis, la gestion des clients et la génération de factures PDF professionnelles.',
+                    en: 'A Django web app that simplifies quotations, client management, and the generation of professional PDF invoices.',
+                },
+                type: { fr: 'Django', en: 'Django' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'invoce_generator.png',
+                coverAlt: { fr: 'Aperçu d\'Invoice Generator', en: 'Invoice Generator preview' },
+                tech: ['Python', 'Django', 'Docker', 'HTML', 'CSS', 'Shell'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://invoices.djokodev.com/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/Invoices-Generetor' },
+            },
+            {
+                category: 'mobile',
+                title: { fr: 'AquaCare', en: 'AquaCare' },
+                description: {
+                    fr: 'Application de gestion piscicole en phase de test, accessible sur iPhone via TestFlight et téléchargeable sur Android via APK.',
+                    en: 'Pisciculture management app in testing, available on iPhone via TestFlight and downloadable on Android as an APK.',
+                },
+                type: { fr: 'Application mobile', en: 'Mobile app' },
+                status: { fr: 'Beta', en: 'Beta' },
+                cover: 'aquacare_cover.jpeg',
+                coverAlt: { fr: 'Aperçu d\'AquaCare', en: 'AquaCare preview' },
+                tech: ['Python', 'Django', 'React Native', 'TypeScript', 'Docker'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Tester sur iPhone', en: 'Test on iPhone' },
+                        href: 'https://testflight.apple.com/join/D6PjzQVh',
+                        icon: 'fab fa-apple',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                    {
+                        label: { fr: 'Télécharger APK', en: 'Download APK' },
+                        href: 'AquaCare.apk',
+                        icon: 'fas fa-download',
+                        variant: 'secondary',
+                        download: 'AquaCare.apk',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/AquaCare' },
+            },
+            {
+                category: 'api',
+                title: { fr: 'DevTrack', en: 'DevTrack' },
+                description: {
+                    fr: 'Implémentation d’une API RESTful pour une plateforme collaborative de gestion de projets IT avec suivi des tickets.',
+                    en: 'RESTful API for a collaborative IT project management platform with ticket tracking.',
+                },
+                type: { fr: 'API', en: 'API' },
+                status: { fr: 'Documentation', en: 'Docs' },
+                cover: 'devtrack_cover.png',
+                coverAlt: { fr: 'Aperçu de DevTrack', en: 'DevTrack preview' },
+                tech: ['Python', 'Django', 'Docker'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Voir la documentation', en: 'View docs' },
+                        href: 'https://documenter.getpostman.com/view/30413621/2sA3XPDi2v',
+                        icon: 'fas fa-book-open',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+                source: { href: 'https://github.com/djokodev/devTrack' },
+            },
+        ];
+
+        let activeProjectFilter = 'all';
+        const projectCategoryOrder = {
+            mobile: 0,
+            api: 1,
+            django: 2,
+            sites: 3,
+        };
+
+        function buildProjectAction(action, language) {
+            const targetAttr = action.target ? ` target="${action.target}" rel="noopener noreferrer"` : '';
+            const downloadAttr = action.download ? ` download="${action.download}"` : '';
+
+            return `
+                <a href="${action.href}" class="portfolio-project-action ${action.variant}"${targetAttr}${downloadAttr}>
+                    <i class="${action.icon}"></i>
+                    <span>${action.label[language]}</span>
+                </a>
+            `;
+        }
+
+        function renderProjects(language) {
+            const grid = document.getElementById('projectsGrid');
+
+            if (!grid) {
+                return;
+            }
+
+            const orderedProjects = [...projectCatalog].sort((left, right) => {
+                const leftOrder = projectCategoryOrder[left.category] ?? 99;
+                const rightOrder = projectCategoryOrder[right.category] ?? 99;
+
+                if (leftOrder !== rightOrder) {
+                    return leftOrder - rightOrder;
+                }
+
+                return 0;
+            });
+
+            grid.innerHTML = orderedProjects.map(project => `
+                <article class="portfolio-project-card" data-project-card data-category="${project.category}">
+                    <div class="portfolio-project-cover">
+                        <img
+                            src="${project.cover}"
+                            alt="${project.coverAlt[language]}"
+                            loading="lazy"
+                            decoding="async"
+                            onerror="this.style.display='none';"
+                        >
+                        <div class="portfolio-project-badges">
+                            <span class="portfolio-project-badge type">${project.type[language]}</span>
+                            <span class="portfolio-project-badge status">${project.status[language]}</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <h3 class="portfolio-project-title">${project.title[language]}</h3>
+                        <p class="portfolio-project-description">${project.description[language]}</p>
+                        <div class="portfolio-project-techs">
+                            ${project.tech.map(tech => `<span class="portfolio-project-tech">${tech}</span>`).join('')}
+                        </div>
+                        <div class="portfolio-project-actions">
+                            ${project.primaryActions.map(action => buildProjectAction(action, language)).join('')}
+                        </div>
+                        <div class="portfolio-project-source">
+                            <a href="${project.source.href}" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            applyProjectFilter(activeProjectFilter);
+        }
+
+        function applyProjectFilter(filter) {
+            const cards = document.querySelectorAll('[data-project-card]');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const isVisible = filter === 'all' || card.dataset.category === filter;
+                card.classList.toggle('is-hidden', !isVisible);
+
+                if (isVisible) {
+                    visibleCount += 1;
+                }
+            });
+
+            const emptyState = document.getElementById('projectsEmptyState');
+            if (emptyState) {
+                emptyState.hidden = visibleCount > 0;
+            }
+        }
+
+        function syncProjectFilterButtons(filter) {
+            document.querySelectorAll('.project-filter').forEach(button => {
+                const isActive = button.dataset.filter === filter;
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.project-filter');
+
+            filterButtons.forEach(button => {
+                button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false');
+
+                button.addEventListener('click', function () {
+                    activeProjectFilter = this.dataset.filter || 'all';
+                    syncProjectFilterButtons(activeProjectFilter);
+                    applyProjectFilter(activeProjectFilter);
+                });
+            });
+
+            renderProjects(currentLanguage);
         });
     </script>
 

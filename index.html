@@ -4493,6 +4493,28 @@
         const projectCatalog = [
             {
                 category: 'sites',
+                title: { fr: 'Clarans Afrique', en: 'Clarans Afrique' },
+                description: {
+                    fr: 'Site vitrine de Clarans Afrique, l’entreprise pour laquelle j’ai travaillé pendant plus d’un an, présenté ici comme l’un des projets réalisés pendant cette collaboration.',
+                    en: 'Showcase website for Clarans Afrique, the company I worked with for over a year, featured here as one of the projects delivered during that collaboration.',
+                },
+                type: { fr: 'Site vitrine', en: 'Showcase site' },
+                status: { fr: 'En ligne', en: 'Live' },
+                cover: 'clarans_afrique_cover.png',
+                coverAlt: { fr: 'Aperçu du site Clarans Afrique', en: 'Clarans Afrique website preview' },
+                tech: ['HTML', 'CSS', 'JavaScript'],
+                primaryActions: [
+                    {
+                        label: { fr: 'Visiter le site', en: 'Visit site' },
+                        href: 'https://claransafrique.com/',
+                        icon: 'fas fa-external-link-alt',
+                        variant: 'primary',
+                        target: '_blank',
+                    },
+                ],
+            },
+            {
+                category: 'sites',
                 title: { fr: 'MRC Programme', en: 'MRC Programme' },
                 description: {
                     fr: 'Site web de vulgarisation du programme politique de Maurice Kamto pour la présidentielle 2025, conçu pour informer et mobiliser la jeunesse camerounaise.',
@@ -4829,7 +4851,6 @@
                         >
                         <div class="portfolio-project-badges">
                             <span class="portfolio-project-badge type">${project.type[language]}</span>
-                            <span class="portfolio-project-badge status">${project.status[language]}</span>
                         </div>
                     </div>
                     <div class="portfolio-project-content">
@@ -4841,12 +4862,14 @@
                         <div class="portfolio-project-actions">
                             ${project.primaryActions.map(action => buildProjectAction(action, language)).join('')}
                         </div>
-                        <div class="portfolio-project-source">
-                            <a href="${project.source.href}" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
+                        ${project.source?.href ? `
+                            <div class="portfolio-project-source">
+                                <a href="${project.source.href}" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        ` : ''}
                     </div>
                 </article>
             `).join('');

@@ -96,16 +96,16 @@
         ------------------------------------------------------------- */
         :root {
             color-scheme: light;
-            --bg-color: #ffffff;
+            --bg-color: #ece6da;
             --text-color: #111111;
             --text-muted: #555555;
-            --border-color: #d0d7de;
-            --card-bg: #ffffff;
+            --border-color: #cfc5b5;
+            --card-bg: #f8f5ed;
             --accent-color: #d32f2f; /* Java Red */
             --accent-hover: #b71c1c;
-            --accent-bg: #fff5f5;
-            --header-bg: #ffffff;
-            --code-bg: #f6f8fa;
+            --accent-bg: #f8e9e5;
+            --header-bg: #f1ece2;
+            --code-bg: #e5ded1;
             --shadow-style: none;
         }
 
@@ -131,7 +131,11 @@
 
         body {
             background-color: var(--bg-color) !important;
-            background-image: none !important;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(120, 91, 50, 0.055) 0 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(120, 91, 50, 0.04) 0 1px, transparent 1px),
+                repeating-linear-gradient(0deg, rgba(120, 91, 50, 0.018) 0, rgba(120, 91, 50, 0.018) 1px, transparent 1px, transparent 4px) !important;
+            background-size: 17px 17px, 23px 23px, auto !important;
             color: var(--text-color);
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
@@ -716,7 +720,7 @@
     <nav class="navbar">
         <div class="container navbar-container">
             <a href="#home" class="brand-logo">
-                <i class="fab fa-java"></i> Djoko Christian
+                Djoko Christian
             </a>
 
             <div class="nav-links" id="navLinks">
@@ -1067,28 +1071,6 @@
             },
             {
                 category: 'sites',
-                title: { fr: 'APP Sarl', en: 'APP Sarl' },
-                description: {
-                    fr: 'Site vitrine bilingue de l’agence technique polyvalente APP Sarl à Douala, présentant ses services techniques et industriels.',
-                    en: 'Bilingual showcase website for APP Sarl, presenting its technical and industrial services.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'app_sarl_cover.webp',
-                coverAlt: { fr: 'Aperçu APP Sarl', en: 'APP Sarl preview' },
-                tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://app-sarl.vercel.app/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/APP-Sarl' },
-            },
-            {
-                category: 'sites',
                 title: { fr: 'Clarans Afrique', en: 'Clarans Afrique' },
                 description: {
                     fr: 'Site vitrine de Clarans Afrique, l’entreprise pour laquelle j’ai travaillé pendant plus d’un an.',
@@ -1107,50 +1089,6 @@
                         target: '_blank',
                     },
                 ],
-            },
-            {
-                category: 'sites',
-                title: { fr: 'MRC Programme', en: 'MRC Programme' },
-                description: {
-                    fr: 'Site web de présentation du programme politique pour la présidentielle 2025.',
-                    en: 'Website presenting the 2025 presidential program.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'mrc_cover.webp',
-                coverAlt: { fr: 'Aperçu MRC Programme', en: 'MRC Programme preview' },
-                tech: ['HTML', 'CSS', 'JavaScript'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://mrc-programme.vercel.app/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/SITE-MRC-PROGRAMME-' },
-            },
-            {
-                category: 'sites',
-                title: { fr: 'SWAGG', en: 'SWAGG' },
-                description: {
-                    fr: 'Un site e-commerce élégant pour la boutique Swagg, spécialisée dans les vêtements pour femmes.',
-                    en: 'An e-commerce showcase site for the Swagg fashion boutique.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'swagg_cover.webp',
-                coverAlt: { fr: 'Aperçu SWAGG', en: 'SWAGG preview' },
-                tech: ['HTML', 'CSS', 'JavaScript'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://swagg-pi.vercel.app/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/Swagg' },
             },
             {
                 category: 'django',
@@ -1195,28 +1133,6 @@
                     },
                 ],
                 source: { href: 'https://github.com/djokodev/logos-blog' },
-            },
-            {
-                category: 'django',
-                title: { fr: 'Invoice Generator', en: 'Invoice Generator' },
-                description: {
-                    fr: 'Application web Django simplifiant la création de devis, gestion clients et factures PDF.',
-                    en: 'Django web application simplifying quotes, client management, and PDF invoices.',
-                },
-                type: { fr: 'Django', en: 'Django' },
-                cover: 'invoce_generator.webp',
-                coverAlt: { fr: 'Aperçu Invoice Generator', en: 'Invoice Generator preview' },
-                tech: ['Python', 'Django', 'Docker', 'PDF Generator'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://invoices.djokodev.com/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/Invoices-Generetor' },
             },
             {
                 category: 'api',

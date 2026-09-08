@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Contacts API</title>
+  <desc id="desc">Spring Boot REST API CRUD project cover</desc>
+  <rect width="1200" height="675" fill="#f6f8fa"/>
+  <rect x="72" y="72" width="1056" height="531" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="4"/>
+  <rect x="72" y="72" width="1056" height="74" rx="8" fill="#d32f2f"/>
+  <circle cx="116" cy="109" r="12" fill="#ffffff" opacity=".9"/>
+  <circle cx="156" cy="109" r="12" fill="#ffffff" opacity=".65"/>
+  <circle cx="196" cy="109" r="12" fill="#ffffff" opacity=".4"/>
+  <text x="116" y="260" fill="#111111" font-family="monospace" font-size="54" font-weight="700">Contacts API</text>
+  <text x="116" y="330" fill="#555555" font-family="monospace" font-size="30">Spring Boot / REST / CRUD</text>
+  <path d="M116 414h250M116 470h430M116 526h330" stroke="#d32f2f" stroke-width="14" stroke-linecap="round"/>
+  <text x="1000" y="548" fill="#d32f2f" font-family="monospace" font-size="28" text-anchor="end">JAVA</text>
+</svg>

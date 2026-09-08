@@ -90,7 +90,7 @@
     <style>
         /* -------------------------------------------------------------
            Style Retro Minimaliste "À l'ancienne" (Early 2000s Clean Web)
-           Mode Clair : Fond Blanc Pur (#ffffff), Texte Noir (#111111)
+           Mode Clair : Fond papier ivoire, Texte Noir (#111111)
            Mode Sombre : Fond Sombre (#121212), Texte Clair (#f0f0f0)
            Accents Java Red (#d32f2f) & Bordures Nettes (Sans dégradés)
         ------------------------------------------------------------- */
@@ -132,15 +132,25 @@
         body {
             background-color: var(--bg-color) !important;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(120, 91, 50, 0.055) 0 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, rgba(120, 91, 50, 0.04) 0 1px, transparent 1px),
-                repeating-linear-gradient(0deg, rgba(120, 91, 50, 0.018) 0, rgba(120, 91, 50, 0.018) 1px, transparent 1px, transparent 4px) !important;
-            background-size: 17px 17px, 23px 23px, auto !important;
+                radial-gradient(circle at 18% 24%, rgba(92, 70, 40, 0.14) 0 1px, transparent 1.5px),
+                radial-gradient(circle at 76% 68%, rgba(92, 70, 40, 0.1) 0 1px, transparent 1.5px),
+                repeating-linear-gradient(0deg, rgba(92, 70, 40, 0.065) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(90deg, rgba(92, 70, 40, 0.028) 0 1px, transparent 1px 8px) !important;
+            background-size: 19px 19px, 31px 31px, auto, auto !important;
+            background-blend-mode: multiply, multiply, multiply, multiply;
             color: var(--text-color);
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             padding-bottom: 3rem;
             transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        html[data-theme="dark"] body {
+            background-image:
+                radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1.5px),
+                radial-gradient(circle at 76% 68%, rgba(255, 255, 255, 0.025) 0 1px, transparent 1.5px),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 8px) !important;
         }
 
         a {
@@ -789,9 +799,9 @@
 
             <div class="projects-filter" role="tablist" aria-label="Filtres projets">
                 <button type="button" class="project-filter active" data-filter="all" data-translate="projects-all">Tous</button>
+                <button type="button" class="project-filter" data-filter="api" data-translate="projects-api">API</button>
                 <button type="button" class="project-filter" data-filter="sites" data-translate="projects-sites">Sites vitrines</button>
                 <button type="button" class="project-filter" data-filter="mobile" data-translate="projects-mobile">Application mobile</button>
-                <button type="button" class="project-filter" data-filter="api" data-translate="projects-api">API</button>
                 <button type="button" class="project-filter" data-filter="django" data-translate="projects-django">Django</button>
             </div>
 
@@ -1050,6 +1060,7 @@
         const projectCatalog = [
             {
                 category: 'mobile',
+                priority: 4,
                 title: { fr: 'AquaCare', en: 'AquaCare' },
                 description: {
                     fr: 'Application mobile intuitive de gestion piscicole conçue pour le suivi, l’optimisation et le contrôle des exploitations aquacoles.',
@@ -1067,10 +1078,18 @@
                         variant: 'primary',
                         target: '_blank',
                     },
+                    {
+                        label: { fr: 'Télécharger l’application Android', en: 'Download Android app' },
+                        href: 'AquaCare.apk',
+                        icon: 'fab fa-android',
+                        variant: 'secondary',
+                        download: true,
+                    },
                 ],
             },
             {
                 category: 'sites',
+                priority: 5,
                 title: { fr: 'Clarans Afrique', en: 'Clarans Afrique' },
                 description: {
                     fr: 'Site vitrine de Clarans Afrique, l’entreprise pour laquelle j’ai travaillé pendant plus d’un an.',
@@ -1092,6 +1111,7 @@
             },
             {
                 category: 'django',
+                priority: 3,
                 title: { fr: 'Talentzik', en: 'Talentzik' },
                 description: {
                     fr: 'Plateforme web connectant les artistes camerounais aux organisateurs d’événements et recruteurs.',
@@ -1114,6 +1134,7 @@
             },
             {
                 category: 'django',
+                priority: 3,
                 title: { fr: 'LOGOS', en: 'LOGOS' },
                 description: {
                     fr: 'Blog personnel et plateforme d’articles spirituels et bibliques.',
@@ -1136,6 +1157,7 @@
             },
             {
                 category: 'api',
+                priority: 1,
                 title: { fr: 'Contacts API', en: 'Contacts API' },
                 description: {
                     fr: 'API REST Spring Boot permettant de gérer des contacts avec les opérations CRUD essentielles.',
@@ -1158,6 +1180,7 @@
             },
             {
                 category: 'api',
+                priority: 1,
                 title: { fr: 'DevTrack', en: 'DevTrack' },
                 description: {
                     fr: 'API RESTful pour une plateforme collaborative de gestion de projets IT avec suivi des tickets.',
@@ -1186,7 +1209,7 @@
             const grid = document.getElementById('projectsGrid');
             if (!grid) return;
 
-            grid.innerHTML = projectCatalog.map(project => `
+            grid.innerHTML = [...projectCatalog].sort((firstProject, secondProject) => firstProject.priority - secondProject.priority).map(project => `
                 <article class="portfolio-project-card" data-project-card data-category="${project.category}">
                     <div class="portfolio-project-cover">
                         <img src="${project.cover}" alt="${project.coverAlt[language]}" loading="lazy">
@@ -1202,7 +1225,7 @@
                         </div>
                         <div class="portfolio-project-actions">
                             ${project.primaryActions.map(action => `
-                                <a href="${action.href}" class="portfolio-project-action ${action.variant}" target="${action.target || '_self'}">
+                                <a href="${action.href}" class="portfolio-project-action ${action.variant}" target="${action.target || '_self'}"${action.download ? ' download' : ''}>
                                     <i class="${action.icon}"></i>
                                     <span>${action.label[language]}</span>
                                 </a>

@@ -599,13 +599,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .skills-intro {
-            max-width: 720px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -640,12 +633,6 @@
             color: var(--text-color);
         }
 
-        .skill-group-description {
-            color: var(--text-muted);
-            font-size: 0.84rem;
-            margin-bottom: 0.9rem;
-        }
-
         .skill-list {
             display: flex;
             flex-wrap: wrap;
@@ -668,6 +655,12 @@
 
         .skill-item i {
             color: var(--accent-color);
+        }
+
+        .skill-item img {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
         }
 
         @media (max-width: 680px) {
@@ -898,7 +891,6 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" data-translate="skills-title">Compétences</h2>
-                <p class="skills-intro" data-translate="skills-intro">Une stack Java orientée systèmes fiables, APIs métier et applications financières, adaptée aux environnements d’entreprise au Cameroun, en Afrique et en Europe.</p>
             </div>
 
             <div class="skills-grid">
@@ -907,11 +899,10 @@
                         <i class="skill-group-icon fas fa-server"></i>
                         <h3 class="skill-group-title" data-translate="skills-backend-title">Backend Java & Spring</h3>
                     </div>
-                    <p class="skill-group-description" data-translate="skills-backend-description">Concevoir des services REST maintenables, testables et prêts pour la production.</p>
                     <ul class="skill-list">
                         <li class="skill-item"><i class="fab fa-java"></i> Java 17/21</li>
-                        <li class="skill-item"><i class="fas fa-leaf"></i> Spring Boot</li>
-                        <li class="skill-item"><i class="fas fa-shield-halved"></i> Spring Security</li>
+                        <li class="skill-item"><img src="https://cdn.simpleicons.org/spring/6DB33F" alt="Spring"> Spring Boot</li>
+                        <li class="skill-item"><img src="https://cdn.simpleicons.org/springsecurity/6DB33F" alt="Spring Security"> Spring Security</li>
                         <li class="skill-item"><i class="fas fa-code"></i> Spring MVC</li>
                         <li class="skill-item"><i class="fas fa-database"></i> Spring Data JPA</li>
                         <li class="skill-item"><i class="fas fa-cubes"></i> Hibernate</li>
@@ -923,7 +914,6 @@
                         <i class="skill-group-icon fas fa-database"></i>
                         <h3 class="skill-group-title" data-translate="skills-data-title">Données & intégration</h3>
                     </div>
-                    <p class="skill-group-description" data-translate="skills-data-description">Structurer les données transactionnelles et connecter les services métier.</p>
                     <ul class="skill-list">
                         <li class="skill-item"><i class="fas fa-database"></i> PostgreSQL</li>
                         <li class="skill-item"><i class="fas fa-database"></i> MySQL</li>
@@ -938,9 +928,8 @@
                         <i class="skill-group-icon fas fa-boxes-stacked"></i>
                         <h3 class="skill-group-title" data-translate="skills-delivery-title">Build, qualité & livraison</h3>
                     </div>
-                    <p class="skill-group-description" data-translate="skills-delivery-description">Automatiser les builds et livrer des applications reproductibles.</p>
                     <ul class="skill-list">
-                        <li class="skill-item"><i class="fas fa-ship"></i> Docker</li>
+                        <li class="skill-item"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"> Docker</li>
                         <li class="skill-item"><i class="fas fa-toolbox"></i> Maven</li>
                         <li class="skill-item"><i class="fas fa-vial"></i> JUnit 5</li>
                         <li class="skill-item"><i class="fas fa-vial"></i> Mockito</li>
@@ -952,15 +941,13 @@
                 <article class="skill-group">
                     <div class="skill-group-header">
                         <i class="skill-group-icon fas fa-cloud"></i>
-                        <h3 class="skill-group-title" data-translate="skills-platform-title">Cloud & pratiques d’entreprise</h3>
+                        <h3 class="skill-group-title" data-translate="skills-platform-title">Cloud</h3>
                     </div>
-                    <p class="skill-group-description" data-translate="skills-platform-description">Préparer des services sécurisés pour les contraintes de disponibilité et de conformité.</p>
                     <ul class="skill-list">
                         <li class="skill-item"><i class="fab fa-aws"></i> AWS</li>
                         <li class="skill-item"><i class="fab fa-microsoft"></i> Microsoft Azure</li>
                         <li class="skill-item"><i class="fas fa-heart-pulse"></i> Actuator</li>
                         <li class="skill-item"><i class="fas fa-lock"></i> OAuth2 / JWT</li>
-                        <li class="skill-item"><i class="fas fa-chart-line"></i> Observabilité</li>
                     </ul>
                 </article>
             </div>
@@ -1161,15 +1148,10 @@
                 'projects-api': 'API',
                 'projects-django': 'Django',
                 'skills-title': 'Compétences',
-                'skills-intro': 'Une stack Java orientée systèmes fiables, APIs métier et applications financières, adaptée aux environnements d’entreprise au Cameroun, en Afrique et en Europe.',
                 'skills-backend-title': 'Backend Java & Spring',
-                'skills-backend-description': 'Concevoir des services REST maintenables, testables et prêts pour la production.',
                 'skills-data-title': 'Données & intégration',
-                'skills-data-description': 'Structurer les données transactionnelles et connecter les services métier.',
                 'skills-delivery-title': 'Build, qualité & livraison',
-                'skills-delivery-description': 'Automatiser les builds et livrer des applications reproductibles.',
-                'skills-platform-title': 'Cloud & pratiques d’entreprise',
-                'skills-platform-description': 'Préparer des services sécurisés pour les contraintes de disponibilité et de conformité.',
+                'skills-platform-title': 'Cloud',
                 'whatsapp-text': 'Discutons par WhatsApp'
             },
             en: {
@@ -1187,15 +1169,10 @@
                 'projects-api': 'API',
                 'projects-django': 'Django',
                 'skills-title': 'Skills',
-                'skills-intro': 'A Java stack focused on reliable systems, business APIs, and financial applications for enterprise environments in Cameroon, Africa, and Europe.',
                 'skills-backend-title': 'Java & Spring backend',
-                'skills-backend-description': 'Build maintainable, testable, production-ready REST services.',
                 'skills-data-title': 'Data & integration',
-                'skills-data-description': 'Structure transactional data and connect business services.',
                 'skills-delivery-title': 'Build, quality & delivery',
-                'skills-delivery-description': 'Automate builds and deliver reproducible applications.',
-                'skills-platform-title': 'Cloud & enterprise practices',
-                'skills-platform-description': 'Prepare secure services for availability and compliance requirements.',
+                'skills-platform-title': 'Cloud',
                 'whatsapp-text': 'Talk on WhatsApp'
             }
         };

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Djoko Christian - Développeur Full Stack | Software Engineer | Remote</title>
+    <title>Djoko Christian - Financial Systems Engineer | Full Stack Developer</title>
     <meta name="description"
         content="Djoko Christian - Développeur Full Stack Java, Spring Boot, JavaScript, Python et Django. Disponible pour missions Remote / Télétravail.">
     <meta name="keywords"
@@ -17,7 +17,7 @@
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Djoko Christian - Développeur Full Stack | Remote">
+    <meta property="og:title" content="Djoko Christian - Financial Systems Engineer | Full Stack Developer">
     <meta property="og:description"
         content="Développeur Full Stack Java, Spring Boot, JavaScript, Python et Django. Disponible pour missions Remote.">
     <meta property="og:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
@@ -28,7 +28,7 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Djoko Christian - Développeur Full Stack | Remote">
+    <meta name="twitter:title" content="Djoko Christian - Financial Systems Engineer | Full Stack Developer">
     <meta name="twitter:description"
         content="Développeur Full Stack Java, Spring Boot, JavaScript, Python et Django.">
     <meta name="twitter:image" content="https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg">
@@ -59,7 +59,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Djoko Christian",
-    "jobTitle": "Full Stack Developer / Software Engineer",
+    "jobTitle": "Financial Systems Engineer / Full Stack Developer",
     "description": "Développeur Full Stack spécialisé en Java, Spring Boot, JavaScript, Python, Django et APIs REST.",
       "url": "https://djoko-christian.github.io/portfolio/",
       "image": "https://djoko-christian.github.io/portfolio/pp_linkedIn.jpg",
@@ -799,6 +799,36 @@
             background-color: #1ebe5d;
         }
 
+        .articles-section {
+            padding: 2.4rem 0;
+        }
+
+        .article-list {
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .article-item {
+            display: flex;
+            align-items: baseline;
+            gap: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.9rem 0;
+        }
+
+        .article-item a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.96rem;
+        }
+
+        .article-label {
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
         /* Editorial layout inspired by quiet, text-first personal sites. */
         :root {
             --bg-color: #fbfaf7;
@@ -1197,7 +1227,7 @@
         .profile-pic-container {
             order: -1;
             width: 100%;
-            text-align: center;
+            text-align: left;
             margin-bottom: 1.1rem;
         }
 
@@ -1243,8 +1273,20 @@
         .social-link {
             width: auto;
             height: auto;
-            min-width: 36px;
-            padding: 0.45rem 0.65rem;
+            min-width: 0;
+            padding: 0;
+            border: 0;
+            color: var(--accent-color);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+        }
+
+        .social-link i {
+            display: none;
+        }
+
+        .social-link:hover {
+            border: 0;
         }
 
         .projects-section,
@@ -1334,12 +1376,59 @@
             grid-column: auto;
         }
 
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 2rem;
+        }
+
+        .cert-item-retro {
+            grid-template-columns: 1fr;
+            border-top: 1px solid var(--border-color);
+            gap: 0.4rem;
+        }
+
+        .cert-logo-wrapper {
+            display: none;
+        }
+
+        .cert-item-retro > :last-child {
+            grid-column: auto;
+        }
+
+        .hero-whatsapp {
+            display: inline-flex;
+            margin-top: 1.2rem;
+            color: #1eaa4e;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+        }
+
+        .whatsapp-float {
+            display: none;
+        }
+
         footer {
             margin-top: 1.5rem;
             border-top: 1px solid var(--border-color);
             padding-top: 1rem;
             text-align: left;
             font-size: 0.82rem;
+        }
+
+        @media (max-width: 680px) {
+            .certifications-list {
+                grid-template-columns: 1fr;
+            }
+
+            .article-item {
+                display: block;
+            }
+
+            .article-label {
+                display: block;
+                margin-bottom: 0.25rem;
+            }
         }
     </style>
 </head>
@@ -1381,7 +1470,7 @@
                 <h1 class="hero-title">
                     <span class="java-badge"><span data-translate="hero-name">Djoko Christian</span></span>
                 </h1>
-                <p class="hero-subtitle" data-translate="hero-title">Développeur Full Stack</p>
+                <p class="hero-subtitle" data-translate="hero-title">Financial Systems Engineer</p>
 
                 <div class="hero-bio" data-translate="hero-bio">
                     Ce qui m’intéresse avant tout, c’est de résoudre des problèmes qui font écho à de vrais besoins. Je peux intervenir aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong> pour transformer une idée en solution claire, utile et fiable. Je souhaite notamment explorer les secteurs de la <strong>finance, de la banque, de l’assurance et de la FinTech</strong>.
@@ -1393,15 +1482,14 @@
                     </a>
                 </div>
 
+                <a href="https://wa.me/237652260368?text=Bonjour%20Christian%2C%20j%27aimerais%20discuter%20de%20mon%20profil" class="hero-whatsapp" target="_blank" data-translate="hero-whatsapp">Discutons sur WhatsApp</a>
+
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/djoko-christian/" class="social-link" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
+                        LinkedIn
                     </a>
                     <a href="https://github.com/djokodev" class="social-link" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:djoko.dev.pro@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
+                        GitHub
                     </a>
                 </div>
             </div>
@@ -1409,6 +1497,21 @@
             <div class="profile-pic-container">
                 <img src="pp_linkedIn.jpg" alt="Djoko Christian" class="profile-pic">
             </div>
+        </div>
+    </section>
+
+    <!-- Section Articles -->
+    <section class="articles-section" id="articles">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="articles-title">Articles</h2>
+            </div>
+            <ul class="article-list">
+                <li class="article-item">
+                    <span class="article-label" data-translate="article-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/pulse/comprendre-r%C3%A9ellement-le-faible-couplage-avec-les-en-java-christian-dakdf/?trackingId=oWFoRUSKS9OHegRtnrwUng%3D%3D" target="_blank" rel="noopener">Comprendre réellement le faible couplage avec les interfaces en Java</a>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -1498,16 +1601,31 @@
 
                 <article class="skill-group">
                     <div class="skill-group-header">
-                        <i class="skill-group-icon fas fa-layer-group"></i>
-                        <h3 class="skill-group-title" data-translate="skills-fullstack-title">Frontend & Python</h3>
+                        <i class="skill-group-icon fas fa-display"></i>
+                        <h3 class="skill-group-title" data-translate="skills-frontend-title">Frontend</h3>
                     </div>
                     <ul class="skill-list">
                         <li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</li>
                         <li class="skill-item"><i class="fab fa-js"></i> JavaScript</li>
-                        <li class="skill-item"><i class="fab fa-python"></i> Python</li>
-                        <li class="skill-item"><i class="fas fa-leaf"></i> Django</li>
+                        <li class="skill-item"><i class="fab fa-react"></i> React Native</li>
+                        <li class="skill-item"><i class="fas fa-mobile-screen-button"></i> Expo</li>
+                        <li class="skill-item"><i class="fas fa-wind"></i> Tailwind CSS</li>
                         <li class="skill-item"><i class="fas fa-plug"></i> REST APIs</li>
                         <li class="skill-item"><i class="fas fa-mobile-screen-button"></i> Responsive UI</li>
+                    </ul>
+                </article>
+
+                <article class="skill-group">
+                    <div class="skill-group-header">
+                        <i class="skill-group-icon fab fa-python"></i>
+                        <h3 class="skill-group-title" data-translate="skills-python-title">Python</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item"><i class="fab fa-python"></i> Python</li>
+                        <li class="skill-item"><i class="fas fa-leaf"></i> Django</li>
+                        <li class="skill-item"><i class="fas fa-plug"></i> Django REST Framework</li>
+                        <li class="skill-item"><i class="fas fa-database"></i> ORM</li>
+                        <li class="skill-item"><i class="fas fa-boxes-stacked"></i> Docker</li>
                     </ul>
                 </article>
             </div>
@@ -1699,9 +1817,12 @@
                 'nav-skills': 'Compétences',
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
-                'hero-title': 'Développeur Full Stack',
-                'hero-bio': 'Ce qui m’intéresse avant tout, c’est de résoudre des problèmes qui font écho à de vrais besoins. Je peux intervenir aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong> pour transformer une idée en solution claire, utile et fiable. Je souhaite notamment explorer les secteurs de la <strong>finance, de la banque, de l’assurance et de la FinTech</strong>.',
+                'hero-title': 'Financial Systems Engineer',
+                'hero-bio': 'Je construis des solutions web et mobiles à partir de problèmes concrets. Je travaille aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong>, avec l’envie de rendre les choses plus simples, plus utiles et plus fiables.',
                 'download-cv': 'Télécharger mon CV',
+                'hero-whatsapp': 'Discutons sur WhatsApp',
+                'articles-title': 'Articles',
+                'article-label': 'LinkedIn',
                 'projects-title': 'Mes Projets',
                 'projects-all': 'Tous',
                 'projects-sites': 'Sites vitrines',
@@ -1713,7 +1834,8 @@
                 'skills-data-title': 'Données & intégration',
                 'skills-delivery-title': 'Build & Livraison',
                 'skills-platform-title': 'Cloud',
-                'skills-fullstack-title': 'Frontend & Python',
+                'skills-frontend-title': 'Frontend',
+                'skills-python-title': 'Python',
                 'whatsapp-text': 'Discutons par WhatsApp'
             },
             en: {
@@ -1722,9 +1844,12 @@
                 'nav-skills': 'Skills',
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
-                'hero-title': 'Full Stack Developer',
-                'hero-bio': 'What matters most to me is solving problems that connect with real needs. I can work across both the <strong>frontend</strong> and <strong>backend</strong> to turn an idea into a clear, useful, and reliable solution. I am especially interested in exploring <strong>finance, banking, insurance, and FinTech</strong>.',
+                'hero-title': 'Financial Systems Engineer',
+                'hero-bio': 'I build web and mobile solutions from concrete problems. I work across both the <strong>frontend</strong> and <strong>backend</strong>, with a focus on making things simpler, more useful, and more reliable.',
                 'download-cv': 'Download my CV',
+                'hero-whatsapp': 'Let’s talk on WhatsApp',
+                'articles-title': 'Articles',
+                'article-label': 'LinkedIn',
                 'projects-title': 'My Projects',
                 'projects-all': 'All',
                 'projects-sites': 'Showcase Sites',
@@ -1736,7 +1861,8 @@
                 'skills-data-title': 'Data & integration',
                 'skills-delivery-title': 'Build & Delivery',
                 'skills-platform-title': 'Cloud',
-                'skills-fullstack-title': 'Frontend & Python',
+                'skills-frontend-title': 'Frontend',
+                'skills-python-title': 'Python',
                 'whatsapp-text': 'Talk on WhatsApp'
             }
         };

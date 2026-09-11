@@ -2048,97 +2048,392 @@
             changeLanguage(currentLanguage);
         });
 
-        // Catalog de projets — uniquement des projets liés au secteur financier
-        // (virements, paiements, conformité).
-        //
-        // Dès qu'un projet est terminé, copie le modèle ci-dessous, colle-le
-        // dans le tableau (juste après cette ligne) et remplis les champs :
-        //
-        // {
-        //     category: 'virements', // libre — sert juste d'étiquette interne
-        //     priority: 1, // plus petit nombre = affiché en premier
-        //     title: { fr: 'Nom du projet', en: 'Project name' },
-        //     description: {
-        //         fr: 'Description courte en français.',
-        //         en: 'Short description in English.',
-        //     },
-        //     type: { fr: 'API Spring Boot', en: 'Spring Boot API' },
-        //     cover: 'nom-image-couverture.webp',
-        //     coverAlt: { fr: 'Aperçu du projet', en: 'Project preview' },
-        //     tech: ['Java', 'Spring Boot', 'PostgreSQL'],
-        //     primaryActions: [
-        //         {
-        //             label: { fr: 'Voir les docs API', en: 'View API docs' },
-        //             href: 'https://...',
-        //             icon: 'fas fa-book-open',
-        //             variant: 'primary',
-        //             target: '_blank',
-        //         },
-        //     ],
-        //     source: { href: 'https://github.com/...' }, // optionnel
-        // },
-        const projectCatalog = [
+        // ============================================================
+    // CATALOGUE DES PROJETS
+    // Tous les champs sont OPTIONNELS.
+    // Seul le titre est recommandé.
+    // ============================================================
 
-            {
-             priority: 1, // plus petit nombre = affiché en premier
-             title: { fr: 'Simple API Bancaire', en: 'Simple Banking API' },
-             description: {
-                 fr: "API REST simulant les opérations de base d'un système bancaire.",
-                 en: "REST API simulating core banking operations",
-             },
-             type: { fr: 'API Spring Boot', en: 'Spring Boot API' },
-             tech: ['Java', 'Spring Boot', 'MySql'],
-             source: { href: 'https://github.com/djokodev/Simple-Banking-API' }, 
-        },
-  
-        ];
+    const projectCatalog = [
 
-        function renderProjects(language) {
-            const grid = document.getElementById('projectsGrid');
-            if (!grid) return;
+        {
+            category: 'banking',
+            priority: 1,
 
-            if (projectCatalog.length === 0) {
-                grid.innerHTML = `<p class="projects-empty" data-translate="projects-empty">${translations[language]['projects-empty']}</p>`;
-                return;
+            title: {
+                fr: 'Simple API Bancaire',
+                en: 'Simple Banking API'
+            },
+
+            description: {
+                fr: "API REST simulant les opérations de base d'un système bancaire.",
+                en: "REST API simulating core banking operations."
+            },
+
+            tech: [
+                'Java',
+                'Spring Boot',
+                'MySQL'
+            ],
+
+            source: {
+                href: 'https://github.com/djokodev/Simple-Banking-API'
             }
-
-            grid.innerHTML = [...projectCatalog].sort((firstProject, secondProject) => firstProject.priority - secondProject.priority).map(project => `
-                <article class="portfolio-project-card" data-project-card data-category="${project.category}">
-                    <div class="portfolio-project-cover">
-                        <img src="${project.cover}" alt="${project.coverAlt[language]}" loading="lazy">
-                        <div class="portfolio-project-badges">
-                            <span class="portfolio-project-badge">${project.type[language]}</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-project-content">
-                        <h3 class="portfolio-project-title">${project.title[language]}</h3>
-                        <p class="portfolio-project-description">${project.description[language]}</p>
-                        <div class="portfolio-project-techs">
-                            ${project.tech.map(t => `<span class="portfolio-project-tech">${t}</span>`).join('')}
-                        </div>
-                        <div class="portfolio-project-actions">
-                            ${project.primaryActions.map(action => `
-                                <a href="${action.href}" class="portfolio-project-action ${action.variant}" target="${action.target || '_self'}"${action.download ? ' download' : ''}>
-                                    <i class="${action.icon}"></i>
-                                    <span>${action.label[language]}</span>
-                                </a>
-                            `).join('')}
-                        </div>
-                        ${project.source?.href ? `
-                            <div class="portfolio-project-source">
-                                <a href="${project.source.href}" target="_blank">
-                                    <i class="fab fa-github"></i> <span>${translations[language]['project-source-label']}</span>
-                                </a>
-                            </div>
-                        ` : ''}
-                    </div>
-                </article>
-            `).join('');
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            renderProjects(currentLanguage);
-        });
+    ];
+
+
+    // ============================================================
+    // FONCTIONS UTILITAIRES
+    // ============================================================
+
+    /**
+     * Retourne une valeur traduite.
+     *
+     * Accepte :
+     * - { fr: '...', en: '...' }
+     * - une simple chaîne
+     * - une valeur absente
+     */
+    function getLocalizedValue(value, language, fallback = '') {
+
+        if (value === undefined || value === null) {
+            return fallback;
+        }
+
+        // Si c'est déjà une chaîne
+        if (typeof value === 'string') {
+            return value;
+        }
+
+        // Si c'est un objet de traduction
+        if (typeof value === 'object') {
+
+            return (
+                value[language] ||
+                value.fr ||
+                value.en ||
+                fallback
+            );
+        }
+
+        return fallback;
+    }
+
+
+    /**
+     * Échappe le HTML pour éviter qu'une donnée de projet
+     * casse le rendu de la page.
+     */
+    function escapeHtml(value) {
+
+        if (value === undefined || value === null) {
+            return '';
+        }
+
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+
+    /**
+     * Retourne une liste de technologies.
+     *
+     * Accepte :
+     * tech: ['Java', 'Spring Boot']
+     *
+     * ou :
+     * tech: []
+     *
+     * ou rien du tout.
+     */
+    function renderProjectTechs(project) {
+
+        if (!Array.isArray(project.tech) || project.tech.length === 0) {
+            return '';
+        }
+
+        return `
+            <div class="portfolio-project-techs">
+                ${project.tech
+                    .filter(Boolean)
+                    .map(tech => `
+                        <span class="portfolio-project-tech">
+                            ${escapeHtml(tech)}
+                        </span>
+                    `)
+                    .join('')}
+            </div>
+        `;
+    }
+
+
+    /**
+     * Affiche la couverture uniquement si elle existe.
+     */
+    function renderProjectCover(project, language) {
+
+        if (!project.cover) {
+            return '';
+        }
+
+        const alt = getLocalizedValue(
+            project.coverAlt,
+            language,
+            getLocalizedValue(project.title, language, 'Project')
+        );
+
+        return `
+            <div class="portfolio-project-cover">
+                <img
+                    src="${escapeHtml(project.cover)}"
+                    alt="${escapeHtml(alt)}"
+                    loading="lazy"
+                >
+
+                ${project.type ? `
+                    <div class="portfolio-project-badges">
+                        <span class="portfolio-project-badge">
+                            ${escapeHtml(
+                                getLocalizedValue(project.type, language)
+                            )}
+                        </span>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }
+
+
+    /**
+     * Affiche les boutons principaux uniquement s'ils existent.
+     */
+    function renderProjectActions(project, language) {
+
+        if (
+            !Array.isArray(project.primaryActions) ||
+            project.primaryActions.length === 0
+        ) {
+            return '';
+        }
+
+        const validActions = project.primaryActions.filter(
+            action => action && action.href
+        );
+
+        if (validActions.length === 0) {
+            return '';
+        }
+
+        return `
+            <div class="portfolio-project-actions">
+
+                ${validActions.map(action => {
+
+                    const label = getLocalizedValue(
+                        action.label,
+                        language,
+                        language === 'en' ? 'View project' : 'Voir le projet'
+                    );
+
+                    const icon = action.icon || 'fas fa-arrow-up-right-from-square';
+                    const variant = action.variant || '';
+                    const target = action.target || '_self';
+
+                    return `
+                        <a
+                            href="${escapeHtml(action.href)}"
+                            class="portfolio-project-action ${escapeHtml(variant)}"
+                            target="${escapeHtml(target)}"
+                            ${action.download ? 'download' : ''}
+                            rel="${target === '_blank' ? 'noopener noreferrer' : ''}"
+                        >
+                            <i class="${escapeHtml(icon)}"></i>
+                            <span>${escapeHtml(label)}</span>
+                        </a>
+                    `;
+
+                }).join('')}
+
+            </div>
+        `;
+    }
+
+
+    /**
+     * Affiche le lien GitHub / source uniquement s'il existe.
+     */
+    function renderProjectSource(project, language) {
+
+        if (
+            !project.source ||
+            !project.source.href
+        ) {
+            return '';
+        }
+
+        const label =
+            translations[language]?.['project-source-label'] ||
+            (language === 'en' ? 'Source Code' : 'Code Source');
+
+        return `
+            <div class="portfolio-project-source">
+                <a
+                    href="${escapeHtml(project.source.href)}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-github"></i>
+                    <span>${escapeHtml(label)}</span>
+                </a>
+            </div>
+        `;
+    }
+
+
+    // ============================================================
+    // RENDU DES PROJETS
+    // ============================================================
+
+    function renderProjects(language = currentLanguage) {
+
+        const grid = document.getElementById('projectsGrid');
+
+        if (!grid) {
+            return;
+        }
+
+        // Aucun projet
+        if (
+            !Array.isArray(projectCatalog) ||
+            projectCatalog.length === 0
+        ) {
+
+            const emptyMessage =
+                translations[language]?.['projects-empty'] ||
+                (language === 'en'
+                    ? 'In progress...'
+                    : 'En cours...');
+
+            grid.innerHTML = `
+                <p class="projects-empty">
+                    ${escapeHtml(emptyMessage)}
+                </p>
+            `;
+
+            return;
+        }
+
+
+        // Tri par priorité.
+        // Si priority n'existe pas, on lui donne une priorité basse.
+        const sortedProjects = [...projectCatalog].sort(
+            (a, b) => (a.priority ?? 9999) - (b.priority ?? 9999)
+        );
+
+
+        grid.innerHTML = sortedProjects.map((project, index) => {
+
+            // Sécurité : éviter qu'un élément null ou invalide bloque tout
+            if (!project || typeof project !== 'object') {
+                return '';
+            }
+
+
+            const title = getLocalizedValue(
+                project.title,
+                language,
+                language === 'en'
+                    ? `Project ${index + 1}`
+                    : `Projet ${index + 1}`
+            );
+
+
+            const description = getLocalizedValue(
+                project.description,
+                language,
+                ''
+            );
+
+
+            const type = getLocalizedValue(
+                project.type,
+                language,
+                ''
+            );
+
+
+            return `
+                <article
+                    class="portfolio-project-card"
+                    data-project-card
+                    data-category="${escapeHtml(project.category || '')}"
+                >
+
+                    ${renderProjectCover(project, language)}
+
+                    <div class="portfolio-project-content">
+
+                        <h3 class="portfolio-project-title">
+                            ${escapeHtml(title)}
+                        </h3>
+
+
+                        ${
+                            description
+                                ? `
+                                    <p class="portfolio-project-description">
+                                        ${escapeHtml(description)}
+                                    </p>
+                                  `
+                                : ''
+                        }
+
+
+                        ${renderProjectTechs(project)}
+
+
+                        ${
+                            type && !project.cover
+                                ? `
+                                    <div class="portfolio-project-source">
+                                        <span>
+                                            ${escapeHtml(type)}
+                                        </span>
+                                    </div>
+                                  `
+                                : ''
+                        }
+
+
+                        ${renderProjectActions(project, language)}
+
+
+                        ${renderProjectSource(project, language)}
+
+                    </div>
+
+                </article>
+            `;
+
+        }).join('');
+    }
+
+
+    // ============================================================
+    // INITIALISATION
+    // ============================================================
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        renderProjects(currentLanguage);
+
+    });
     </script>
 </body>
 

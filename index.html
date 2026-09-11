@@ -1142,6 +1142,205 @@
                 grid-column: 2;
             }
         }
+
+        /* Personal homepage composition: portrait first, then a quiet reading column. */
+        body {
+            max-width: 650px;
+            padding: 0 1.25rem 3rem;
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="dark"] body {
+            background-color: #131316 !important;
+        }
+
+        .navbar {
+            padding: 1rem 0 0;
+        }
+
+        .brand-logo,
+        .nav-link {
+            display: none;
+        }
+
+        .navbar-container {
+            justify-content: flex-end;
+        }
+
+        .language-switcher {
+            display: none;
+        }
+
+        .theme-toggle {
+            font-size: 0;
+            color: var(--text-muted);
+        }
+
+        .theme-toggle i {
+            font-size: 0.8rem;
+        }
+
+        .theme-toggle [data-theme-label] {
+            display: none;
+        }
+
+        .hero-section {
+            padding: 1.1rem 0 3.8rem;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .profile-pic-container {
+            order: -1;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.1rem;
+        }
+
+        .profile-pic {
+            width: 104px;
+            height: 104px;
+            border-radius: 50% !important;
+            border: 0;
+            filter: grayscale(100%);
+        }
+
+        .hero-title {
+            font-size: 1.7rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .hero-title .java-badge {
+            color: var(--text-color);
+        }
+
+        .hero-title .java-badge i {
+            display: none;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.94rem;
+            margin: 0;
+        }
+
+        .hero-bio {
+            margin-top: 1.25rem;
+            font-size: 1.03rem;
+            line-height: 1.62;
+        }
+
+        .hero-cta,
+        .social-links {
+            margin-top: 1.3rem;
+        }
+
+        .social-link {
+            width: auto;
+            height: auto;
+            min-width: 36px;
+            padding: 0.45rem 0.65rem;
+        }
+
+        .projects-section,
+        .skills-section,
+        .certifications-section {
+            padding: 2.4rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .projects-filter {
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 0;
+        }
+
+        .project-filter {
+            font-size: 0.8rem;
+        }
+
+        .portfolio-project-card {
+            grid-template-columns: 1fr;
+            gap: 0.65rem;
+            padding: 1rem 0;
+        }
+
+        .portfolio-project-cover {
+            display: none;
+        }
+
+        .portfolio-project-title {
+            font-size: 1.05rem;
+        }
+
+        .portfolio-project-description {
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .portfolio-project-techs {
+            gap: 0.55rem;
+        }
+
+        .portfolio-project-tech {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .skill-group {
+            padding: 1rem 0;
+        }
+
+        .skill-group-header {
+            margin-bottom: 0.55rem;
+        }
+
+        .skill-group-icon {
+            display: none;
+        }
+
+        .skill-group-title {
+            font-size: 0.98rem;
+        }
+
+        .cert-item-retro {
+            grid-template-columns: 1fr;
+            gap: 0.4rem;
+        }
+
+        .cert-logo-wrapper {
+            display: none;
+        }
+
+        .cert-item-retro > :last-child {
+            grid-column: auto;
+        }
+
+        footer {
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            text-align: left;
+            font-size: 0.82rem;
+        }
     </style>
 </head>
 
@@ -1180,8 +1379,9 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="java-badge"><i class="fas fa-code"></i> <span data-translate="hero-title">Développeur Full Stack</span></span>
+                    <span class="java-badge"><span data-translate="hero-name">Djoko Christian</span></span>
                 </h1>
+                <p class="hero-subtitle" data-translate="hero-title">Développeur Full Stack</p>
 
                 <div class="hero-bio" data-translate="hero-bio">
                     Ce qui m’intéresse avant tout, c’est de résoudre des problèmes qui font écho à de vrais besoins. Je peux intervenir aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong> pour transformer une idée en solution claire, utile et fiable. Je souhaite notamment explorer les secteurs de la <strong>finance, de la banque, de l’assurance et de la FinTech</strong>.
@@ -1498,6 +1698,7 @@
                 'nav-projects': 'Projets',
                 'nav-skills': 'Compétences',
                 'nav-certifications': 'Certifications',
+                'hero-name': 'Djoko Christian',
                 'hero-title': 'Développeur Full Stack',
                 'hero-bio': 'Ce qui m’intéresse avant tout, c’est de résoudre des problèmes qui font écho à de vrais besoins. Je peux intervenir aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong> pour transformer une idée en solution claire, utile et fiable. Je souhaite notamment explorer les secteurs de la <strong>finance, de la banque, de l’assurance et de la FinTech</strong>.',
                 'download-cv': 'Télécharger mon CV',
@@ -1520,6 +1721,7 @@
                 'nav-projects': 'Projects',
                 'nav-skills': 'Skills',
                 'nav-certifications': 'Certifications',
+                'hero-name': 'Djoko Christian',
                 'hero-title': 'Full Stack Developer',
                 'hero-bio': 'What matters most to me is solving problems that connect with real needs. I can work across both the <strong>frontend</strong> and <strong>backend</strong> to turn an idea into a clear, useful, and reliable solution. I am especially interested in exploring <strong>finance, banking, insurance, and FinTech</strong>.',
                 'download-cv': 'Download my CV',

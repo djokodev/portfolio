@@ -1200,7 +1200,31 @@
         }
 
         .language-switcher {
-            display: none;
+            display: flex;
+            position: fixed;
+            top: 12px;
+            right: 48px;
+            z-index: 1001;
+            gap: 0.45rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            line-height: 20px;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: transparent;
+            color: var(--text-color);
+            text-decoration: underline;
         }
 
         .theme-toggle {
@@ -1443,6 +1467,10 @@
             padding: 2.4rem 0;
         }
 
+        .hero-bio p {
+            margin-bottom: 20px;
+        }
+
         .articles-section .section-title {
             font-size: 0.75rem;
             font-weight: 600;
@@ -1535,7 +1563,7 @@
                 <p class="hero-subtitle" data-translate="hero-title">Financial Systems Engineer</p>
 
                 <div class="hero-bio" data-translate="hero-bio">
-                    <p>Je conçois des architectures backend et des APIs pour des systèmes financiers et transactionnels, virements, paiements, réconciliation.</p> <br>
+                    <p>Je conçois des architectures backend et des APIs pour des systèmes financiers et transactionnels, virements, paiements, réconciliation.</p>
                     <p>Mon focus : garantir l'intégrité des transactions, la sécurité des flux, et la résilience de ces systèmes face aux contraintes réelles du terrain (forte volumétrie, instabilité réseau, exigences réglementaires).</p>
                 </div>
 

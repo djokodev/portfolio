@@ -409,6 +409,53 @@
             border: 2px solid var(--border-color);
         }
 
+        /* Principles bar */
+        .principles-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .principle-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            background: var(--code-bg);
+        }
+
+        .principle-badge i {
+            color: var(--accent-color);
+        }
+
+        /* Context / why-this-focus section */
+        .context-section {
+            padding: 1.6rem 0 0.4rem;
+        }
+
+        .context-text {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            line-height: 1.6;
+        }
+
+        /* Empty projects placeholder */
+        .projects-empty {
+            font-family: var(--sans);
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            border: 1px dashed var(--border-color);
+            padding: 1.2rem;
+        }
+
         /* Projects Section */
         .projects-section {
             padding: 3rem 0;
@@ -1563,8 +1610,15 @@
                 <p class="hero-subtitle" data-translate="hero-title">Financial Systems Engineer</p>
 
                 <div class="hero-bio" data-translate="hero-bio">
-                    <p>Je conçois des architectures backend et des APIs pour des systèmes financiers et transactionnels, virements, paiements, réconciliation.</p>
+                    <p>Je conçois des architectures backend et des APIs pour des systèmes financiers à fort enjeu : virements, paiements, conformité.</p>
                     <p>Mon focus : garantir l'intégrité des transactions, la sécurité des flux, et la résilience de ces systèmes face aux contraintes réelles du terrain (forte volumétrie, instabilité réseau, exigences réglementaires).</p>
+                </div>
+
+                <div class="principles-bar">
+                    <span class="principle-badge"><i class="fas fa-link"></i> <span data-translate="principle-atomic">Transactions atomiques</span></span>
+                    <span class="principle-badge"><i class="fas fa-rotate"></i> <span data-translate="principle-idempotent">Idempotence</span></span>
+                    <span class="principle-badge"><i class="fas fa-magnifying-glass"></i> <span data-translate="principle-traceability">Traçabilité</span></span>
+                    <span class="principle-badge"><i class="fas fa-wifi"></i> <span data-translate="principle-resilience">Résilience réseau</span></span>
                 </div>
 
                 <div class="social-links">
@@ -1608,14 +1662,6 @@
                 <h2 class="section-title" data-translate="projects-title">Mes Projets</h2>
             </div>
 
-            <div class="projects-filter" role="tablist" aria-label="Filtres projets">
-                <button type="button" class="project-filter active" data-filter="all" data-translate="projects-all">Tous</button>
-                <button type="button" class="project-filter" data-filter="api" data-translate="projects-api">API</button>
-                <button type="button" class="project-filter" data-filter="sites" data-translate="projects-sites">Sites vitrines</button>
-                <button type="button" class="project-filter" data-filter="mobile" data-translate="projects-mobile">Application mobile</button>
-                <button type="button" class="project-filter" data-filter="django" data-translate="projects-django">Django</button>
-            </div>
-
             <div class="portfolio-projects-grid" id="projectsGrid" aria-live="polite"></div>
         </div>
     </section>
@@ -1631,7 +1677,7 @@
                 <article class="skill-group">
                     <div class="skill-group-header">
                         <i class="skill-group-icon fas fa-server"></i>
-                        <h3 class="skill-group-title" data-translate="skills-backend-title">Java/Spring Boot</h3>
+                        <h3 class="skill-group-title" data-translate="skills-backend-title">Backend & Systèmes transactionnels</h3>
                     </div>
                     <ul class="skill-list">
                         <li class="skill-item"><i class="fab fa-java"></i> Java 17/21</li>
@@ -1728,7 +1774,7 @@
                     </div>
                     <div>
                         <h3 class="cert-title-retro">Python Programming</h3>
-                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> Certification Udemy</div>
+                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> <span data-translate="cert-issuer-label">Certification Udemy</span></div>
                         <div class="cert-tags-retro">
                             <span class="cert-tag-retro">Python 3</span>
                             <span class="cert-tag-retro">OOP</span>
@@ -1737,7 +1783,7 @@
                     </div>
                     <div>
                         <a href="https://www.udemy.com/certificate/UC-27af459e-85db-4c10-b22d-6785bd0ee82f/" target="_blank" class="cert-link-retro">
-                            Voir le certificat <i class="fas fa-external-link-alt"></i>
+                            <span data-translate="cert-link-label">Voir le certificat</span> <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1749,7 +1795,7 @@
                     </div>
                     <div>
                         <h3 class="cert-title-retro">Django Web Development</h3>
-                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> Certification Udemy</div>
+                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> <span data-translate="cert-issuer-label">Certification Udemy</span></div>
                         <div class="cert-tags-retro">
                             <span class="cert-tag-retro">Django</span>
                             <span class="cert-tag-retro">REST API</span>
@@ -1758,7 +1804,7 @@
                     </div>
                     <div>
                         <a href="https://www.udemy.com/certificate/UC-916ab890-594f-4904-baad-16dd5081a5aa/" target="_blank" class="cert-link-retro">
-                            Voir le certificat <i class="fas fa-external-link-alt"></i>
+                            <span data-translate="cert-link-label">Voir le certificat</span> <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1770,7 +1816,7 @@
                     </div>
                     <div>
                         <h3 class="cert-title-retro">Docker & Containerization</h3>
-                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> Certification Udemy</div>
+                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> <span data-translate="cert-issuer-label">Certification Udemy</span></div>
                         <div class="cert-tags-retro">
                             <span class="cert-tag-retro">Docker</span>
                             <span class="cert-tag-retro">Docker Compose</span>
@@ -1779,7 +1825,7 @@
                     </div>
                     <div>
                         <a href="https://www.udemy.com/certificate/UC-9e9b6b40-6f0b-40d3-a1a2-4d7af68dc866/" target="_blank" class="cert-link-retro">
-                            Voir le certificat <i class="fas fa-external-link-alt"></i>
+                            <span data-translate="cert-link-label">Voir le certificat</span> <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1791,7 +1837,7 @@
                     </div>
                     <div>
                         <h3 class="cert-title-retro">Data Science & Machine Learning</h3>
-                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> Certification Udemy</div>
+                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> <span data-translate="cert-issuer-label">Certification Udemy</span></div>
                         <div class="cert-tags-retro">
                             <span class="cert-tag-retro">Python</span>
                             <span class="cert-tag-retro">Pandas</span>
@@ -1800,7 +1846,7 @@
                     </div>
                     <div>
                         <a href="https://www.udemy.com/certificate/UC-730e453f-8a09-4f00-9512-7c196e928ca8/" target="_blank" class="cert-link-retro">
-                            Voir le certificat <i class="fas fa-external-link-alt"></i>
+                            <span data-translate="cert-link-label">Voir le certificat</span> <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1812,7 +1858,7 @@
                     </div>
                     <div>
                         <h3 class="cert-title-retro">Deep Learning & AI</h3>
-                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> Certification Udemy</div>
+                        <div class="cert-issuer-retro"><i class="fas fa-award"></i> <span data-translate="cert-issuer-label">Certification Udemy</span></div>
                         <div class="cert-tags-retro">
                             <span class="cert-tag-retro">Neural Networks</span>
                             <span class="cert-tag-retro">TensorFlow</span>
@@ -1820,7 +1866,7 @@
                     </div>
                     <div>
                         <a href="https://www.udemy.com/certificate/UC-78a759da-41db-441f-b0b3-0326f1c34d3c/" target="_blank" class="cert-link-retro">
-                            Voir le certificat <i class="fas fa-external-link-alt"></i>
+                            <span data-translate="cert-link-label">Voir le certificat</span> <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1830,7 +1876,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> <strong>Djoko Christian</strong>. Tous droits réservés.</p>
+            <p>&copy; <span id="currentYear"></span> <strong>Djoko Christian</strong>. <span data-translate="footer-rights">Tous droits réservés.</span></p>
         </div>
     </footer>
 
@@ -1881,7 +1927,7 @@
             }
         });
 
-        // Dictionnaire de traductions pour Développeur Java - Djoko Christian
+        // Dictionnaire de traductions pour Financial Systems Engineer - Djoko Christian
         const translations = {
             fr: {
                 'nav-home': 'Accueil',
@@ -1890,24 +1936,31 @@
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
                 'hero-title': 'Financial Systems Engineer',
-                'hero-bio': '<p>Je conçois des architectures backend et des APIs pour des systèmes financiers et transactionnels, virements, paiements, réconciliation.</p><p>Mon focus : garantir l\'intégrité des transactions, la sécurité des flux, et la résilience de ces systèmes face aux contraintes réelles du terrain (forte volumétrie, instabilité réseau, exigences réglementaires).</p>',
+                'hero-bio': '<p>Je conçois des architectures backend et des APIs pour des systèmes financiers à fort enjeu : virements, paiements, conformité.</p><p>Mon focus : garantir l\'intégrité des transactions, la sécurité des flux, et la résilience de ces systèmes face aux contraintes réelles du terrain (forte volumétrie, instabilité réseau, exigences réglementaires).</p>',
                 'hero-whatsapp': 'Discutons sur WhatsApp',
-                'articles-title': 'Writing',
+                'principle-atomic': 'Transactions atomiques',
+                'principle-idempotent': 'Idempotence',
+                'principle-traceability': 'Traçabilité',
+                'principle-resilience': 'Résilience réseau',
+                'articles-title': 'Articles',
                 'article-label': 'LinkedIn',
                 'projects-title': 'Mes Projets',
-                'projects-all': 'Tous',
-                'projects-sites': 'Sites vitrines',
-                'projects-mobile': 'Application mobile',
-                'projects-api': 'API',
-                'projects-django': 'Django',
+                'projects-empty': 'en cours...',
                 'skills-title': 'Compétences',
-                'skills-backend-title': 'Java/Spring Boot',
+                'skills-backend-title': 'Backend & Systèmes transactionnels',
                 'skills-data-title': 'DataBase',
                 'skills-delivery-title': 'Build & Livraison',
                 'skills-platform-title': 'Cloud',
                 'skills-frontend-title': 'Frontend',
                 'skills-python-title': 'Python',
-                'whatsapp-text': 'Discutons par WhatsApp'
+                'whatsapp-text': 'Discutons par WhatsApp',
+                'cert-issuer-label': 'Certification Udemy',
+                'cert-link-label': 'Voir le certificat',
+                'footer-rights': 'Tous droits réservés.',
+                'project-source-label': 'Code Source',
+                'page-title': 'Djoko Christian - Financial Systems Engineer | Développeur Backend',
+                'meta-description': "Djoko Christian - Financial Systems Engineer spécialisé dans les architectures backend pour systèmes financiers : virements, paiements, conformité.",
+                'theme-toggle-aria': 'Changer le thème'
             },
             en: {
                 'nav-home': 'Home',
@@ -1916,24 +1969,31 @@
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
                 'hero-title': 'Financial Systems Engineer',
-                'hero-bio': '<p>I design backend architectures and APIs for financial and transactional systems, including transfers, payments, and reconciliation.</p><p>My focus is ensuring transaction integrity, secure data flows, and system resilience under real-world constraints such as high volume, unstable networks, and regulatory requirements.</p>',
+                'hero-bio': '<p>I design backend architectures and APIs for high-stakes financial systems: transfers, payments, compliance.</p><p>My focus: ensuring transaction integrity, secure data flows, and system resilience under real-world constraints such as high volume, unstable networks, and regulatory requirements.</p>',
                 'hero-whatsapp': 'Let’s talk on WhatsApp',
-                'articles-title': 'Writing',
+                'principle-atomic': 'Atomic transactions',
+                'principle-idempotent': 'Idempotency',
+                'principle-traceability': 'Traceability',
+                'principle-resilience': 'Network resilience',
+                'articles-title': 'Articles',
                 'article-label': 'LinkedIn',
                 'projects-title': 'My Projects',
-                'projects-all': 'All',
-                'projects-sites': 'Showcase Sites',
-                'projects-mobile': 'Mobile App',
-                'projects-api': 'API',
-                'projects-django': 'Django',
+                'projects-empty': 'Financial projects coming soon — CoreBank (transfers), PayTrack (Mobile Money payments) and a compliance project are on the way.',
                 'skills-title': 'Skills',
-                'skills-backend-title': 'Java/Spring Boot',
+                'skills-backend-title': 'Backend & Transactional Systems',
                 'skills-data-title': 'DataBase',
                 'skills-delivery-title': 'Build & Delivery',
                 'skills-platform-title': 'Cloud',
                 'skills-frontend-title': 'Frontend',
                 'skills-python-title': 'Python',
-                'whatsapp-text': 'Talk on WhatsApp'
+                'whatsapp-text': 'Talk on WhatsApp',
+                'cert-issuer-label': 'Udemy Certification',
+                'cert-link-label': 'View certificate',
+                'footer-rights': 'All rights reserved.',
+                'project-source-label': 'Source Code',
+                'page-title': 'Djoko Christian - Financial Systems Engineer | Backend Developer',
+                'meta-description': 'Djoko Christian - Financial Systems Engineer specialized in backend architectures for financial systems: transfers, payments, compliance.',
+                'theme-toggle-aria': 'Toggle theme'
             }
         };
 
@@ -1958,6 +2018,21 @@
 
             translatePage(language);
 
+            document.documentElement.lang = language;
+            if (translations[language]) {
+                if (translations[language]['page-title']) {
+                    document.title = translations[language]['page-title'];
+                }
+                const metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription && translations[language]['meta-description']) {
+                    metaDescription.setAttribute('content', translations[language]['meta-description']);
+                }
+                const themeToggle = document.getElementById('themeToggle');
+                if (themeToggle && translations[language]['theme-toggle-aria']) {
+                    themeToggle.setAttribute('aria-label', translations[language]['theme-toggle-aria']);
+                }
+            }
+
             if (typeof renderProjects === 'function') {
                 renderProjects(language);
             }
@@ -1973,204 +2048,47 @@
             changeLanguage(currentLanguage);
         });
 
-        // Catalog de projets
+        // Catalog de projets — uniquement des projets liés au secteur financier
+        // (virements, paiements, conformité).
+        //
+        // Dès qu'un projet est terminé, copie le modèle ci-dessous, colle-le
+        // dans le tableau (juste après cette ligne) et remplis les champs :
+        //
+        // {
+        //     category: 'virements', // libre — sert juste d'étiquette interne
+        //     priority: 1, // plus petit nombre = affiché en premier
+        //     title: { fr: 'Nom du projet', en: 'Project name' },
+        //     description: {
+        //         fr: 'Description courte en français.',
+        //         en: 'Short description in English.',
+        //     },
+        //     type: { fr: 'API Spring Boot', en: 'Spring Boot API' },
+        //     cover: 'nom-image-couverture.webp',
+        //     coverAlt: { fr: 'Aperçu du projet', en: 'Project preview' },
+        //     tech: ['Java', 'Spring Boot', 'PostgreSQL'],
+        //     primaryActions: [
+        //         {
+        //             label: { fr: 'Voir les docs API', en: 'View API docs' },
+        //             href: 'https://...',
+        //             icon: 'fas fa-book-open',
+        //             variant: 'primary',
+        //             target: '_blank',
+        //         },
+        //     ],
+        //     source: { href: 'https://github.com/...' }, // optionnel
+        // },
         const projectCatalog = [
-            {
-                category: 'mobile',
-                priority: 4,
-                title: { fr: 'AquaCare', en: 'AquaCare' },
-                description: {
-                    fr: 'Application mobile de gestion piscicole conçue pour le suivi, l’optimisation et le contrôle des exploitations piscicoles.',
-                    en: 'Mobile fish farming management application designed to monitor, optimize, and control fish farming operations.',
-                },
-                type: { fr: 'Application mobile', en: 'Mobile App' },
-                cover: 'aquacare_cover.jpeg',
-                coverAlt: { fr: 'Aperçu AquaCare', en: 'AquaCare preview' },
-                tech: ['Mobile App', 'iOS', 'TestFlight', 'REST API'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Tester sur TestFlight', en: 'Test on TestFlight' },
-                        href: 'https://testflight.apple.com/join/D6PjzQVh',
-                        icon: 'fab fa-apple',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                    {
-                        label: { fr: 'Télécharger l’application Android', en: 'Download Android app' },
-                        href: 'AquaCare.apk',
-                        icon: 'fab fa-android',
-                        variant: 'secondary',
-                        download: true,
-                    },
-                ],
-            },
-            {
-                category: 'sites',
-                priority: 5,
-                title: { fr: 'Clarans Afrique', en: 'Clarans Afrique' },
-                description: {
-                    fr: 'Site vitrine de Clarans Afrique.',
-                    en: 'Showcase website for Clarans Afrique.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'clarans_afrique_cover.webp',
-                coverAlt: { fr: 'Aperçu Clarans Afrique', en: 'Clarans Afrique preview' },
-                tech: ['HTML', 'CSS', 'JavaScript'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://claransafrique.com/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-            },
-            {
-                category: 'sites',
-                priority: 5,
-                title: { fr: 'APP Sarl', en: 'APP Sarl' },
-                description: {
-                    fr: 'Site vitrine de APP Sarl.',
-                    en: 'Showcase website for APP Sarl.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'app_sarl_cover.webp',
-                coverAlt: { fr: 'Aperçu APP Sarl', en: 'APP Sarl preview' },
-                tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://app-sarl.vercel.app/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/APP-Sarl' },
-            },
-            {
-                category: 'sites',
-                priority: 5,
-                title: { fr: 'SWAGG', en: 'SWAGG' },
-                description: {
-                    fr: 'Simple site e-commerce pour la boutique Swagg.',
-                    en: 'Simple e-commerce website for the Swagg boutique.',
-                },
-                type: { fr: 'Site vitrine', en: 'Showcase site' },
-                cover: 'swagg_cover.webp',
-                coverAlt: { fr: 'Aperçu SWAGG', en: 'SWAGG preview' },
-                tech: ['HTML', 'CSS', 'JavaScript'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://swagg-pi.vercel.app/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/Swagg' },
-            },
-            {
-                category: 'django',
-                priority: 3,
-                title: { fr: 'Talentzik', en: 'Talentzik' },
-                description: {
-                    fr: 'Plateforme web connectant les artistes camerounais aux organisateurs d’événements.',
-                    en: 'Web platform connecting Cameroonian artists with event organizers.',
-                },
-                type: { fr: 'Django', en: 'Django' },
-                cover: 'talentzik.webp',
-                coverAlt: { fr: 'Aperçu Talentzik', en: 'Talentzik preview' },
-                tech: ['Python', 'Django', 'Docker', 'REST API'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://talentzik.djokodev.com/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/TalentZik' },
-            },
-            {
-                category: 'django',
-                priority: 3,
-                title: { fr: 'LOGOS', en: 'LOGOS' },
-                description: {
-                    fr: 'Blog personnel et plateforme d’articles spirituels et bibliques.',
-                    en: 'Personal blog and platform for spiritual topics.',
-                },
-                type: { fr: 'Django', en: 'Django' },
-                cover: 'Logos_cover.webp',
-                coverAlt: { fr: 'Aperçu LOGOS', en: 'LOGOS preview' },
-                tech: ['Python', 'Django', 'Docker'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Visiter le site', en: 'Visit site' },
-                        href: 'https://logos.djokodev.com/',
-                        icon: 'fas fa-external-link-alt',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/logos-blog' },
-            },
-            {
-                category: 'api',
-                priority: 1,
-                title: { fr: 'Contacts API', en: 'Contacts API' },
-                description: {
-                    fr: 'API REST Spring Boot permettant de gérer des contacts personnels.',
-                    en: 'Spring Boot REST API for managing personal contacts.',
-                },
-                type: { fr: 'API Spring Boot', en: 'Spring Boot API' },
-                cover: 'contacts_api_cover.svg',
-                coverAlt: { fr: 'Aperçu du projet Contacts API', en: 'Contacts API project preview' },
-                tech: ['Java', 'Spring Boot', 'REST API', 'CRUD'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Voir les docs API', en: 'View API docs' },
-                        href: 'https://documenter.getpostman.com/view/30413621/2sBYAxQVSx',
-                        icon: 'fas fa-book-open',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/crud-spring-boot' },
-            },
-            {
-                category: 'api',
-                priority: 1,
-                title: { fr: 'DevTrack', en: 'DevTrack' },
-                description: {
-                    fr: 'API RESTful pour une plateforme collaborative de gestion de projets IT.',
-                    en: 'RESTful API for a collaborative IT project management platform.',
-                },
-                type: { fr: 'API', en: 'API' },
-                cover: 'devtrack_cover.webp',
-                coverAlt: { fr: 'Aperçu DevTrack', en: 'DevTrack preview' },
-                tech: ['Java', 'Python', 'Django', 'Docker', 'REST API'],
-                primaryActions: [
-                    {
-                        label: { fr: 'Voir les docs API', en: 'View API docs' },
-                        href: 'https://documenter.getpostman.com/view/30413621/2sA3XPDi2v',
-                        icon: 'fas fa-book-open',
-                        variant: 'primary',
-                        target: '_blank',
-                    },
-                ],
-                source: { href: 'https://github.com/djokodev/devTrack' },
-            },
+  
         ];
-
-        let activeProjectFilter = 'all';
 
         function renderProjects(language) {
             const grid = document.getElementById('projectsGrid');
             if (!grid) return;
+
+            if (projectCatalog.length === 0) {
+                grid.innerHTML = `<p class="projects-empty" data-translate="projects-empty">${translations[language]['projects-empty']}</p>`;
+                return;
+            }
 
             grid.innerHTML = [...projectCatalog].sort((firstProject, secondProject) => firstProject.priority - secondProject.priority).map(project => `
                 <article class="portfolio-project-card" data-project-card data-category="${project.category}">
@@ -2197,34 +2115,16 @@
                         ${project.source?.href ? `
                             <div class="portfolio-project-source">
                                 <a href="${project.source.href}" target="_blank">
-                                    <i class="fab fa-github"></i> <span>Code Source</span>
+                                    <i class="fab fa-github"></i> <span>${translations[language]['project-source-label']}</span>
                                 </a>
                             </div>
                         ` : ''}
                     </div>
                 </article>
             `).join('');
-
-            applyProjectFilter(activeProjectFilter);
-        }
-
-        function applyProjectFilter(filter) {
-            document.querySelectorAll('[data-project-card]').forEach(card => {
-                const isVisible = filter === 'all' || card.dataset.category === filter;
-                card.classList.toggle('is-hidden', !isVisible);
-            });
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.project-filter').forEach(button => {
-                button.addEventListener('click', function () {
-                    activeProjectFilter = this.dataset.filter || 'all';
-                    document.querySelectorAll('.project-filter').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    applyProjectFilter(activeProjectFilter);
-                });
-            });
-
             renderProjects(currentLanguage);
         });
     </script>

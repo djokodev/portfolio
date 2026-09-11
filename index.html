@@ -1176,6 +1176,7 @@
         /* Personal homepage composition: portrait first, then a quiet reading column. */
         body {
             max-width: 650px;
+            width: 100%;
             padding: 0 1.25rem 3rem;
             background-color: #ffffff !important;
         }
@@ -1202,9 +1203,12 @@
         }
 
         .theme-toggle {
-            position: relative;
-            width: 24px;
-            height: 24px;
+            position: fixed;
+            top: 12px;
+            right: 16px;
+            z-index: 1001;
+            width: 20px;
+            height: 20px;
             padding: 0;
             border: 1px solid #5f5f6b;
             border-radius: 50% !important;

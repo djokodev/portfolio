@@ -1202,12 +1202,31 @@
         }
 
         .theme-toggle {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: 1px solid #5f5f6b;
+            border-radius: 50% !important;
+            background: transparent;
+            color: transparent;
             font-size: 0;
-            color: var(--text-muted);
+            overflow: hidden;
         }
 
         .theme-toggle i {
-            font-size: 0.8rem;
+            display: none;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #17171a 0 50%, #ffffff 50% 100%);
+        }
+
+        html[data-theme="dark"] .theme-toggle::before {
+            background: linear-gradient(90deg, #ffffff 0 50%, #17171a 50% 100%);
         }
 
         .theme-toggle [data-theme-label] {
@@ -1398,7 +1417,6 @@
 
         .hero-whatsapp {
             display: inline-flex;
-            margin-top: 1.2rem;
             color: #1eaa4e;
             font-family: 'DM Sans', sans-serif;
             font-size: 0.88rem;
@@ -1406,6 +1424,37 @@
 
         .whatsapp-float {
             display: none;
+        }
+
+        .articles-section {
+            padding: 2.4rem 0;
+        }
+
+        .articles-section .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .article-list {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .article-item {
+            min-height: 3rem;
+            padding: 0.8rem 0;
+        }
+
+        .article-label {
+            flex: 0 0 5rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .article-item a {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1rem;
         }
 
         footer {
@@ -1473,7 +1522,9 @@
                 <p class="hero-subtitle" data-translate="hero-title">Financial Systems Engineer</p>
 
                 <div class="hero-bio" data-translate="hero-bio">
-                    Ce qui m’intéresse avant tout, c’est de résoudre des problèmes qui font écho à de vrais besoins. Je peux intervenir aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong> pour transformer une idée en solution claire, utile et fiable. Je souhaite notamment explorer les secteurs de la <strong>finance, de la banque, de l’assurance et de la FinTech</strong>.
+                    Je conçois et construis des <strong>solutions logicielles fiables à partir de problèmes concrets</strong>, avec un intérêt particulier pour les <strong>systèmes financiers et les APIs critiques</strong>.
+
+                    Je travaille principalement sur le <strong>backend</strong>, les APIs et la conception de systèmes capables de gérer des transactions, des données sensibles et des intégrations externes de manière <strong>cohérente, sécurisée et résiliente</strong>.
                 </div>
 
                 <div class="hero-cta">
@@ -1482,14 +1533,15 @@
                     </a>
                 </div>
 
-                <a href="https://wa.me/237652260368?text=Bonjour%20Christian%2C%20j%27aimerais%20discuter%20de%20mon%20profil" class="hero-whatsapp" target="_blank" data-translate="hero-whatsapp">Discutons sur WhatsApp</a>
-
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/djoko-christian/" class="social-link" target="_blank" aria-label="LinkedIn">
                         LinkedIn
                     </a>
                     <a href="https://github.com/djokodev" class="social-link" target="_blank" aria-label="GitHub">
                         GitHub
+                    </a>
+                    <a href="https://wa.me/237652260368?text=Bonjour%20Christian%2C%20j%27aimerais%20discuter%20de%20mon%20profil" class="social-link hero-whatsapp" target="_blank" aria-label="WhatsApp">
+                        WhatsApp
                     </a>
                 </div>
             </div>
@@ -1504,7 +1556,7 @@
     <section class="articles-section" id="articles">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" data-translate="articles-title">Articles</h2>
+                <h2 class="section-title" data-translate="articles-title">WRITING</h2>
             </div>
             <ul class="article-list">
                 <li class="article-item">
@@ -1818,10 +1870,10 @@
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
                 'hero-title': 'Financial Systems Engineer',
-                'hero-bio': 'Je construis des solutions web et mobiles à partir de problèmes concrets. Je travaille aussi bien sur le <strong>frontend</strong> que sur le <strong>backend</strong>, avec l’envie de rendre les choses plus simples, plus utiles et plus fiables.',
+                'hero-bio': 'Je conçois et construis des <strong>solutions logicielles fiables à partir de problèmes concrets</strong>, avec un intérêt particulier pour les <strong>systèmes financiers et les APIs critiques</strong>.<br><br>Je travaille principalement sur le <strong>backend</strong>, les APIs et la conception de systèmes capables de gérer des transactions, des données sensibles et des intégrations externes de manière <strong>cohérente, sécurisée et résiliente</strong>.',
                 'download-cv': 'Télécharger mon CV',
                 'hero-whatsapp': 'Discutons sur WhatsApp',
-                'articles-title': 'Articles',
+                'articles-title': 'Writing',
                 'article-label': 'LinkedIn',
                 'projects-title': 'Mes Projets',
                 'projects-all': 'Tous',
@@ -1845,10 +1897,10 @@
                 'nav-certifications': 'Certifications',
                 'hero-name': 'Djoko Christian',
                 'hero-title': 'Financial Systems Engineer',
-                'hero-bio': 'I build web and mobile solutions from concrete problems. I work across both the <strong>frontend</strong> and <strong>backend</strong>, with a focus on making things simpler, more useful, and more reliable.',
+                'hero-bio': 'I design and build <strong>reliable software solutions from concrete problems</strong>, with a particular interest in <strong>financial systems and critical APIs</strong>.<br><br>I mainly work on the <strong>backend</strong>, APIs, and systems capable of handling transactions, sensitive data, and external integrations in a <strong>consistent, secure, and resilient</strong> way.',
                 'download-cv': 'Download my CV',
                 'hero-whatsapp': 'Let’s talk on WhatsApp',
-                'articles-title': 'Articles',
+                'articles-title': 'Writing',
                 'article-label': 'LinkedIn',
                 'projects-title': 'My Projects',
                 'projects-all': 'All',
